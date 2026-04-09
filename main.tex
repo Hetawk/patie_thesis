@@ -1,0 +1,99 @@
+\documentclass{zstu_thesis}
+\usepackage{array, tabularx, bbm, multirow}
+\usepackage{booktabs}
+\usepackage{iftex}
+\ifXeTeX
+    \usepackage{fontspec}
+    \setmainfont[BoldFont={Times New Roman Bold}]{Times New Roman}
+\fi
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{afterpage}
+\newcommand\myemptypage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+    }
+
+\usepackage[labelformat=simple]{subcaption}
+% Image search path
+\graphicspath{{images}{figures}}
+
+\begin{document}
+
+% Title for header (even pages show this)
+\title{Does Capital Market Liberalization Drive Digital Transformation? Evidence from Chinese A-Shares' Inclusion in the MSCI Emerging Markets Index}
+
+% Set cover page information
+\studentnum{20232111E1003}
+\chinesetitle{资本市场自由化是否推动数字化转型？来自中国A股纳入MSCI新兴市场指数的证据}
+\englishtitle{Does Capital Market Liberalization Drive Digital Transformation? Evidence from Chinese A-Shares' Inclusion in the MSCI Emerging Markets Index}
+\authorname{PATIENCE FERO}
+\category{浙江理工大学经济管理学院}
+\completiondate{二〇二四年四月}
+
+% Generate cover page
+\makecover
+
+% Integrity declaration page
+\makeintegritydeclaration
+
+% Roman page numbering — abstract and TOC pages
+\pagenumbering{Roman}
+\setcounter{page}{1}
+\pagestyle{tocstyle}
+
+% Abstract (Chinese + English)
+\include{chapter/0_abstract.tex}
+
+% Table of Contents
+\maketoc
+
+% List of Figures
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+{\setstretch{1.2}\renewcommand{\listfigurename}{List of Figures}\listoffigures}
+
+% List of Tables
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+{\setstretch{1.2}\renewcommand{\listtablename}{List of Tables}\listoftables}
+
+% List of Equations
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Equations}
+{\setstretch{1.2}\listofmyeqs}
+
+% List of Abbreviations
+\clearpage
+\input{chapter/11_abbreviations.tex}
+
+% Body — switch to Arabic numbering starting at page 1
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\include{chapter/1_introduction.tex}
+\include{chapter/2_literature_review.tex}
+\include{chapter/3_institutional_background.tex}
+\include{chapter/4_research_design_1.tex}
+\include{chapter/5_research_design_2.tex}
+\include{chapter/6_empirical_results.tex}
+\include{chapter/7_conclusion.tex}
+
+% References
+\nocite{*}
+\makereference
+
+% Acknowledgements
+\include{chapter/9_acknowledgement.tex}
+
+% Appendix
+\include{chapter/8_appendix.tex}
+
+% Custom end page
+\makeendpage
+
+\end{document}

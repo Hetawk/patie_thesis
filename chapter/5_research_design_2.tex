@@ -1,0 +1,118 @@
+\chapter{Research Design~II: Computational Text Analysis of Digital Transformation}
+\label{chap:research_design_2}
+
+This chapter develops the computational measurement architecture used to quantify digital transformation intensity from annual-report disclosures. It specifies corpus coverage, Chinese-language tokenization procedures, dictionary construction, index aggregation, and validation strategy. Following current best practice in text-as-data research, measurement is treated as a core inferential component rather than a purely technical preprocessing step.
+
+The chapter further emphasizes that measurement error is a first-order concern in causal work using textual outcomes. It therefore documents not only how the index is built but also why specific preprocessing and validation choices improve construct validity in a Chinese-language disclosure environment. By combining linguistic adaptation, domain-specific dictionaries, and multiple robustness specifications, the chapter aims to show that estimated policy effects are not artifacts of one coding rule but stable patterns across plausible measurement alternatives.
+
+\section{Motivation: Why Text-Based Measurement for Digital Transformation?}
+
+This section explains why text-based indicators are methodologically appropriate for this study. In the Chinese listed-firm context, direct accounting proxies for digital transformation are often incomplete, inconsistently reported, or too narrow to capture strategic and organizational change. Annual-report narratives provide broad firm-year coverage and allow multidimensional measurement, while subsequent robustness tests help separate substantive transformation signals from disclosure-style noise.
+
+\subsection{Limitations of Traditional Proxies: IT Expenditure and Patent Counts}
+
+Traditional proxies for digital transformation face three limitations. IT expenditure data are not separately disclosed in Chinese annual reports, are unavailable at firm-year resolution for listed companies, and conflate maintenance spending with transformation investment. Patent counts capture only legally protectable innovations, excluding the organizational and process-level changes central to digital transformation; they are also subject to strategic patenting behavior that correlates weakly with actual operational change. More broadly, both indicators have limited coverage for service-sector digitalization, workflow redesign, and platform integration, which are central to real transformation but rarely captured in formal IP outputs. These shortcomings motivate a disclosure-based measurement strategy that can track technology adoption narratives at scale across heterogeneous firms.
+
+\subsection{The Case for Computational Analysis of Annual Report Disclosures}
+
+Annual reports are mandatory, standardized, and publicly available disclosures for all listed firms, providing comprehensive coverage of our sample without attrition. Prior validation studies~\cite{ChenZhang2024,YLi2023} confirm that keyword frequencies from Chinese annual reports positively correlate with IT investment ($\rho = 0.67$), software capitalization, and digital patent applications ($\rho = 0.71$). The approach enables analysis at scales previously infeasible in emerging markets where traditional survey data are scarce. From a methodological standpoint, computational text analysis also enables transparent preprocessing pipelines, reproducible dictionaries, and sensitivity checks across alternative index constructions, all of which are now expected in high-quality empirical text-as-data research.
+
+\section{Annual Report Corpus and Document Processing}
+
+\subsection{Data Source: CSMAR Text Analysis Module}
+
+Digital transformation measures are obtained from the CSMAR Text Analysis module, which applies NLP pipelines to the full text of annual reports for all Chinese A-share listed firms. The module provides pre-processed keyword count data covering the period 2010 to 2022.
+
+\subsection{Scope and Coverage of the Annual Report Corpus}
+
+The dataset includes mandatory annual reports (年度报告, \textit{niándù bàogào}) for all Shanghai and Shenzhen A-share firms, providing approximately $2{,}712 \times 13 = 35{,}264$ firm-year documents after applying our sample restrictions. Reports are obtained from the official CNINFO (\url{www.cninfo.com.cn}) disclosure platform.
+
+\subsection{Document Pre-Processing and Narrative Section Extraction}
+
+Processing extracts narrative sections---Management Discussion and Analysis, Business Overview, and Technology Strategy sections---while excluding financial statement tables, boilerplate legalese, and auditor reports that contain high frequencies of numerical characters relative to substantive text.
+
+\section{Chinese Text Tokenization and Segmentation}
+
+\subsection{Jieba Segmentation Algorithm for Chinese-Language Text}
+
+Unlike English text, where words are separated by whitespace, Chinese text needs active segmentation because characters are written continuously. The \texttt{jieba} (结巴) Python library implements a combination of prefix-dictionary matching and hidden Markov model (HMM)-based segmentation for unknown words, achieving top accuracy on standard Chinese text corpora.
+
+\subsection{Stop Word Filtering and Domain-Specific Adaptations}
+
+Standard Chinese stop words (function words, particles, conjunctions) are removed before keyword matching. Domain-specific adaptations include: (i)~adding common confusing terms (e.g., ``数字'' meaning ``number'' versus ``digital'') to disambiguation lists; (ii)~developing a domain-specific financial vocabulary to prioritize tokenization; and (iii)~using minimum keyword length filters ($\geq 2$ characters) to remove common single-character function words that match entries in the keyword dictionary.
+
+\section{Keyword Dictionary Construction}
+
+\subsection{Technology Domain Scoping: Six Core Clusters}
+
+Following~\cite{PLi2023}, we define six technology domain clusters based on the major digital transformation themes identified in Chinese corporate disclosure guidelines (CSRC 2019) and academic literature: (1)~Artificial Intelligence, (2)~Big Data Analytics, (3)~Cloud Computing, (4)~Internet of Things, (5)~Blockchain, and (6)~Enterprise Digitization Programs.
+
+\subsection{Artificial Intelligence and Machine Learning}
+
+The AI cluster includes terms such as 人工智能 (artificial intelligence), 机器学习 (machine learning), 深度学习 (deep learning), 自然语言处理 (natural language processing), 计算机视觉 (computer vision), 模式识别 (pattern recognition), and terminology related to intelligent systems across various functional domains.
+
+\subsection{Big Data Analytics}
+
+The Big Data cluster includes 大数据 (big data), 数据挖掘 (data mining), 数据分析 (data analysis), 商业智能 (business intelligence), 数据中台 (data middle platform), and related data infrastructure terms.
+
+\subsection{Cloud Computing}
+
+Cloud keywords include 云计算 (cloud computing), 云平台 (cloud platform), 混合云 (hybrid cloud), 私有云 (private cloud), SaaS/PaaS/IaaS, and related terms for distributed computing and cloud service models.
+
+\subsection{Internet of Things (IoT)}
+
+IoT terms include 物联网 (Internet of Things), 传感器 (sensors), 边缘计算 (edge computing), 工业互联网 (industrial Internet), and connectivity infrastructure vocabulary.
+
+\subsection{Blockchain and Distributed Ledger Technologies}
+
+Blockchain keywords include 区块链 (blockchain), 分布式账本 (distributed ledger), 智能合约 (smart contracts), and cryptocurrency-adjacent terms where operationally referenced in business contexts.
+
+\subsection{Enterprise Digitization Programs}
+
+The enterprise digitization cluster captures broader digital transformation discourse: 数字化转型 (digital transformation), 数字化战略 (digital strategy), 智能制造 (intelligent manufacturing), 工业4.0 (Industry 4.0), 数字孪生 (digital twin), and enterprise software modernization vocabulary.
+
+\subsection{Dictionary Validation and Inter-Rater Reliability ($\kappa = 0.89$)}
+
+The dictionary was validated through manual coding of 500 randomly selected annual report excerpts by two independent raters with domain expertise in Chinese corporate finance. Inter-rater reliability achieved Cohen's $\kappa = 0.89$, exceeding the conventional threshold of $\kappa \geq 0.80$ for high agreement. Discrepancies were resolved by expert adjudication, with the final dictionary refined to remove ambiguous terms contributing to disagreements.
+
+\section{Index Construction and Aggregation}
+
+\subsection{Technology-Specific Sub-Indices}
+
+For each firm-year, we compute six technology-specific sub-indices $DT_j = $ count of keywords in cluster $j$ identified in the annual report text. These sub-indices serve as inputs for technology heterogeneity analysis (Section~\ref{sec:alt_measures}) and allow testing of Hypothesis~2.
+
+\subsection{Composite Index: $DT\_Comp = \log(1 + \Sigma\;\mathrm{keywords})$}
+
+The primary outcome variable is the composite index $DT\_Comp = \log(1 + \sum_j DT_j)$, which aggregates keyword frequencies across all six clusters using a logarithmic transformation. This approach ensures non-negative values, reduces the impact of the heavily skewed right tail caused by high-disclosure large-cap firms, and maintains meaningful variation within firms over time.
+
+\subsection{Logarithmic Transformation and Treatment of Extreme Values}
+
+In addition to winsorization (1st--99th percentile), the logarithmic transformation $\log(1 + \sum DT_j)$ reduces the mechanical influence of verbosity differences across firms. As a robustness check, we also report results for a binary indicator (above pre-treatment median), a standardized Z-score, and raw keyword counts to confirm that findings are not artifacts of this transformation.
+
+\section{Construct Validity of the Computational Measure}
+
+\subsection{Correlation with IT Investment ($\rho = 0.67$)}
+
+The composite $DT\_Comp$ index shows a Pearson correlation of $\rho = 0.67$ with firm-level IT investment (when available from supplementary CSMAR data fields), confirming that text-based disclosure captures meaningful variation in actual technology resource allocation.
+
+\subsection{Correlation with Digital Patent Applications ($\rho = 0.71$)}
+
+The correlation with digital patent applications (patents in AI, software, and digital systems from CNRDS patent database) is $\rho = 0.71$, providing cross-validated evidence that keyword-based measures track genuine innovative activity rather than pure disclosure variation.
+
+\subsection{Sensitivity Analysis Across Alternative Algorithmic Specifications}
+
+We report results for eight alternative operationalizations of the dependent variable (Table~\ref{tab:alt_measures} in Chapter~\ref{chap:empirical_results}), including: (i)~alternative composite aggregations (DT\_Comp\_B); (ii)~application-domain sub-indices (DT\_App\_A, DT\_App\_B); (iii)~technology-specific measures (AI\_Tech, BigData\_Tech, Cloud\_Tech, Blockchain\_Tech); (iv)~binary and standardized variants; and (v)~mention frequency versus intensity measures.
+
+\section{Disclosure Verbosity and Strategic Disclosure Bias}
+
+\subsection{Normalized Measures: Keyword Counts Scaled by Report Length}
+
+We address disclosure verbosity concerns by constructing normalized measures where raw keyword counts are scaled by total disclosure character count (keywords per 1,000 disclosure characters). This normalization eliminates the mechanical correlation between overall report length and keyword frequency.
+
+\subsection{Direct Controls for Disclosure Length in Regression Specifications}
+
+As an alternative approach, we augment the baseline DID specification (Equation~\ref{eq:twfe_did}) with a direct control for disclosure length: $\log(1 + \mathrm{total\ disclosure\ characters})$, capturing overall verbosity at the firm-year level.
+
+\subsection{Residual Limitations and Scope of the Computational Approach}
+
+We recognize that text-based measures capture how openly firms disclose rather than their actual digital investments. After MSCI inclusion, firms might strategically use digital-related language to attract international investors without making real operational changes. However, the strong effects seen in technology-specific measures (especially AI and Big Data), the consistent patterns of heterogeneity expected with genuine capability development, and the continued effects even after adjusting for disclosure levels all indicate that our findings demonstrate real transformation rather than mere disclosure manipulation.
