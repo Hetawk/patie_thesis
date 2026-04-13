@@ -5,7 +5,7 @@
 MAIN = main
 BIB = reference
 LATEX = /Library/TeX/texbin/xelatex -interaction=nonstopmode
-BIBER = /opt/homebrew/bin/biber
+BIBER = /Library/TeX/texbin/biber
 
 # Default target - build main thesis
 all: main
@@ -14,7 +14,7 @@ all: main
 main:
 	@echo "Building UJN thesis (forced rebuild)..."
 	-$(LATEX) $(MAIN)
-	-$(BIBER) $(MAIN) 2>/dev/null || true
+	-$(BIBER) $(MAIN)
 	-$(LATEX) $(MAIN)
 	-$(LATEX) $(MAIN)
 	@echo "Thesis built: $(MAIN).pdf"
@@ -28,7 +28,7 @@ main-check: $(MAIN).pdf
 $(MAIN).pdf: $(MAIN).tex chapter/*.tex $(BIB).bib
 	@echo "Building UJN thesis (dependency-based)..."
 	-$(LATEX) $(MAIN)
-	-$(BIBER) $(MAIN) 2>/dev/null || true
+	-$(BIBER) $(MAIN)
 	-$(LATEX) $(MAIN)
 	-$(LATEX) $(MAIN)
 	@echo "Thesis built: $(MAIN).pdf"

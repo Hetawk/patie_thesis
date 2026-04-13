@@ -1,6 +1,7 @@
 \documentclass{zstu_thesis}
 \usepackage{array, tabularx, bbm, multirow}
 \usepackage{booktabs}
+\usepackage{microtype}
 \usepackage{iftex}
 \ifXeTeX
     \usepackage{fontspec}
@@ -20,6 +21,9 @@
 \graphicspath{{images}{figures}}
 
 \begin{document}
+
+% Keep inter-word spacing visually consistent throughout the thesis.
+\frenchspacing
 
 % Title for header (even pages show this)
 \title{Does Capital Market Liberalization Drive Digital Transformation? Evidence from Chinese A-Shares' Inclusion in the MSCI Emerging Markets Index}
