@@ -9,6 +9,15 @@ This chapter establishes the institutional context and formal hypothesis structu
 
 China's A-share market---the renminbi-denominated equity market listed on the Shanghai and Shenzhen Stock Exchanges---was historically subject to strict foreign ownership restrictions and capital controls, which created near-complete segmentation from international capital flows~\cite{Cheng2024}. Before liberalization reforms, foreign investors could access mainland Chinese equities only through the limited QFII (Qualified Foreign Institutional Investor) and RQFII programs, which imposed strict quotas and administrative barriers. This segmentation meant that Chinese listed firms relied almost entirely on domestic capital markets, characterized by shorter investment horizons, weaker corporate governance standards, and limited exposure to global best practices.
 
+Figure~\ref{fig:sec31_segmentation_stats} provides a data-based characterization of this segmented pre-liberalization structure using only pre-treatment observations (2010--2017). The chart reports standardized mean gaps between firms that are eventually included in MSCI (2018--2022) and firms never included. The gaps are economically large and statistically precise for firm size (1.20 standard deviations, $p<0.01$), total market value (0.80 standard deviations, $p<0.01$), and independent-director representation (0.47 standard deviations, $p<0.01$), showing that the subset of firms later connected to global capital was already structurally distinct within the domestic A-share universe.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.90\textwidth]{figures/fig3_1_pre_liberalization_characteristics.png}
+\caption{Section 3.1 Data Profile: Pre-Liberalization Structural Segmentation (2010--2017)}
+\label{fig:sec31_segmentation_stats}
+\end{figure}
+
 \subsection{Stock Connect Programs as the Technical Infrastructure for Liberalization}
 
 The technical infrastructure for capital market liberalization was established through the Stock Connect programs: Shanghai--Hong Kong Stock Connect (launched November 2014) and Shenzhen--Hong Kong Stock Connect (launched December 2016)~\cite{WangChia2014}. These programs developed daily and aggregate quotas, currency hedging methods, and settlement protocols that approved foreign investors to buy A-shares while adhering to capital control regimes. By 2018, these systems were sufficiently developed to handle the substantial capital movements associated with MSCI inclusion~\cite{Yin2023}.
@@ -21,7 +30,16 @@ The MSCI Emerging Markets Index is the main benchmark for global institutional i
 
 \subsection{Inclusion Criteria: Market Capitalization, Liquidity, and Stock Connect Accessibility}
 
-MSCI's inclusion criteria were mechanical rather than discretionary: (i) a minimum free-float adjusted market capitalization threshold; (ii) minimum liquidity requirements based on annualized trading volume and turnover ratios; and (iii) accessibility through Stock Connect programs. Importantly, these criteria are independent of firms' underlying digitalization paths or performance, offering a plausible source of exogenous variation in international capital access.
+MSCI's inclusion criteria were mechanical rather than discretionary: (i) a minimum free-float adjusted market capitalization threshold; (ii) minimum liquidity requirements based on annualized trading volume and turnover ratios; and (iii) accessibility through Stock Connect programs. Importantly, these criteria are independent of firms' underlying digital transformation paths or performance, offering a plausible source of exogenous variation in international capital access.
+
+To make this point data-based, Figure~\ref{fig:sec32_criteria_logit} estimates a 2017 cross-sectional logit model where the dependent variable is eventual MSCI inclusion. The odds-ratio estimates show strong and statistically significant associations for each rule-based eligibility proxy: log total market value (OR $=17.04$, $p<0.01$), log free-float market value (OR $=2.55$, $p<0.01$), and liquidity proxy (OR $=3.90$, $p<0.01$). This pattern supports the interpretation that inclusion was driven by measurable market-scale and tradability conditions rather than discretionary selection on digital strategy.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.88\textwidth]{figures/fig3_3_eligibility_logit_odds_ratios.png}
+\caption{Section 3.2 Data Profile: Eligibility-Proxy Evidence from 2017 Logit Model}
+\label{fig:sec32_criteria_logit}
+\end{figure}
 
 \subsection{Pre-Announcement and Phased Implementation Timeline}
 
@@ -35,34 +53,61 @@ The initial tranche, launched on June 1, 2018, incorporated 234 large-cap A-shar
 
 By November 2019, the index grew to include 472 A-shares across large, mid, and small-cap categories, with a 20\% inclusion rate. This significantly boosted the presence of Chinese stocks in the index and broadened the scope to include smaller firms, expanding the universe of treated firms.
 
+Figure~\ref{fig:sec32_rollout_timeline} visualizes the realized treatment rollout in the matched panel used for empirical analysis. The number of MSCI firms jumps from zero before 2018 to 151 in 2018 and 374 in 2019, then stabilizes around 372--373 during 2020--2022. In share terms, MSCI firms increase from 4.8\% of listed firms in 2018 to 11.4\% in 2019 (95\% confidence interval approximately [10.3\%, 12.5\%]), consistent with a sharp, policy-timed treatment expansion.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig3_2_msci_rollout_timeline.png}
+\caption{Section 3.2 Data Profile: MSCI Inclusion Rollout in the Matched Sample}
+\label{fig:sec32_rollout_timeline}
+\end{figure}
+
 \subsection{Quasi-Experimental Properties of the Inclusion Design}
 
-Three features make MSCI inclusion an almost perfect quasi-experiment. First, the selection criteria are mechanical and unrelated to digitalization propensity. Second, the timeline was externally imposed by MSCI, independent of Chinese government or firm decisions. Third, the phased implementation establishes clear pre- and post-treatment periods and multiple cohorts, enabling staggered adoption analysis.
+Three features make MSCI inclusion a strong quasi-experimental setting. First, the selection criteria are mechanical and unrelated to digital transformation propensity. Second, the timeline was externally imposed by MSCI, independent of Chinese government or firm decisions. Third, the phased implementation establishes clear pre- and post-treatment periods and multiple cohorts, enabling staggered adoption analysis.
 
 \section{Hypothesis Development}
 
-Building on the theoretical considerations and institutional background outlined above, we develop three testable hypotheses.
+Building on the institutional analysis above, this section develops hypotheses in three parts: direct effect (3.3.1), impact mechanisms (3.3.2), and heterogeneity (3.3.3). Consistent with the supervisor's recommendation, Sections~3.1 and~3.2 above provide data-based charts to characterize market structure and inclusion design before formal hypothesis statements.
 
-\subsection{H1: Main Effect --- Capital Market Liberalization and Digital Transformation Intensity}
+For clarity, we define the treatment shock as $X_{it} = \mathrm{MSCI}_i \times \mathrm{Post}_t$ and the outcome as $Y_{it} = \mathrm{DT}_{it}$ (firm-level digital transformation intensity). The core causal question is how $X$ affects $Y$, and through which channels this effect is transmitted.
+
+\subsection{Main Effect: Direct Impact of Capital Market Liberalization on Digital Transformation}
+
+The data profiles in Section~3.1 and Section~3.2 motivate the main-effect hypothesis from two complementary facts: (i) the treatment rollout is sharply time-delimited to the post-2018 window (Figure~\ref{fig:sec32_rollout_timeline}); and (ii) inclusion is strongly tied to mechanical market-scale and liquidity criteria (Figure~\ref{fig:sec32_criteria_logit}). Together, these features support interpreting MSCI inclusion as an external capital-access shock suitable for DID-style causal testing.
 
 \textbf{Hypothesis 1 (H1 --- Main Effect):} Capital market liberalization, proxied by MSCI inclusion, increases firm-level digital transformation intensity.
 
-The causal mechanism is that MSCI inclusion changes firms' investment optimization environment. Inclusion broadens access to external equity capital, improves liquidity, and reduces expected financing costs for long-horizon intangible projects. Because digital transformation programs involve high fixed costs, delayed payoffs, and implementation uncertainty, a reduction in financing frictions should expand the set of digital projects with positive expected net present value. At the same time, exposure to international investors raises disclosure and governance standards, increasing managerial accountability for strategic investment quality. If this mechanism is valid, treated firms should exhibit a post-inclusion increase in digital transformation intensity relative to otherwise comparable non-treated firms.
+\textbf{Direct causal path:} $X \rightarrow Y$.
 
-\emph{Empirical implication:} In the baseline DID and event-study designs, the coefficient on the treatment interaction should be positive, and post-treatment dynamic effects should remain above pre-treatment coefficients if the mechanism reflects sustained investment adjustment rather than short-run disclosure noise.
+The causal logic is that MSCI inclusion improves firms' financing and governance environment. Inclusion broadens access to external equity capital, enhances liquidity, and lowers expected financing costs for long-horizon intangible projects. Because digital transformation involves high fixed costs, delayed returns, and implementation uncertainty, lower financing frictions should expand the set of digital projects with positive expected net present value. In parallel, stronger scrutiny from international investors raises disclosure and governance discipline, increasing managerial accountability for strategic investment quality. If this mechanism holds, treated firms should exhibit a sustained post-inclusion increase in digital transformation relative to comparable untreated firms.
 
-\subsection{H2: Technology Heterogeneity --- Capital- and Knowledge-Intensive Domains}
+\emph{Empirical implication:} In DID and event-study models, the treatment interaction should be positive and post-treatment dynamic coefficients should remain above pre-treatment coefficients.
 
-\textbf{Hypothesis 2 (H2 --- Technology Heterogeneity):} The liberalization effect is stronger in capital-intensive and knowledge-intensive digital domains than in less demanding domains.
+\subsection{Impact Mechanism: Three Transmission Channels from Liberalization to Digital Transformation}
 
-The mechanism linking liberalization to domain-specific outcomes is implementation intensity. Technologies such as cloud infrastructure, AI systems, and large-scale data architecture require substantial up-front capital, specialized human resources, and iterative organizational learning. These characteristics create stronger dependence on financing quality and access to advanced managerial knowledge. In contrast, lower-complexity digital applications generally require smaller irreversible commitments and can be implemented with weaker external support. Therefore, if capital market liberalization operates through financing and knowledge channels, treatment effects should be disproportionately concentrated in high-capital and high-knowledge technology clusters.
+The mechanism analysis distinguishes three transmission channels: financing-constraint relaxation, governance improvement, and knowledge spillovers. The structural differences shown in Figure~\ref{fig:sec31_segmentation_stats} and the rule-based eligibility profile in Figure~\ref{fig:sec32_criteria_logit} indicate that capital-access and monitoring channels are empirically plausible in this setting, while formal channel regressions are reported in Chapter~\ref{chap:empirical_results}.
 
-\emph{Empirical implication:} In technology-specific regressions, coefficients should be larger in capital- and knowledge-intensive domains (e.g., AI, cloud, and big-data-related indicators) than in lower-complexity domains.
+Two data features are especially informative. First, financing proxies move in theory-consistent directions (bank leverage declines; cashflow/assets rises), indicating easing funding constraints for digital investment. Second, governance proxies also move in expected directions (independent-director indicators increase; ownership concentration declines), consistent with stronger monitoring. The knowledge-spillover channel remains theoretically important, but direct mediator variables (analyst coverage, foreign institutional ownership, and related cross-border exposure measures) are not yet integrated into the merged panel; therefore, direct coefficient estimation is deferred to avoid weak proxy substitution.
 
-\subsection{H3: Regional and Firm Heterogeneity --- Absorptive Capacity and Institutional Quality}
+\textbf{Hypothesis 2 (H2 --- Impact Mechanism):} The positive effect of capital market liberalization on digital transformation operates through three channels: (i) financing-constraint relaxation, (ii) governance improvement via external monitoring, and (iii) knowledge-spillover effects from global investor and information networks.
 
-\textbf{Hypothesis 3 (H3 --- Regional and Firm Heterogeneity):} The effect of capital market liberalization on digital transformation is moderated by regional institutional quality and firm-level absorptive capacity.
+To make the mechanism structure explicit, the thesis specifies the following channel paths:
 
-The causal pathway requires not only capital access but also conversion capability. Regions with stronger market institutions, deeper digital infrastructure, and richer talent pools allow firms to translate external capital and monitoring into real operational upgrading more efficiently. At the firm level, larger scale, stronger governance, and prior organizational capabilities reduce adjustment costs and improve implementation discipline, making it easier to convert financing opportunities into sustained digital investment. In weaker institutional or capability settings, part of the treatment shock is absorbed by implementation frictions, resulting in smaller observed effects. Accordingly, the same liberalization shock is expected to generate heterogeneous responses across regions, industries, and firm types.
+\textbf{Channel 1 (Financing):} $X \rightarrow M^{\mathrm{Fin}} \rightarrow Y$. MSCI inclusion expands access to external equity, improves liquidity, and lowers expected financing costs, increasing firms' ability to fund high-fixed-cost digital projects.
 
-\emph{Empirical implication:} Interaction and subgroup analyses should show stronger treatment effects for firms in institutionally developed regions, technology-intensive industries, and firms with higher absorptive capacity proxies.
+\textbf{Channel 2 (Governance):} $X \rightarrow M^{\mathrm{Gov}} \rightarrow Y$. MSCI inclusion increases exposure to international investor monitoring, strengthens disclosure discipline and board accountability, and raises implementation quality of digital investment decisions.
+
+\textbf{Channel 3 (Knowledge Spillover):} $X \rightarrow M^{\mathrm{Know}} \rightarrow Y$. MSCI inclusion increases links to global analysts, foreign institutions, and cross-border information networks, which can reduce learning costs and accelerate technology adoption.
+
+\emph{Empirical implication:} Channel-specific regressions should show directionally consistent financing and governance responses, while direct knowledge-channel estimation requires integration of first-stage mediator variables.
+
+\subsection{Impact Heterogeneity: Regional, Industry, and Firm-Level Moderation}
+
+\textbf{Hypothesis 3 (H3 --- Impact Heterogeneity):} The effect of capital market liberalization on digital transformation is heterogeneous across regions, industries, and firm characteristics, with stronger effects where absorptive capacity and institutional quality are higher.
+
+\textbf{Moderated causal form:} $\partial Y / \partial X = f(H)$, where $H$ denotes regional institutional quality, industry technology intensity, and firm absorptive-capacity characteristics.
+
+The heterogeneity mechanism is a conversion-capability argument: access to external capital is necessary but not sufficient. Regions with stronger institutions, deeper digital infrastructure, and richer talent pools can convert financing and monitoring shocks into real technology upgrading more efficiently. At the firm level, larger scale, stronger governance, and prior organizational capabilities reduce implementation frictions and increase persistence of digital investment. Therefore, the same liberalization shock is expected to generate uneven responses across firms and locations.
+
+\emph{Empirical implication:} Interaction and subgroup analyses should show stronger treatment effects in institutionally developed regions, technology-intensive industries, and firms with higher absorptive-capacity proxies.

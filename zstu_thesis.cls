@@ -94,7 +94,7 @@
 		beforeskip=0ex,
 		afterskip=1em,
 	},
-	contentsname={\hfill\textnormal{\zihao{3}\heiti\bfseries{目\quad 录}}\hfill},
+    contentsname={\hfill\textnormal{\zihao{3}\bfseries{Table of Contents}}\hfill},
 }
 
 % Footnote style
@@ -140,11 +140,11 @@
 	\renewcommand{\headrulewidth}{0pt}
 	\fancyfoot[C]{\zihao{-5}\thepage}
 }
+\renewcommand{\chaptermark}[1]{\markboth{Chapter \thechapter\quad #1}{}}
 \fancypagestyle{mainstyle}{
 	\fancyhf{}
 	\renewcommand{\headrulewidth}{0.3pt}
-	\fancyhead[CO]{\zihao{5}\fangsong{浙江理工大学硕士学位论文}}
-	\fancyhead[CE]{\zihao{5}\fangsong{\@title}}
+    \fancyhead[CO,CE]{\zihao{5}\fangsong\nouppercase{\leftmark}}
 	\fancyfoot[C]{\zihao{-5}\thepage}
 }
 

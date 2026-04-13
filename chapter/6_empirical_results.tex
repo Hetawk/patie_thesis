@@ -86,7 +86,7 @@ While Figure~\ref{fig:event_study} provides visual confirmation that the two gro
 \label{fig:dynamic_effects}
 \end{figure}
 
-Figure~\ref{fig:dynamic_effects} presents the formal event-study regression coefficients $\delta_k$ with 95\% confidence intervals from Equation~(\ref{eq:event_study}). Pre-treatment coefficients ($k < 0$) are clustered near zero, consistent with no pre-existing differential trends. Post-treatment coefficients become positive and strengthen over time ($\mathrm{post}_1 \approx 0.26$; $\mathrm{post}_2 \approx 0.48$), documenting a sustained increase in digitalization following MSCI inclusion.
+Figure~\ref{fig:dynamic_effects} presents the formal event-study regression coefficients $\delta_k$ with 95\% confidence intervals from Equation~(\ref{eq:event_study}). Pre-treatment coefficients ($k < 0$) are clustered near zero, consistent with no pre-existing differential trends. Post-treatment coefficients become positive and strengthen over time ($\mathrm{post}_1 \approx 0.26$; $\mathrm{post}_2 \approx 0.48$), documenting a sustained increase in digital transformation intensity following MSCI inclusion.
 
 \subsection{Pre-Treatment Parallel Trends Validation}
 
@@ -94,7 +94,7 @@ The joint pre-trend $F$-test ($p \approx 0.11$) and linear trend test ($p \appro
 
 \subsection{Post-Treatment Dynamics: Persistence and Accumulation of Effects}
 
-Post-treatment coefficients increase monotonically from $\mathrm{post}_1$ ($\approx 0.26$) through $\mathrm{post}_2$ ($\approx 0.48$), indicating that MSCI inclusion triggers sustained investment in digital transformation capabilities rather than a temporary disclosure response. The growing treatment effect is consistent with the accumulative nature of digital transformation: initial investments in infrastructure enable subsequent capabilities that generate further measured digitalization activity in annual reports.
+Post-treatment coefficients increase monotonically from $\mathrm{post}_1$ ($\approx 0.26$) through $\mathrm{post}_2$ ($\approx 0.48$), indicating that MSCI inclusion triggers sustained investment in digital transformation capabilities rather than a temporary disclosure response. The growing treatment effect is consistent with the accumulative nature of digital transformation: initial investments in infrastructure enable subsequent capabilities that generate further measured digital transformation activity in annual reports.
 
 \section{Robustness and Endogeneity Tests}
 
@@ -113,7 +113,7 @@ A standard concern with quasi-experimental designs is that an estimated treatmen
 \label{fig:placebo}
 \end{figure}
 
-Figure~\ref{fig:placebo} displays the distribution of MSCI $\times$ Post coefficients from 1,000 iterations where MSCI inclusion status is randomly reassigned among non-treated firms. The null distribution has mean 0.0001 and standard deviation 0.0421, following an approximately normal distribution centered at zero. The actual treatment estimate (0.108 in the placebo specification) lies well outside the 95th percentile of this distribution (critical value $\approx 0.083$), providing compelling evidence against spurious correlation.
+Figure~\ref{fig:placebo} displays the distribution of MSCI $\times$ Post coefficients from 1,000 iterations where MSCI inclusion status is randomly reassigned among non-treated firms. The null distribution has mean 0.0001 and standard deviation 0.0421, following an approximately normal distribution centered at zero. The actual treatment estimate (0.108 in the placebo specification) lies well outside the 95th percentile of this distribution (critical value $\approx 0.083$), which is inconsistent with a purely spurious-correlation explanation.
 
 \subsection{PSM-DID}
 
@@ -360,7 +360,7 @@ The three theoretical channels---financing constraint relaxation, governance imp
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/fig6_5_mechanism_pathway.png}
+\includegraphics[width=0.90\textwidth]{figures/fig6_5_mechanism_pathway.png}
 \caption{Mechanism Pathway: MSCI Inclusion to Digital Transformation}
 \label{fig:mechanism_pathway}
 \end{figure}
@@ -369,7 +369,7 @@ Figure~\ref{fig:mechanism_pathway} illustrates the conceptual multi-channel path
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/fig6_6_mechanism_channels.png}
+\includegraphics[width=0.90\textwidth]{figures/fig6_6_mechanism_channels.png}
 \caption{Mechanism Channel Evidence: DID Estimates for Financing and Governance Proxies}
 \label{fig:mechanism_channels}
 \end{figure}
@@ -379,6 +379,8 @@ Figure~\ref{fig:mechanism_channels} presents the quantitative DID estimates for 
 \subsection{Financing Constraint Channel: KZ Index, Bank Leverage, and Cashflow/Assets}
 
 The financing constraint channel proposes that MSCI inclusion lowers the cost of external capital for treated firms.
+
+To make this channel operational, the thesis uses three complementary proxies. First, the KZ Index captures broad financing frictions, with higher values indicating tighter constraints. Following standard corporate-finance practice, the index combines information on cash flow, leverage, valuation, cash holdings, and payout behavior. Second, Bank Leverage measures reliance on bank debt financing relative to firm scale; a decline after treatment is consistent with reduced dependence on potentially costly or restrictive bank credit. Third, CashFlow/Assets measures internally generated liquidity available for investment. All three mechanism regressions use the same identification structure as the baseline model (Industry+Year+Province fixed effects with firm-clustered standard errors), so channel estimates are directly comparable to the main DID specification.
 
 \begin{table}[htbp]
 \centering
@@ -400,11 +402,13 @@ CashFlow / Assets (operating CF) & 0.0201*** & 0.0035 & 0.000 & 34,770 \\
 \end{tablenotes}
 \end{table}
 
-The financing constraint channel predicts that MSCI inclusion relaxes financial constraints. Bank Leverage (coefficient = $-$0.0318***, $p < 0.001$) indicates that MSCI-included firms reduce reliance on costly bank debt. CashFlow/Assets (coefficient = $+$0.0201***, $p < 0.001$) documents improved internal cash flow generation following MSCI inclusion.
+The financing results indicate partial but economically coherent support for this channel. The KZ Index coefficient is negative ($-$0.0385) but statistically insignificant ($p = 0.599$), suggesting that broad composite-constraint measures do not move precisely enough in this sample to identify a strong treatment response. By contrast, Bank Leverage declines significantly ($-$0.0318***, $p < 0.001$), with a tight confidence interval implied by the small standard error, indicating a clear post-inclusion reduction in bank-debt dependence. CashFlow/Assets increases significantly ($+$0.0201***, $p < 0.001$), showing stronger internal funding capacity after treatment. Jointly, these estimates are consistent with financing-friction relaxation operating through concrete balance-sheet and liquidity margins even when the omnibus KZ composite is noisy.
 
 \subsection{Governance Channel: Independent Directors and Top-10 Ownership HHI}
 
 International institutional investors are documented advocates of governance reform as a condition of sustained capital allocation~\cite{Aggarwal2011}.
+
+This channel is measured using board structure and ownership concentration variables that map directly to monitoring intensity. $N$(Independent Directors) is the count of independent directors on the board and captures board-level monitoring capacity in levels. Independent Director Ratio (\%) scales that count by board size and captures governance composition intensity. Top-10 Ownership HHI is constructed as a Herfindahl-type concentration index over top-shareholder holdings; lower values indicate more dispersed ownership and potentially broader external oversight. Estimation again uses the same DID framework and fixed-effect structure as the baseline model, ensuring interpretation consistency across channels.
 
 \begin{table}[htbp]
 \centering
@@ -426,32 +430,36 @@ Top-10 Ownership HHI (concentration) & $-$0.0302*** & 0.0054 & 0.000 & 34,753 \\
 \end{tablenotes}
 \end{table}
 
-MSCI-included firms add more independent directors ($+$0.0518***, $p = 0.001$), increase the share of independent directors ($+$1.8238***, $p = 0.001$), and experience less concentrated ownership ($-$0.0302***, $p < 0.001$), consistent with dispersed monitoring and stronger minority-shareholder oversight.
+Governance estimates are consistently in the predicted direction and statistically significant. MSCI-included firms add independent directors ($+$0.0518***, $p = 0.0007), and the independent-director share rises by 1.8238 percentage points ($p = 0.0012), indicating that the effect is not only mechanical board expansion but also a compositional shift toward independent oversight. The Top-10 Ownership HHI falls significantly ($-$0.0302***, $p < 0.001$), implying less concentrated control and stronger scope for minority-shareholder monitoring. Because all three governance proxies move in the theory-consistent direction and are statistically significant at conventional levels, the governance channel is supported more strongly than the financing channel in this dataset.
 
 \subsection{Knowledge Spillover Channel: Deferred Direct Test and Data Requirements}
 
-The knowledge-spillover mechanism remains theoretically central to the thesis, but it is not directly estimated in the baseline mechanism regressions. A direct mechanism test requires mediator variables that map to the chain MSCI inclusion $\to$ external information intermediaries/investors $\to$ firm learning and implementation. In this context, analyst coverage (and optionally analyst forecast dispersion) and foreign institutional ownership are the preferred first-stage mediators. Because these variables are not yet integrated into the current merged panel, this thesis does not report a direct knowledge-channel coefficient and avoids proxy substitution that could blur causal interpretation.
+The knowledge-spillover mechanism remains theoretically central to the thesis, but it is not directly estimated in the baseline mechanism regressions. Recent evidence shows that digital transformation can generate information spillovers across firms and market participants~\cite{WangWang2026}, and that spillover intensity may vary with strategic competition conditions in manufacturing settings~\cite{LiuGu2026}, reinforcing the conceptual relevance of this channel in our setting. A direct mechanism test requires mediator variables that map to the chain MSCI inclusion $\to$ external information intermediaries/investors $\to$ firm learning and implementation. In this context, analyst coverage (and optionally analyst forecast dispersion) and foreign institutional ownership are the preferred first-stage mediators. Because these variables are not yet integrated into the current merged panel, this thesis does not report a direct knowledge-channel coefficient and avoids proxy substitution that could blur causal interpretation.
+
+For transparency, the intended measurement protocol is as follows: analyst coverage is defined as the number of analysts issuing firm-year forecasts; analyst forecast dispersion is the cross-analyst standard deviation of earnings forecasts; foreign institutional ownership is the fraction of shares held by foreign institutions in each firm-year; and cross-border exposure proxies include export intensity, overseas subsidiary presence, and foreign director participation. These variables are conceptually close to the mechanism chain and therefore preferred over indirect substitutes. As a supplementary check, Appendix Table~\ref{tab:appendix_spillover_proxy} reports an exploratory peer-spillover proxy regression based on leave-one-out industry-year peer digitalization. The interaction term (MSCI $\times$ PeerDT) is positive but statistically insignificant ($p = 0.114$), so it is reported only as directional context rather than direct mechanism evidence. The deferred design choice is methodological rather than substantive: the thesis prioritizes identification quality by reporting no direct-mediator coefficient instead of reporting a weakly interpretable proxy-based estimate.
 
 \begin{table}[htbp]
 \centering
-\caption{Mechanism Analysis: Knowledge Spillover Channel (Deferred)}
+\caption{Knowledge Spillover Channel: Direct-Test Data and Identification Requirements}
 \label{tab:knowledge_deferred}
-\scriptsize
+\small
 \setlength{\tabcolsep}{4pt}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}Xcccccc>{\raggedright\arraybackslash}X}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\centering\arraybackslash}m{1.7cm}>{\raggedright\arraybackslash}X>{\centering\arraybackslash}m{2.0cm}>{\raggedright\arraybackslash}X}
 \toprule
-\textbf{Variable} & \textbf{Coeff.} & \textbf{SE} & \textbf{$p$-value} & \textbf{$N$} & \textbf{$R^2$} & \textbf{$N_{\text{treated}}$} & \textbf{Direction Note} \\
+\textbf{Mediator (Preferred)} & \textbf{Mechanism Mapping} & \textbf{Expected Sign} & \textbf{Candidate Data Source} & \textbf{Current Status} & \textbf{Planned Empirical Test} \\
 \midrule
-Direct mediators not in merged panel & NA & NA & NA & NA & NA & NA & deferred: add analyst coverage / foreign institutional ownership / cross-border exposure \\
+Analyst coverage (and optionally analyst forecast dispersion) & MSCI inclusion $\to$ external information production $\to$ firm learning and implementation & $+$ (coverage), $-$ (dispersion) & CSMAR analyst module / CNRDS analyst files & Not yet merged & DID and event-study on mediator; mediation-consistency test with digital-transformation outcomes \\
+Foreign institutional ownership share & MSCI inclusion $\to$ foreign monitoring and benchmarking pressure $\to$ managerial upgrading & $+$ & CSMAR ownership module / WIND foreign holding data & Not yet merged & DID on ownership response; interaction and mechanism regressions with firm and year FE \\
+Cross-border exposure proxies (exports, overseas subsidiaries, foreign directors) & MSCI inclusion $\to$ global network exposure $\to$ knowledge diffusion & $+$ & CSMAR segment/disclosure modules; annual-report hand-collected fields & Partially available, not harmonized & Supplementary mechanism test after variable harmonization and missing-data diagnostics \\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}
 \small
-\item \textit{Notes:} This table documents deferred status rather than an estimated regression result. Direct mediator variables (analyst coverage, foreign institutional ownership, and cross-border exposure) are not yet integrated in the merged panel.
+\item \textit{Notes:} This table reports identification requirements for a direct knowledge-spillover test and does not present regression coefficients. The deferred strategy is intentional: the thesis avoids proxy substitution that could weaken causal interpretation until direct mediators are integrated into the merged panel.
 \end{tablenotes}
 \end{table}
 
-Taken together, Section~6.5 provides direct mechanism evidence for financing and governance channels. The knowledge-spillover channel is retained as a theoretically motivated extension for future data integration and direct mediation testing.
+Taken together, Section~6.5 provides direct mechanism evidence for financing and governance channels. For the knowledge-spillover channel, the thesis now provides a transparent identification roadmap and data requirements, and reserves coefficient reporting for future work once direct mediators are fully integrated.
 
 \paragraph{Cross-Channel Summary}
 
@@ -470,12 +478,12 @@ Financing & CashFlow / Assets & 0.0201*** & 0.0035 & 0.000 & 34,770 \\
 Governance & $N$(Indep.\ Directors) & 0.0518*** & 0.0152 & 0.0007 & 26,522 \\
 Governance & Indep.\ Director Ratio (\%) & 1.8238*** & 0.5627 & 0.0012 & 20,136 \\
 Governance & Top-10 Ownership HHI & $-$0.0302*** & 0.0054 & 0.000 & 34,753 \\
-Knowledge (Deferred) & Direct mediators not in panel & NA & NA & NA & NA \\
+Knowledge (Deferred) & Direct mediators pending integration & -- & -- & -- & -- \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}
 \small
-\item \textit{Notes:} All regressions use Industry+Year+Province FE with firm-clustered standard errors. Across the six directly tested proxies, five are significant at the 1\% level and all are directionally consistent with theory.
+\item \textit{Notes:} All reported coefficients come from regressions with Industry+Year+Province FE and firm-clustered standard errors. Across the six directly tested proxies, five are significant at the 1\% level and all are directionally consistent with theory. The deferred knowledge row is a status indicator, not a regression estimate.
 \end{tablenotes}
 \end{table}
 

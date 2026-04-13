@@ -19,3 +19,36 @@
     \item 2024-11-14 (2-S343): Yongchao Forum: Frontier Research Perspectives on Digital-Intelligent Transformation in Manufacturing, Speaker: Li Xueling (Jilin University).
     \item 2025-10-23 (25-1816): Perspective Taking to Promote Work Design: Research Journey and Inspirations, Speaker: Meng Liang (Shanghai International Studies University).
 \end{enumerate}
+
+\section{Exploratory Knowledge Spillover Proxy Test}
+
+To align the empirical design with recent spillover studies~\cite{WangWang2026,LiuGu2026} while preserving identification discipline, this appendix reports an exploratory proxy test using currently available merged variables. The proxy is leave-one-out peer digital transformation within industry-year cells:
+\begin{equation}
+\label{eq:peer_dt_appendix}
+\mathrm{PeerDT}_{i,t}^{\mathrm{(ind,loo)}} = \frac{\sum_{j \in (\mathrm{ind},t),\, j \neq i} DT_{j,t}}{N_{\mathrm{ind},t} - 1}
+\end{equation}
+and the exploratory interaction is $\mathrm{MSCI}_{i,t} \times \mathrm{PeerDT}_{i,t}^{\mathrm{(ind,loo)}}$.
+
+\begin{table}[htbp]
+\centering
+\caption{Appendix: Exploratory Knowledge Spillover Proxy Regression}
+\label{tab:appendix_spillover_proxy}
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Variable} & \textbf{Coeff.} & \textbf{(SE)} & \textbf{$p$-val} \\
+\midrule
+MSCI (treatment exposure) & $-$2.0000 & 1.8336 & 0.2754 \\
+PeerDT (industry-year leave-one-out mean) & 0.7046*** & 0.0689 & 0.0000 \\
+MSCI $\times$ PeerDT & 0.2342 & 0.1481 & 0.1138 \\
+\midrule
+Observations & \multicolumn{3}{c}{31,110} \\
+Unique firms (cluster level) & \multicolumn{3}{c}{3,921} \\
+$R^2$ & \multicolumn{3}{c}{0.3556} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textit{Notes:} OLS with firm-clustered standard errors; controls include size, ROA, cashflow/assets, Tobin's $Q$, independent directors, and ownership HHI, with industry, province, and year fixed effects. The interaction coefficient is positive but statistically insignificant, so this table is interpreted as exploratory context rather than direct mechanism identification.
+\end{tablenotes}
+\end{table}

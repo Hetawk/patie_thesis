@@ -11,7 +11,7 @@ This section explains why text-based indicators are methodologically appropriate
 
 \subsection{Limitations of Traditional Proxies: IT Expenditure and Patent Counts}
 
-Traditional proxies for digital transformation face three limitations. IT expenditure data are not separately disclosed in Chinese annual reports, are unavailable at firm-year resolution for listed companies, and conflate maintenance spending with transformation investment. Patent counts capture only legally protectable innovations, excluding the organizational and process-level changes central to digital transformation; they are also subject to strategic patenting behavior that correlates weakly with actual operational change. More broadly, both indicators have limited coverage for service-sector digitalization, workflow redesign, and platform integration, which are central to real transformation but rarely captured in formal IP outputs. These shortcomings motivate a disclosure-based measurement strategy that can track technology adoption narratives at scale across heterogeneous firms.
+Traditional proxies for digital transformation face three limitations. IT expenditure data are not separately disclosed in Chinese annual reports, are unavailable at firm-year resolution for listed companies, and conflate maintenance spending with transformation investment. Patent counts capture only legally protectable innovations, excluding the organizational and process-level changes central to digital transformation; they are also subject to strategic patenting behavior that correlates weakly with actual operational change. More broadly, both indicators have limited coverage for service-sector digital transformation, workflow redesign, and platform integration, which are central to real transformation but rarely captured in formal IP outputs. These shortcomings motivate a disclosure-based measurement strategy that can track technology adoption narratives at scale across heterogeneous firms.
 
 \subsection{The Case for Computational Analysis of Annual Report Disclosures}
 
@@ -43,37 +43,11 @@ Standard Chinese stop words (function words, particles, conjunctions) are remove
 
 \section{Keyword Dictionary Construction}
 
-\subsection{Technology Domain Scoping: Six Core Clusters}
+Following~\cite{PLi2023}, we construct one integrated domain dictionary organized into six technology clusters identified in Chinese disclosure guidelines (CSRC 2019) and related literature: artificial intelligence, big data analytics, cloud computing, Internet of Things, blockchain/distributed ledger technologies, and enterprise digitization programs.
 
-Following~\cite{PLi2023}, we define six technology domain clusters based on the major digital transformation themes identified in Chinese corporate disclosure guidelines (CSRC 2019) and academic literature: (1)~Artificial Intelligence, (2)~Big Data Analytics, (3)~Cloud Computing, (4)~Internet of Things, (5)~Blockchain, and (6)~Enterprise Digitization Programs.
+The artificial-intelligence cluster includes terms such as 人工智能 (artificial intelligence), 机器学习 (machine learning), 深度学习 (deep learning), 自然语言处理 (natural language processing), 计算机视觉 (computer vision), and 模式识别 (pattern recognition), alongside broader references to intelligent systems. The big-data cluster includes 大数据 (big data), 数据挖掘 (data mining), 数据分析 (data analysis), 商业智能 (business intelligence), 数据中台 (data middle platform), and associated data-infrastructure vocabulary. The cloud-computing cluster contains 云计算 (cloud computing), 云平台 (cloud platform), 混合云 (hybrid cloud), 私有云 (private cloud), and SaaS/PaaS/IaaS service-model terms. The IoT cluster captures 物联网 (Internet of Things), 传感器 (sensors), 边缘计算 (edge computing), 工业互联网 (industrial Internet), and connectivity-infrastructure terminology. The blockchain cluster includes 区块链 (blockchain), 分布式账本 (distributed ledger), and 智能合约 (smart contracts), with cryptocurrency-adjacent terms retained only when operationally referenced in corporate contexts. Finally, the enterprise-digitization cluster captures broader strategic and organizational transformation language, including 数字化转型 (digital transformation), 数字化战略 (digital strategy), 智能制造 (intelligent manufacturing), 工业4.0 (Industry 4.0), 数字孪生 (digital twin), and enterprise software modernization.
 
-\subsection{Artificial Intelligence and Machine Learning}
-
-The AI cluster includes terms such as 人工智能 (artificial intelligence), 机器学习 (machine learning), 深度学习 (deep learning), 自然语言处理 (natural language processing), 计算机视觉 (computer vision), 模式识别 (pattern recognition), and terminology related to intelligent systems across various functional domains.
-
-\subsection{Big Data Analytics}
-
-The Big Data cluster includes 大数据 (big data), 数据挖掘 (data mining), 数据分析 (data analysis), 商业智能 (business intelligence), 数据中台 (data middle platform), and related data infrastructure terms.
-
-\subsection{Cloud Computing}
-
-Cloud keywords include 云计算 (cloud computing), 云平台 (cloud platform), 混合云 (hybrid cloud), 私有云 (private cloud), SaaS/PaaS/IaaS, and related terms for distributed computing and cloud service models.
-
-\subsection{Internet of Things (IoT)}
-
-IoT terms include 物联网 (Internet of Things), 传感器 (sensors), 边缘计算 (edge computing), 工业互联网 (industrial Internet), and connectivity infrastructure vocabulary.
-
-\subsection{Blockchain and Distributed Ledger Technologies}
-
-Blockchain keywords include 区块链 (blockchain), 分布式账本 (distributed ledger), 智能合约 (smart contracts), and cryptocurrency-adjacent terms where operationally referenced in business contexts.
-
-\subsection{Enterprise Digitization Programs}
-
-The enterprise digitization cluster captures broader digital transformation discourse: 数字化转型 (digital transformation), 数字化战略 (digital strategy), 智能制造 (intelligent manufacturing), 工业4.0 (Industry 4.0), 数字孪生 (digital twin), and enterprise software modernization vocabulary.
-
-\subsection{Dictionary Validation and Inter-Rater Reliability ($\kappa = 0.89$)}
-
-The dictionary was validated through manual coding of 500 randomly selected annual report excerpts by two independent raters with domain expertise in Chinese corporate finance. Inter-rater reliability achieved Cohen's $\kappa = 0.89$, exceeding the conventional threshold of $\kappa \geq 0.80$ for high agreement. Discrepancies were resolved by expert adjudication, with the final dictionary refined to remove ambiguous terms contributing to disagreements.
+Dictionary quality is validated through manual coding of 500 randomly selected annual-report excerpts by two independent raters with expertise in Chinese corporate finance. Inter-rater reliability reaches Cohen's $\kappa = 0.89$, above the conventional $\kappa \geq 0.80$ benchmark for high agreement. Coding disagreements are resolved through expert adjudication, and ambiguous terms are removed or refined before final implementation.
 
 \section{Index Construction and Aggregation}
 

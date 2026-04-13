@@ -51,7 +51,7 @@ As a research model design, Figure~\ref{fig:model_design} highlights the inferen
 \subsection{The Natural Experiment: Exogeneity and Identification Logic}
 \label{sec:natural_experiment}
 
-MSCI inclusion meets the key requirements of a natural experiment. Inclusion criteria are mechanical---free-float market capitalization, liquidity thresholds, and Stock Connect accessibility---and are independent of firms' underlying digitalization trajectories. The policy schedule was enforced externally by MSCI, without input from Chinese authorities or individual firms. These properties generate plausibly exogenous variation in international capital access, supporting the causal interpretation of our DID estimates. Following contemporary causal-design standards, we do not rely on exogeneity by assertion alone; instead, we combine institutional argumentation with empirical diagnostics, including pre-trend checks, placebo assignments, and alternative estimators designed for staggered treatment settings.
+MSCI inclusion meets the key requirements of a natural experiment. Inclusion criteria are mechanical---free-float market capitalization, liquidity thresholds, and Stock Connect accessibility---and are independent of firms' underlying digital transformation trajectories. The policy schedule was enforced externally by MSCI, without input from Chinese authorities or individual firms. These properties generate plausibly exogenous variation in international capital access, supporting the causal interpretation of our DID estimates. Following contemporary causal-design standards, we do not rely on exogeneity by assertion alone; instead, we combine institutional argumentation with empirical diagnostics, including pre-trend checks, placebo assignments, and alternative estimators designed for staggered treatment settings.
 
 \subsection{Two-Way Fixed Effects Difference-in-Differences Specification}
 
@@ -69,7 +69,7 @@ To analyze the temporal pattern of treatment effects and validate pre-treatment 
 \label{eq:event_study}
 DT_{it} = \alpha + \sum_{k} \delta_k \, \mathrm{MSCI}_i \times \mathbf{1}[t - T_i = k] + \gamma' X_{it} + \mu_i + \lambda_t + \varepsilon_{it}
 \end{equation}
-where $T_i$ denotes firm $i$'s inclusion year, and $k = -1$ is omitted as the reference period. Dynamic coefficients $\delta_k$ reveal whether digitalization accelerates precisely around the inclusion window and whether effects persist over time.
+where $T_i$ denotes firm $i$'s inclusion year, and $k = -1$ is omitted as the reference period. Dynamic coefficients $\delta_k$ reveal whether digital transformation intensity rises precisely around the inclusion window and whether effects persist over time.
 
 \subsection{Propensity Score Matching Difference-in-Differences (PSM-DID)}
 
@@ -78,7 +78,7 @@ To address residual selection on observable characteristics, we augment the base
 \subsection{Threats to Identification and Mitigation Strategies}
 \label{sec:threats}
 
-The primary threats to identification are: (i)~pre-existing trends---firms selected into MSCI may have had faster-growing digitalization prior to inclusion; (ii)~confounding events---contemporaneous reforms (e.g., STAR Market establishment, COVID-19) may differentially affect treated and control firms; and (iii)~disclosure strategic response---firms may increase digital-related language post-inclusion without substantive operational changes. We address these through event study pre-trend tests, exclusion of contemporaneous reform events, disclosure-length robustness checks, and 1,000-iteration placebo tests. In addition, we report staggered-adoption diagnostics motivated by the modern DID literature, which cautions that conventional TWFE coefficients can be misleading under heterogeneous treatment effects. Taken together, these safeguards reduce the likelihood that results are driven by differential trends, timing artifacts, or pure disclosure inflation.
+The primary threats to identification are: (i)~pre-existing trends---firms selected into MSCI may have had faster-growing digital transformation intensity prior to inclusion; (ii)~confounding events---contemporaneous reforms (e.g., STAR Market establishment, COVID-19) may differentially affect treated and control firms; and (iii)~disclosure strategic response---firms may increase digital-related language post-inclusion without substantive operational changes. We address these through event study pre-trend tests, exclusion of contemporaneous reform events, disclosure-length robustness checks, and 1,000-iteration placebo tests. In addition, we report staggered-adoption diagnostics motivated by the modern DID literature, which cautions that conventional TWFE coefficients can be misleading under heterogeneous treatment effects. Taken together, these safeguards reduce the likelihood that results are driven by differential trends, timing artifacts, or pure disclosure inflation.
 
 \section{Data Descriptions and Descriptive Statistics}
 
@@ -86,7 +86,7 @@ This section translates the conceptual design into operational variables and obs
 
 \subsection{Variable Definition}
 
-Precise variable definitions are essential for interpreting and replicating any empirical study in corporate finance. The analytical design used here combines a treatment indicator that captures access to international capital markets with a text-based outcome variable, a comprehensive set of financial controls, and governance proxies---each of which must be clearly defined before estimation. Treatment status is identified through a binary indicator for MSCI Emerging Markets Index constituents; the main outcome variable, digital transformation intensity, is built from natural language processing of mandatory annual reports, as described in Chapter~\ref{chap:research_design_2}; and the control variables include firm size, age, profitability ratios, leverage, cash flow, market valuation, ownership concentration, and board composition. All variables are based on established theory, and their selection follows prior practices in the literature on capital market liberalization and corporate digitalization.
+Precise variable definitions are essential for interpreting and replicating any empirical study in corporate finance. The analytical design used here combines a treatment indicator that captures access to international capital markets with a text-based outcome variable, a comprehensive set of financial controls, and governance proxies---each of which must be clearly defined before estimation. Treatment status is identified through a binary indicator for MSCI Emerging Markets Index constituents; the main outcome variable, digital transformation intensity, is built from natural language processing of mandatory annual reports, as described in Chapter~\ref{chap:research_design_2}; and the control variables include firm size, age, profitability ratios, leverage, cash flow, market valuation, ownership concentration, and board composition. All variables are based on established theory, and their selection follows prior practices in the literature on capital market liberalization and corporate digital transformation.
 
 \begin{table}[htbp]
 \centering
@@ -127,7 +127,10 @@ where $\mathrm{keywordsCount}_j$ denotes the frequency of keywords associated wi
 The control vector $X_{it}$ includes:
 \begin{equation}
 \label{eq:control_vector}
-X_{it} = [\log(\mathrm{asset}_{it}),\; \mathrm{Age}_{it},\; \mathrm{ROA}_{it},\; \mathrm{ROE}_{it},\; \mathrm{Leverage}_{it},\; \mathrm{CashFlow/Asset}_{it},\; Q_{it},\; \mathrm{OwnConc}_{it},\; \mathrm{BoardSize}_{it},\; \mathrm{IndepDirPct}_{it}]
+\begin{aligned}
+X_{it} = [&\log(\mathrm{asset}_{it}),\; \mathrm{Age}_{it},\; \mathrm{ROA}_{it},\; \mathrm{ROE}_{it},\; \mathrm{Leverage}_{it},\\
+&\mathrm{CashFlow/Asset}_{it},\; Q_{it},\; \mathrm{OwnConc}_{it},\; \mathrm{BoardSize}_{it},\; \mathrm{IndepDirPct}_{it}]
+\end{aligned}
 \end{equation}
 For mechanism analysis in Chapter~\ref{chap:empirical_results}, this baseline variable set is complemented by channel-specific outcomes. Direct knowledge-transfer mediators (analyst coverage and foreign institutional ownership) are conceptually preferred for mechanism identification, but they are not included in the current merged panel and are therefore reserved for future extensions.
 
