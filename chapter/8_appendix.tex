@@ -1,6 +1,7 @@
 \appendix
 
 \chapter*{Appendix}
+\markboth{Appendix}{Appendix}
 \label{chap:appendix}
 \phantomsection
 \addcontentsline{toc}{chapter}{Appendix}
@@ -29,7 +30,7 @@ To align the empirical design with recent spillover studies~\cite{WangWang2026,L
 \end{equation}
 and the exploratory interaction is $\mathrm{MSCI}_{i,t} \times \mathrm{PeerDT}_{i,t}^{\mathrm{(ind,loo)}}$.
 
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering
 \caption{Appendix: Exploratory Knowledge Spillover Proxy Regression}
 \label{tab:appendix_spillover_proxy}
@@ -52,3 +53,5 @@ $R^2$ & \multicolumn{3}{c}{0.3556} \\
 \item \textit{Notes:} OLS with firm-clustered standard errors; controls include size, ROA, cashflow/assets, Tobin's $Q$, independent directors, and ownership HHI, with industry, province, and year fixed effects. The interaction coefficient is positive but statistically insignificant, so this table is interpreted as exploratory context rather than direct mechanism identification.
 \end{tablenotes}
 \end{table}
+
+This appendix regression is reported as a descriptive robustness context only. Because the interaction estimate remains statistically insignificant and relies on proxy construction rather than direct mediators, the result should be read as directional background evidence for future mechanism integration.

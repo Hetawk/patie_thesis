@@ -4,8 +4,10 @@
 # Configuration
 MAIN = main
 BIB = reference
-LATEX = /Library/TeX/texbin/xelatex -interaction=nonstopmode
-BIBER = /Library/TeX/texbin/biber
+LATEX ?= xelatex -interaction=nonstopmode -file-line-error
+BIBER ?= biber
+BIBTEX ?= bibtex
+PYTHON = python3
 
 # Default target - build main thesis
 all: main
@@ -13,24 +15,42 @@ all: main
 # Build main thesis - force rebuild
 main:
 	@echo "Building UJN thesis (forced rebuild)..."
-	-$(LATEX) $(MAIN)
-	-$(BIBER) $(MAIN)
-	-$(LATEX) $(MAIN)
-	-$(LATEX) $(MAIN)
+	$(LATEX) $(MAIN)
+	$(BIBER) $(MAIN)
+	$(LATEX) $(MAIN)
+	$(LATEX) $(MAIN)
 	@echo "Thesis built: $(MAIN).pdf"
 
 # Build PDF (alias for main target)
 pdf: main
+
+# Regenerate Chapter 3 figures from CSV stats files
+figures-ch3:
+	@echo "Regenerating Chapter 3 figures from CSV files..."
+	@if [ -x ".venv/bin/python" ]; then \
+		.venv/bin/python figures/generate_ch3_figures.py; \
+	else \
+		$(PYTHON) figures/generate_ch3_figures.py; \
+	fi
+
+# Validate Chapter 3 figure CSV stats without writing PNG files
+figures-ch3-check:
+	@echo "Validating Chapter 3 figure statistics..."
+	@if [ -x ".venv/bin/python" ]; then \
+		.venv/bin/python figures/generate_ch3_figures.py --check-only; \
+	else \
+		$(PYTHON) figures/generate_ch3_figures.py --check-only; \
+	fi
 
 # Build main thesis with dependency checking (only rebuild if needed)
 main-check: $(MAIN).pdf
 
 $(MAIN).pdf: $(MAIN).tex chapter/*.tex $(BIB).bib
 	@echo "Building UJN thesis (dependency-based)..."
-	-$(LATEX) $(MAIN)
-	-$(BIBER) $(MAIN)
-	-$(LATEX) $(MAIN)
-	-$(LATEX) $(MAIN)
+	$(LATEX) $(MAIN)
+	$(BIBER) $(MAIN)
+	$(LATEX) $(MAIN)
+	$(LATEX) $(MAIN)
 	@echo "Thesis built: $(MAIN).pdf"
 
 # Quick compile without bibliography
@@ -122,6 +142,7 @@ clean-force:
 	@echo "🚫 Force cleaning - stopping auto-build and cleaning all files..."
 	@echo "Killing any running LaTeX processes..."
 	-pkill -f "$(LATEX).*main" 2>/dev/null || true
+	-pkill -f "$(BIBER).*main" 2>/dev/null || true
 	-pkill -f "$(BIBTEX).*main" 2>/dev/null || true
 	@echo "Removing all auxiliary files..."
 	rm -f *.aux *.bbl *.blg *.log *.out *.toc *.lof *.lot
@@ -157,6 +178,8 @@ help:
 	@echo
 	@echo "Development:"
 	@echo "  quick           - Quick compile thesis (no bibliography)"
+	@echo "  figures-ch3     - Regenerate Chapter 3 figure PNG files"
+	@echo "  figures-ch3-check - Validate Chapter 3 figure CSV statistics"
 	@echo
 	@echo "Utilities:"
 	@echo "  status          - Show thesis status and files"
@@ -175,4 +198,4 @@ help:
 	@echo "  Chapters: chapter/*.tex"
 
 # Declare phony targets
-.PHONY: all main pdf main-check quick view view-main status pages validate clean clean-force clean-all help
+.PHONY: all main pdf figures-ch3 figures-ch3-check main-check quick view view-main status pages validate clean clean-force clean-all help

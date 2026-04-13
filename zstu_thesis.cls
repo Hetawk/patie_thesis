@@ -134,6 +134,18 @@
   \end{list}\vspace{2pt}
 }
 
+% Float tuning: keep medium tables closer to surrounding text and reduce
+% single-float pages with large blank whitespace.
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.8}
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\setlength{\@fptop}{8pt}
+\setlength{\@fpsep}{8pt plus 1fil}
+\setlength{\@fpbot}{0pt plus 1fil}
+
 % Define headers and footers
 \fancypagestyle{tocstyle}{
 	\fancyhf{}
@@ -217,6 +229,7 @@
 \defbibheading{MyBibHeadingStyle}{
 	\phantomsection
 	\pdfbookmark[1]{References}{bookmark:References}
+    \markboth{References}{References}
 	\cftaddtitleline{toc}{chapter}{References}{\thepage}
 	\begin{center}
 		\heiti\zihao{3}\bfseries{References}
@@ -250,6 +263,7 @@
   \clearpage
   \phantomsection
   \addcontentsline{toc}{chapter}{List of Abbreviations}
+    \markboth{List of Abbreviations}{List of Abbreviations}
   \begin{center}
     \heiti\zihao{3}\bfseries List of Abbreviations
   \end{center}
@@ -299,6 +313,7 @@
 	\phantomsection
 	\pdfbookmark[1]{Acknowledgements}{bookmark:Acknowledgements}
 	\cftaddtitleline{toc}{chapter}{Acknowledgements}{\thepage}
+    \markboth{Acknowledgements}{Acknowledgements}
 	\begin{center}\heiti\zihao{3}\bfseries Acknowledgements\end{center}
 
 	\indent
@@ -355,17 +370,17 @@
 
     \vspace{0.8cm}
 
-    % 硕士学位论文 （专业学位）
+    % 硕士学位论文 （学术学位）
     \begin{center}
-        {\heiti\fontsize{36}{44}\selectfont 硕士学位论文}\\[0.6em]
-        {\heiti\zihao{3}（专业学位）}
+        {\heiti\bfseries\fontsize{42}{52}\selectfont 硕士学位论文}\\[0.6em]
+        {\heiti\fontsize{18}{22}\selectfont （学术学位）}
     \end{center}
 
     \vspace{1.0cm}
 
     % University logo
     \begin{center}
-        \includegraphics[width=0.18\textwidth]{figures/default/zstu_logo.jpg}
+        \includegraphics[width=0.24\textwidth]{figures/default/zstu_logo.jpg}
     \end{center}
 
     \vspace{1.0cm}

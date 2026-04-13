@@ -58,6 +58,24 @@ pdflatex main.tex
 rm -f *.aux *.log *.toc *.out *.bbl *.blg *.bcf *.run.xml *.synctex.gz *.fdb_latexmk *.fls *.idx *.ilg *.ind 2>/dev/null || true
 ```
 
+## Regenerate Chapter 3 Figures
+
+Chapter 3 figure PNG files are generated from CSV stats files using:
+
+```bash
+make figures-ch3-check
+make figures-ch3
+```
+
+`make figures-ch3-check` validates that the CSV statistics are internally consistent (sample shares, confidence interval bounds, and odds-ratio constraints) before any PNG output is written.
+
+This runs [figures/generate_ch3_figures.py](figures/generate_ch3_figures.py), which reads:
+- [figures/fig3_1_pre_liberalization_characteristics_stats.csv](figures/fig3_1_pre_liberalization_characteristics_stats.csv)
+- [figures/fig3_2_msci_rollout_timeline_stats.csv](figures/fig3_2_msci_rollout_timeline_stats.csv)
+- [figures/fig3_3_eligibility_logit_odds_ratios_stats.csv](figures/fig3_3_eligibility_logit_odds_ratios_stats.csv)
+
+and rewrites the matching PNG files in [figures](figures).
+
 ## Troubleshooting
 
 ### SVG Images with pdfLaTeX
