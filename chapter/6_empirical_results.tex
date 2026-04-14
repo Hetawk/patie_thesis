@@ -185,14 +185,14 @@ $R^2$ & 0.028 & 0.016 & 0.018 & 0.010 \\
 \midrule
 \multicolumn{5}{c}{\textbf{Panel C: Alternative Operationalizations}} \\
 \midrule
-\textbf{Variable} & \textbf{(9) Binary} & \textbf{(10) Z-score} &  &  \\
+\textbf{Variable} & \multicolumn{2}{c}{\textbf{(9) Binary}} & \multicolumn{2}{c}{\textbf{(10) Z-score}} \\
 \midrule
-MSCI $\times$ Post & 0.021*** (0.006) & 0.063*** (0.018) &  &  \\
-Firm-FE & Yes & Yes &  &  \\
-Year-FE & Yes & Yes &  &  \\
-Controls & Yes & Yes &  &  \\
-$N$ & 35,264 & 35,059 &  &  \\
-$R^2$ & 0.091 & 0.034 &  &  \\
+MSCI $\times$ Post & \multicolumn{2}{c}{0.021*** (0.006)} & \multicolumn{2}{c}{0.063*** (0.018)} \\
+Firm-FE & \multicolumn{2}{c}{Yes} & \multicolumn{2}{c}{Yes} \\
+Year-FE & \multicolumn{2}{c}{Yes} & \multicolumn{2}{c}{Yes} \\
+Controls & \multicolumn{2}{c}{Yes} & \multicolumn{2}{c}{Yes} \\
+$N$ & \multicolumn{2}{c}{35,264} & \multicolumn{2}{c}{35,059} \\
+$R^2$ & \multicolumn{2}{c}{0.091} & \multicolumn{2}{c}{0.034} \\
 \midrule
 \multicolumn{5}{c}{\textbf{Panel D: Mention-Based Measures}} \\
 \midrule
@@ -283,9 +283,10 @@ One concern specific to text-based outcomes is that MSCI inclusion may induce fi
 \caption{Disclosure-Length Control and Normalization}
 \label{tab:disclosure_length}
 \small
-\begin{tabular}{lcccc}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.30\textwidth}*{4}{>{\centering\arraybackslash}X}@{}}
 \toprule
-\textbf{Variable} & \textbf{(1) Log DT} & \textbf{(2) Log DT + Length} & \textbf{(3) Log DT/1k} & \textbf{(4) Log DT/1k + Length} \\
+\textbf{Variable} & \textbf{(1) Log DT} & \textbf{\shortstack{(2) Log DT\\+ Length}} & \textbf{(3) Log DT/1k} & \textbf{\shortstack{(4) Log DT/1k\\+ Length}} \\
 \midrule
 MSCI $\times$ Post & 0.0436 (0.0496) & 0.0656 (0.0494) & 0.0643* (0.0377) & 0.0516 (0.0375) \\
 Length-Normalized Outcome & No & No & Yes & Yes \\
@@ -296,7 +297,7 @@ Year-FE & Yes & Yes & Yes & Yes \\
 Province-FE & Yes & Yes & Yes & Yes \\
 $N$ & 34,503 & 34,503 & 34,503 & 34,503 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \begin{tablenotes}
 \small
 \item \textit{Notes:} Entries report MSCI $\times$ Post coefficients with firm-clustered standard errors in parentheses. The disclosure proxy is $\log(1 + \mathrm{total\ character\ count})$. Significance: *** $p < 0.01$, ** $p < 0.05$, * $p < 0.10$.
@@ -311,6 +312,30 @@ To evaluate inference sensitivity, standard errors are re-clustered at the indus
 
 Sample-composition robustness gives the same qualitative conclusion. Excluding firms listed during or after 2016 (to limit anticipation and listing-cohort contamination), excluding STAR Market firms, and restricting the sample to manufacturing all preserve the sign and substantive interpretation of the treatment effect. Collectively, these checks support structural stability of the main result across plausible inference and sample-design choices.
 
+\begin{table}[H]
+\centering
+\caption*{Robustness Check Summary: Alternative Clustering and Sample Restrictions}
+\small
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.36\textwidth}>{\centering\arraybackslash}p{0.18\textwidth}>{\centering\arraybackslash}p{0.16\textwidth}X}
+\toprule
+\textbf{Robustness Check} & \textbf{Reported Effect} & \textbf{Inference} & \textbf{Interpretation} \\
+\midrule
+Industry-clustered SE & 0.394 (baseline point estimate) & Significant & Inference remains robust to clustering at industry level \\
+Province-clustered SE & 0.394 (baseline point estimate) & Significant & Inference remains robust to clustering at province level \\
+Industry-year clustered SE & 0.394 (baseline point estimate) & Significant & Inference remains robust to clustering at industry-year level \\
+Exclude firms listed during/after 2016 & Positive sign preserved & Qualitatively consistent & No sign reversal under listing-cohort restriction \\
+Exclude STAR Market firms & Positive sign preserved & Qualitatively consistent & No sign reversal after excluding STAR firms \\
+Manufacturing-only sample & Positive sign preserved & Qualitatively consistent & Core treatment interpretation remains intact in manufacturing subsample \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+\small
+\item \textit{Notes:} This table summarizes robustness findings reported in Section~6.3.7. It is a compact reporting table, not a replacement for full coefficient output tables.
+\end{tablenotes}
+\end{table}
+
+\FloatBarrier
+
 \section{Heterogeneity Analysis}
 
 This section examines cross-sectional heterogeneity in treatment effects across regions, industries, and firm characteristics. Rather than relying only on average effects, it identifies boundary conditions under which liberalization produces stronger or weaker digital transformation responses, thereby strengthening mechanism interpretation and policy relevance.
@@ -319,24 +344,30 @@ This section examines cross-sectional heterogeneity in treatment effects across 
 
 To make heterogeneity interpretation explicit before reading coefficients, Table~\ref{tab:heterogeneity} is organized in two panels under a common estimation design. Panel~A reports region-specific treatment responses (East/Central/West), while Panel~B reports industry and technology-contrast interactions using the same fixed-effect and control structure. Because the dependent variable is in keyword-count units, economic magnitudes can be benchmarked by dividing coefficients by the pre-treatment control mean (12.78 keywords).
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \caption{Heterogeneity of MSCI Inclusion Effects}
 \label{tab:heterogeneity}
 \small
 \setlength{\tabcolsep}{3.2pt}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth}*{3}{>{\centering\arraybackslash}X}@{}}
+\toprule
+\multicolumn{4}{c}{\textbf{Panel A: Regional Subsamples}} \\
+\midrule
+\textbf{Variable} & \textbf{(1) East} & \textbf{(2) Central} & \textbf{(3) West} \\
+\midrule
+MSCI $\times$ Post & 16.084*** (2.125) & 11.210*** (1.559) & 6.185*** (1.955) \\
+Firm-FE & Yes & Yes & Yes \\
+Year-FE & Yes & Yes & Yes \\
+Controls & Yes & Yes & Yes \\
+$N$ & 17,334 & 8,828 & 8,442 \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.5em}
+
 \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.24\textwidth}*{5}{>{\centering\arraybackslash}X}@{}}
 \toprule
-\multicolumn{6}{c}{\textbf{Panel A: Regional Subsamples}} \\
-\midrule
-\textbf{Variable} & \textbf{(1) East} & \textbf{(2) Central} & \textbf{(3) West} & \multicolumn{2}{c}{} \\
-\midrule
-MSCI $\times$ Post & 16.084*** (2.125) & 11.210*** (1.559) & 6.185*** (1.955) & \multicolumn{2}{c}{} \\
-Firm-FE & Yes & Yes & Yes & \multicolumn{2}{c}{} \\
-Year-FE & Yes & Yes & Yes & \multicolumn{2}{c}{} \\
-Controls & Yes & Yes & Yes & \multicolumn{2}{c}{} \\
-$N$ & 17,334 & 8,828 & 8,442 & \multicolumn{2}{c}{} \\
-\midrule
 \multicolumn{6}{c}{\textbf{Panel B: Industry and Technology Contrasts}} \\
 \midrule
 \textbf{Variable} & \textbf{(4) C39} & \textbf{(5) C38} & \textbf{(6) C27} & \textbf{\shortstack{(7) High-Low\\Tech}} & \textbf{\shortstack{(8) High-Low\\Comp.}} \\
@@ -380,7 +411,7 @@ Table~\ref{tab:tech_intensity} decomposes heterogeneity at three levels to avoid
 \label{tab:tech_intensity}
 \small
 \setlength{\tabcolsep}{4.5pt}
-\begin{tabular}{lcccc}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}*{4}{>{\centering\arraybackslash}X}@{}}
 \toprule
 \multicolumn{5}{c}{\textbf{Panel A: Broad Industry Groups}} \\
 \midrule
@@ -401,18 +432,24 @@ Firm-FE & Yes & Yes & Yes & Yes \\
 Year-FE & Yes & Yes & Yes & Yes \\
 Controls & Yes & Yes & Yes & Yes \\
 $N$ & 17,334 & 8,828 & 8,442 & 34,604 \\
-\midrule
-\multicolumn{5}{c}{\textbf{Panel C: Manufacturing Technology Subcategories}} \\
-\midrule
-\textbf{Variable} & \textbf{(9) C3} & \textbf{(10) C2} & \textbf{(11) C1} &  \\
-\midrule
-MSCI $\times$ Post & 12.638*** (1.168) & 0.930 (0.592) & 1.092 (1.129) &  \\
-Firm-FE & Yes & Yes & Yes &  \\
-Year-FE & Yes & Yes & Yes &  \\
-Controls & Yes & Yes & Yes &  \\
-$N$ & 14,019 & 6,952 & 2,322 &  \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
+
+\vspace{0.5em}
+
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}*{3}{>{\centering\arraybackslash}X}@{}}
+\toprule
+\multicolumn{4}{c}{\textbf{Panel C: Manufacturing Technology Subcategories}} \\
+\midrule
+\textbf{Variable} & \textbf{(9) C3} & \textbf{(10) C2} & \textbf{(11) C1} \\
+\midrule
+MSCI $\times$ Post & 12.638*** (1.168) & 0.930 (0.592) & 1.092 (1.129) \\
+Firm-FE & Yes & Yes & Yes \\
+Year-FE & Yes & Yes & Yes \\
+Controls & Yes & Yes & Yes \\
+$N$ & 14,019 & 6,952 & 2,322 \\
+\bottomrule
+\end{tabularx}
 \begin{tablenotes}
 \small
 \item \textit{Notes:} Entries report coefficients with standard errors in parentheses. Panel~A joint test: $F = 97.26$ ($p < 0.001$). Panel~C cross-category test: $F = 147.21$ ($p < 0.001$). All specifications include firm and year fixed effects with the full control set. Pre-treatment control mean is 12.78 keywords. Significance: *** $p < 0.01$, ** $p < 0.05$, * $p < 0.10$.
@@ -427,9 +464,29 @@ Panels~A and~B provide additional structure to this interpretation. In Panel~A, 
 
 Across firm-characteristic dimensions, MSCI effects are stronger for: (i)~financially constrained firms (higher KZ index at baseline), consistent with larger marginal value of international capital access; (ii)~firms with weaker pre-treatment governance (lower independent director ratio), reflecting greater room for governance improvement; and (iii)~firms with lower pre-treatment digital transformation scores, consistent with convergence dynamics. These patterns collectively point to the financing and governance channels as the primary drivers of cross-firm variation in treatment effects.
 
+\begin{table}[htbp]
+\centering
+\caption*{Evidence Mapping: Firm-Characteristic Heterogeneity}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.30\textwidth}>{\centering\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Firm-Characteristic Dimension} & \textbf{Pattern Reported} & \textbf{Evidence Source in Chapter 6} & \textbf{Interpretive Meaning} \\
+\midrule
+Financial constraints (higher baseline KZ) & Stronger effects & Financing-channel signals in Table~\ref{tab:financing_channel} ($-0.0318^{***}$ Bank Leverage; $+0.0201^{***}$ CashFlow/Assets) & Consistent with larger gains where pre-treatment financing frictions are tighter. \\
+Pre-treatment governance quality (lower indep.\ director ratio) & Stronger effects & Governance-channel signals in Table~\ref{tab:governance_channel} ($+1.8238^{***}$ Indep.\ Dir.\ Ratio; $-0.0302^{***}$ Top-10 HHI) & Consistent with larger treatment conversion where baseline governance is weaker. \\
+Pre-treatment digitalization level (lower baseline DT) & Stronger effects & Directional subgroup pattern described in Section~6.4.4 text & Suggestive catch-up dynamics; standalone subgroup-coefficient table is not separately reported in the current draft. \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+\small
+\item \textit{Notes:} This table maps the interpretation in Section~6.4.4 to supporting evidence already reported elsewhere in Chapter~6. It is an interpretive linkage table and does not claim to be a standalone interaction-regression output matrix.
+\end{tablenotes}
+\end{table}
+
 \section{Mechanism Evidence}
 
-The three theoretical channels---financing constraint relaxation, governance improvement, and knowledge spillovers---generate distinct empirical predictions. This thesis directly tests the first two channels by estimating Equation~(\ref{eq:twfe_did}) with channel-specific proxy outcomes. For the knowledge-spillover channel, the current sample provides exploratory evidence with suggestive interpretation rather than direct-mediator coefficient estimates.
+The three theoretical channels---financing constraint relaxation, governance improvement, and knowledge spillovers---generate distinct empirical predictions. This thesis directly tests the first two channels by estimating Equation~(\ref{eq:twfe_did}) with channel-specific proxy outcomes. The knowledge-spillover channel remains part of the conceptual framework, but its direct empirical test is deferred because the current merged panel does not include direct mediator variables such as analyst coverage and foreign institutional ownership.
 
 \begin{figure}[htbp]
 \centering
@@ -511,13 +568,38 @@ $N$ & 26,522 & 20,136 & 34,753 \\
 
 Governance estimates are consistently in the predicted direction and statistically significant. MSCI-included firms add independent directors ($+$0.0518***, $p = 0.0007$); while the per-firm annual increment is modest, the estimate is precise across a large sample ($N=26{,}522$). More importantly, the independent-director share rises by 1.8238 percentage points ($p = 0.0012$), showing that the result is not merely a larger board but a higher governance-independence share. The Top-10 Ownership HHI declines ($-$0.0302***, $p < 0.001$), implying measurable ownership dispersion and broader scope for minority-shareholder oversight. Taken jointly, these three proxies provide convergent evidence that the governance channel is both statistically stable and economically interpretable in this dataset.
 
-\subsection{Knowledge Spillover Channel: Exploratory Evidence}
+\subsection{Knowledge Spillover Channel: Deferred Direct Test and Data Requirements}
 
-The knowledge-spillover mechanism remains theoretically central to the thesis. Recent evidence shows that digital transformation can generate information spillovers across firms and market participants~\cite{WangWang2026}, and that spillover intensity may vary with strategic competition conditions in manufacturing settings~\cite{LiuGu2026}, reinforcing the conceptual relevance of this channel in our setting. In the current sample, this channel is assessed with exploratory evidence and interpreted as suggestive rather than definitive.
+The knowledge-spillover mechanism remains theoretically central to the thesis, but it is not directly estimated in the baseline mechanism regressions. Recent evidence shows that digital transformation can generate information spillovers across firms and market participants~\cite{WangWang2026}, and that spillover intensity may vary with strategic competition conditions in manufacturing settings~\cite{LiuGu2026}, reinforcing the conceptual relevance of this channel in our setting. A direct mechanism test requires mediator variables that map to the chain MSCI inclusion $\to$ external information intermediaries/investors $\to$ firm learning and implementation. In this context, analyst coverage (and optionally analyst forecast dispersion) and foreign institutional ownership are the preferred first-stage mediators. Because these variables are not yet integrated into the current merged panel, this thesis does not report a direct knowledge-channel coefficient and avoids proxy substitution that could blur causal interpretation.
 
-As a supplementary check, Appendix Table~\ref{tab:appendix_spillover_proxy} reports an exploratory peer-spillover proxy regression based on leave-one-out industry-year peer digitalization. The interaction term (MSCI $\times$ PeerDT) is positive but statistically insignificant ($p = 0.114$), so it is interpreted as suggestive rather than conclusive mechanism evidence.
+For transparency, the intended measurement protocol is as follows: analyst coverage is defined as the number of analysts issuing firm-year forecasts; analyst forecast dispersion is the cross-analyst standard deviation of earnings forecasts; foreign institutional ownership is the fraction of shares held by foreign institutions in each firm-year; and cross-border exposure proxies include export intensity, overseas subsidiary presence, and foreign director participation. These variables are conceptually close to the mechanism chain and therefore preferred over indirect substitutes. As a supplementary check, Appendix Table~\ref{tab:appendix_spillover_proxy} reports an exploratory peer-spillover proxy regression based on leave-one-out industry-year peer digitalization. The interaction term (MSCI $\times$ PeerDT) is positive but statistically insignificant ($p = 0.114$), so it is reported only as directional context rather than direct mechanism evidence. The deferred design choice is methodological rather than substantive: the thesis prioritizes identification quality by reporting no direct-mediator coefficient instead of reporting a weakly interpretable proxy-based estimate.
 
-Taken together, Section~6.5 provides direct mechanism evidence for financing and governance channels. For the knowledge-spillover channel, current evidence is exploratory and should be interpreted as suggestive rather than definitive.
+To keep this deferred channel analytically transparent, Table~\ref{tab:knowledge_deferred} reports a structured measurement-and-identification roadmap rather than a placeholder pseudo-regression.
+
+\begin{table}[!htbp]
+\centering
+\caption{Knowledge Spillover Channel: Direct-Test Data and Identification Requirements}
+\label{tab:knowledge_deferred}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\centering\arraybackslash}m{1.7cm}>{\raggedright\arraybackslash}X>{\centering\arraybackslash}m{2.0cm}>{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Mediator (Preferred)} & \textbf{Mechanism Mapping} & \textbf{Expected Sign} & \textbf{Candidate Data Source} & \textbf{Current Status} & \textbf{Planned Empirical Test} \\
+\midrule
+Analyst coverage (and optionally analyst forecast dispersion) & MSCI inclusion $\to$ external information production $\to$ firm learning and implementation & $+$ (coverage), $-$ (dispersion) & CSMAR analyst module / CNRDS analyst files & Not yet merged & DID and event-study on mediator; mediation-consistency test with digital-transformation outcomes \\
+Foreign institutional ownership share & MSCI inclusion $\to$ foreign monitoring and benchmarking pressure $\to$ managerial upgrading & $+$ & CSMAR ownership module / WIND foreign holding data & Not yet merged & DID on ownership response; interaction and mechanism regressions with firm and year FE \\
+Cross-border exposure proxies (exports, overseas subsidiaries, foreign directors) & MSCI inclusion $\to$ global network exposure $\to$ knowledge diffusion & $+$ & CSMAR segment/disclosure modules; annual-report hand-collected fields & Partially available, not harmonized & Supplementary mechanism test after variable harmonization and missing-data diagnostics \\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}
+\small
+\item \textit{Notes:} This table specifies the mediator architecture for the knowledge-spillover channel, including variable definitions, expected effect directions, candidate data sources, and planned empirical tests. Presenting the design at this stage preserves causal coherence while direct mediator series are being harmonized in the merged panel.
+\end{tablenotes}
+\end{table}
+
+The row-by-row design in Table~\ref{tab:knowledge_deferred} clarifies what is missing and why. Analyst variables identify the information-production margin, foreign ownership identifies monitoring and benchmarking pressure, and cross-border exposure identifies network-based diffusion. Reporting these rows explicitly improves interpretability relative to an ``NA'' coefficient table because it links each mediator to a concrete data source, expected sign, and planned test design.
+
+Taken together, Section~6.5 provides direct mechanism evidence for financing and governance channels. For the knowledge-spillover channel, the thesis now provides a transparent identification roadmap and data requirements, and reserves coefficient reporting for future work once direct mediators are fully integrated.
 
 \paragraph{Cross-Channel Summary}
 
@@ -528,36 +610,26 @@ To synthesize mechanism evidence without conflating unlike units, Table~\ref{tab
 \caption{Mechanism Analysis: Cross-Channel Summary}
 \label{tab:cross_channel}
 \small
-\begin{tabular}{lccc}
+\begin{tabular}{llcccc}
 \toprule
-\multicolumn{4}{c}{\textbf{Panel A: Financing Proxies}} \\
+\textbf{Channel} & \textbf{Variable} & \textbf{Coeff.} & \textbf{SE} & \textbf{$p$-val} & \textbf{$N$} \\
 \midrule
-\textbf{Variable} & \textbf{(1) KZ Index} & \textbf{(2) Bank Leverage} & \textbf{(3) CashFlow/Assets} \\
-\midrule
-MSCI $\times$ Post & $-$0.0385 (0.0733) & $-$0.0318*** (0.0027) & 0.0201*** (0.0035) \\
-Industry-FE & Yes & Yes & Yes \\
-Year-FE & Yes & Yes & Yes \\
-Province-FE & Yes & Yes & Yes \\
-$N$ & 28,339 & 23,552 & 34,770 \\
-\midrule
-\multicolumn{4}{c}{\textbf{Panel B: Governance Proxies}} \\
-\midrule
-\textbf{Variable} & \textbf{(4) Indep. Dir. Count} & \textbf{(5) Indep. Dir. Ratio} & \textbf{(6) Top-10 HHI} \\
-\midrule
-MSCI $\times$ Post & 0.0518*** (0.0152) & 1.8238*** (0.5627) & $-$0.0302*** (0.0054) \\
-Industry-FE & Yes & Yes & Yes \\
-Year-FE & Yes & Yes & Yes \\
-Province-FE & Yes & Yes & Yes \\
-$N$ & 26,522 & 20,136 & 34,753 \\
+Financing & KZ Index & $-$0.0385 & 0.0733 & 0.5992 & 28,339 \\
+Financing & Bank Leverage & $-$0.0318*** & 0.0027 & 0.000 & 23,552 \\
+Financing & CashFlow / Assets & 0.0201*** & 0.0035 & 0.000 & 34,770 \\
+Governance & $N$(Indep.\ Directors) & 0.0518*** & 0.0152 & 0.0007 & 26,522 \\
+Governance & Indep.\ Director Ratio (\%) & 1.8238*** & 0.5627 & 0.0012 & 20,136 \\
+Governance & Top-10 Ownership HHI & $-$0.0302*** & 0.0054 & 0.000 & 34,753 \\
+Knowledge (Deferred) & Direct mediators pending integration & -- & -- & -- & -- \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}
 \small
-\item \textit{Notes:} Entries report MSCI $\times$ Post coefficients with firm-clustered standard errors in parentheses. Panels~A and~B summarize directly estimated mechanisms under a common fixed-effect structure. Significance: *** $p < 0.01$, ** $p < 0.05$, * $p < 0.10$.
+\item \textit{Notes:} All reported coefficients come from regressions with Industry+Year+Province FE and firm-clustered standard errors. Across the six directly tested proxies, five are significant at the 1\% level and all are directionally consistent with theory. The deferred knowledge row is a status indicator, not a regression estimate.
 \end{tablenotes}
 \end{table}
 
-Table~\ref{tab:cross_channel} shows a clear ranking in empirical strength. In financing, two of three proxies are significant and both indicate easing of funding constraints through lower bank-debt reliance and higher internal liquidity, while the composite KZ index remains imprecise. In governance, all three proxies are significant and theory-consistent, making governance the most robust mechanism block in this sample.
+Table~\ref{tab:cross_channel} shows a clear ranking in empirical strength. In financing, two of three proxies are significant and both indicate easing of funding constraints through lower bank-debt reliance and higher internal liquidity, while the composite KZ index remains imprecise. In governance, all three proxies are significant and theory-consistent, making governance the most robust mechanism block in this sample. The deferred knowledge row is deliberately non-estimated and should be interpreted as a data-integration status marker rather than a null mechanism finding.
 
 \section{Discussion}
 

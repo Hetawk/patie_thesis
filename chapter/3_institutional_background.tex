@@ -78,10 +78,11 @@ To formalize channel and moderation logic in advance, let $M^{k}_{it}$ denote ch
 
 The data profiles in Section~3.1 and Section~3.2 motivate the main-effect hypothesis from two complementary facts: (i) the treatment rollout is sharply time-delimited to the post-2018 window (Figure~\ref{fig:sec32_rollout_timeline}); and (ii) inclusion is strongly tied to mechanical market-scale and liquidity criteria (Figure~\ref{fig:sec32_criteria_logit}). Together, these features support interpreting MSCI inclusion as an external capital-access shock suitable for DID-style causal testing rather than discretionary selection on firms' digital strategy.
 
-From an intertemporal corporate-finance perspective, firms choose digital investment by comparing expected discounted benefits against financing and implementation costs. A reduced-form decision representation is:
-\[
-D^*_{it} = \arg\max_D \left\{\mathbb{E}[\Pi_{it+1}(D)] - C\big(D; r_{it}, \phi_{it}\big)\right\},
-\]
+From an intertemporal corporate-finance perspective, firms choose digital investment by comparing expected discounted benefits against financing and implementation costs. A reduced-form decision representation is given by Equation~(\ref{eq:reduced_form_investment_choice}):
+\begin{equation}
+\label{eq:reduced_form_investment_choice}
+D^*_{it} = \arg\max_D \left\{\mathbb{E}[\Pi_{it+1}(D)] - C\big(D; r_{it}, \phi_{it}\big)\right\}
+\end{equation}
 where $r_{it}$ is the effective external financing cost and $\phi_{it}$ captures governance/implementation frictions. Liberalization can reduce segmentation-related frictions, improve liquidity, and broaden investor participation, which jointly lower the user cost of capital and expand the feasible digital project set~\cite{Long2024,Zhu2023,Yin2023,HLiu2024}. In addition, greater exposure to international investors can tighten strategic monitoring and reduce agency-related underinvestment in long-horizon intangibles~\cite{Chen2025,Stiglitz2004,ChengMasron2023}.
 
 Because digital transformation requires high fixed costs, complementary organizational change, and uncertain payoffs, it is especially sensitive to financing conditions and governance quality~\cite{Yang2023,Verhoef2021,XueZhang2024}. Under standard comparative statics, if $\partial D^*/\partial r < 0$ and $\partial D^*/\partial \phi < 0$, and MSCI inclusion decreases both $r$ and $\phi$, then the expected sign is $\partial D^*/\partial X > 0$. This prediction is theory-consistent but not deterministic: weak absorptive capacity or short-horizon managerial incentives can dampen pass-through in some firms, which is why average and heterogeneous effects are separately hypothesized.
@@ -98,10 +99,11 @@ The expected empirical signature of H1 has three components. First, in two-way f
 
 The mechanism analysis distinguishes three transmission channels: financing-constraint relaxation, governance improvement, and knowledge spillovers. The structural differences shown in Figure~\ref{fig:sec31_segmentation_stats} and the rule-based eligibility profile in Figure~\ref{fig:sec32_criteria_logit} indicate that capital-access and monitoring channels are empirically plausible in this setting. Chapter~\ref{chap:empirical_results} reports formal channel regressions for financing and governance and treats knowledge-channel evidence as exploratory in the current sample.
 
-Conceptually, the average treatment effect can be decomposed as:
-\[
-\frac{\partial Y}{\partial X} = \sum_{k \in \{\mathrm{Fin},\mathrm{Gov},\mathrm{Know}\}} \frac{\partial Y}{\partial M^k}\frac{\partial M^k}{\partial X} + \left.\frac{\partial Y}{\partial X}\right|_{\mathrm{direct}}.
-\]
+Conceptually, the average treatment effect can be decomposed as Equation~(\ref{eq:channel_decomposition}):
+\begin{equation}
+\label{eq:channel_decomposition}
+\frac{\partial Y}{\partial X} = \sum_{k \in \{\mathrm{Fin},\mathrm{Gov},\mathrm{Know}\}} \frac{\partial Y}{\partial M^k}\frac{\partial M^k}{\partial X} + \left.\frac{\partial Y}{\partial X}\right|_{\mathrm{direct}}
+\end{equation}
 This decomposition is useful because it separates total reduced-form effects from channel-specific evidence and clarifies what can be tested with currently available mediator data.
 
 \textbf{Hypothesis 2 (H2 --- Impact Mechanism):} The positive effect of capital market liberalization on digital transformation operates through three channels: (i) financing-constraint relaxation, (ii) governance improvement via external monitoring, and (iii) knowledge-spillover effects from global investor and information networks.
@@ -122,11 +124,7 @@ Two design choices follow from this framework. First, financing and governance c
 
 \textbf{Moderated causal form:} $\partial Y / \partial X = f(H)$, where $H$ denotes regional institutional quality, industry technology intensity, and firm absorptive-capacity characteristics.
 
-The heterogeneity hypothesis follows a complementarity argument: liberalization relaxes one constraint (capital access), but conversion into realized digital upgrading depends on local and firm-level complements. In a simple interaction representation,
-\[
-Y_{it} = \alpha + \beta X_{it} + \theta H_{it} + \lambda (X_{it}\times H_{it}) + \varepsilon_{it},
-\]
-the moderated-response prediction is $\lambda > 0$ when $H$ captures stronger institutions, higher technology intensity, or greater organizational readiness. This is consistent with the broader literature that policy shocks have larger real effects where implementation capacity is higher~\cite{Stiglitz2000,Zhang2024,Du2024}.
+The heterogeneity hypothesis follows a complementarity argument: liberalization relaxes one constraint (capital access), but conversion into realized digital upgrading depends on local and firm-level complements. Under a standard interaction specification, the moderated-response prediction is $\lambda > 0$ when $H$ captures stronger institutions, higher technology intensity, or greater organizational readiness. This is consistent with the broader literature that policy shocks have larger real effects where implementation capacity is higher~\cite{Stiglitz2000,Zhang2024,Du2024}.
 
 At the regional level, stronger institutions, deeper digital infrastructure, and richer human-capital pools should raise the pass-through from capital access to implementation. At the industry level, technology-intensive sectors should display larger responses because digital investment and product-market strategy are more tightly complementary. At the firm level, baseline scale, governance quality, and organizational capability can lower adjustment costs and increase project persistence~\cite{Gao2024,Jin2023}. These mechanisms imply that pooled averages are informative but incomplete; economically meaningful effects may be concentrated in high-capacity environments.
 
