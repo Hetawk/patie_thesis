@@ -28,6 +28,8 @@
 
 % Keep inter-word spacing visually consistent throughout the thesis.
 \frenchspacing
+% Avoid stretchable paragraph gaps that can create uneven white space on sparse pages.
+\setlength{\parskip}{0pt}
 
 % Title for header (even pages show this)
 \title{Does Capital Market Liberalization Drive Digital Transformation? Evidence from Chinese A-Shares' Inclusion in the MSCI Emerging Markets Index}
@@ -84,7 +86,9 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 \include{chapter/1_introduction.tex}
+\raggedbottom
 \include{chapter/2_literature_review.tex}
+\flushbottom
 \include{chapter/3_institutional_background.tex}
 \include{chapter/4_research_design_1.tex}
 \include{chapter/5_research_design_2.tex}
