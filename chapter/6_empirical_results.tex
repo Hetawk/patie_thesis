@@ -11,48 +11,46 @@ This section establishes the benchmark effect size and statistical reliability o
 
 \subsection{Main Effect: MSCI Inclusion Increases DT\_Comp by 0.39 Log Points ($\approx$48\%)}
 
-The central empirical question is whether MSCI inclusion produces a statistically and economically meaningful rise in corporate digital transformation after controlling for firm-specific characteristics and common time shocks. Equation~(\ref{eq:twfe_did}) provides the main estimate by exploiting the quasi-experimental timing of phased MSCI inclusion, with firm and year fixed effects absorbing persistent firm differences and aggregate shocks. To assess specification sensitivity, three nested models are estimated: a parsimonious FE model, a preferred model with the full time-varying control set from Chapter~\ref{chap:research_design_1}, and a fully saturated model with industry-by-year and province-by-year interactions.
+The central empirical question is whether MSCI inclusion produces a statistically and economically meaningful rise in corporate digital transformation after controlling for firm-specific characteristics and common time shocks. Equation~(\ref{eq:twfe_did}) provides the main estimate by exploiting the quasi-experimental timing of phased MSCI inclusion, with firm and year fixed effects absorbing persistent firm differences and aggregate shocks. To assess specification sensitivity, two nested models are estimated: a parsimonious FE model and a preferred model with the full time-varying control set from Chapter~\ref{chap:research_design_1}.
 
 \begin{table}[htbp]
 \centering
 \caption{Baseline Difference-in-Differences Estimates}
 \label{tab:baseline_did}
 \small
-\begin{tabular}{lccc}
+\begin{tabular}{lcc}
 \toprule
-\textbf{Variable} & \textbf{(1) DT} & \textbf{(2) DT} & \textbf{(3) DT} \\
+\textbf{Variable} & \textbf{(1) DT} & \textbf{(2) DT} \\
 \midrule
-MSCI $\times$ Post & 0.705*** (0.038) & 0.394*** (0.039) & 0.044 (0.030) \\
-Size & & 0.260*** (0.009) & 0.232*** (0.008) \\
-ROA & & $-$0.123*** (0.016) & $-$0.019*** (0.007) \\
-ROE & & 0.005 (0.014) & $-$0.000 (0.005) \\
-CashFlow & & 0.175*** (0.009) & 0.024*** (0.007) \\
-Leverage & & $-$0.264*** (0.008) & $-$0.075*** (0.007) \\
-TobinQ & & 0.006 (0.017) & $-$0.006 (0.007) \\
-Ownership & & $-$0.225*** (0.008) & $-$0.054*** (0.006) \\
-BoardSize & & $-$0.003 (0.007) & 0.039*** (0.006) \\
-FirmAge & & $-$0.089*** (0.008) & $-$0.057*** (0.007) \\
-Firm-FE & Yes & Yes & Yes \\
-Year-FE & Yes & Yes & Yes \\
-Industry $\times$ Year FE & No & No & Yes \\
-Province $\times$ Year FE & No & No & Yes \\
-$N$ & 34,503 & 34,503 & 34,503 \\
-$R^2$ & 0.010 & 0.091 & 0.504 \\
+MSCI $\times$ Post & 0.705*** (0.038) & 0.394*** (0.039) \\
+Size & & 0.260*** (0.009) \\
+ROA & & $-$0.123*** (0.016) \\
+ROE & & 0.005 (0.014) \\
+CashFlow & & 0.175*** (0.009) \\
+Leverage & & $-$0.264*** (0.008) \\
+TobinQ & & 0.006 (0.017) \\
+Ownership & & $-$0.225*** (0.008) \\
+BoardSize & & $-$0.003 (0.007) \\
+FirmAge & & $-$0.089*** (0.008) \\
+Firm-FE & Yes & Yes \\
+Year-FE & Yes & Yes \\
+$N$ & 34,503 & 34,503 \\
+$R^2$ & 0.010 & 0.091 \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}
 \small
-\item \textit{Notes:} Dependent variable is DT Index (log-transformed), $DT\_Comp = \log(1 + \Sigma\;\mathrm{keywords})$. Coefficients are in log points; to convert to percentage effects, use $\exp(\beta) - 1$. Column~(1) is the baseline without controls; Column~(2) is the preferred specification with full controls; Column~(3) includes high-dimensional interactive fixed effects and is interpreted as a conservative lower bound. Robust standard errors clustered at the firm level. Significance: *** $p < 0.01$, ** $p < 0.05$, * $p < 0.10$.
+\item \textit{Notes:} Dependent variable is DT Index (log-transformed), $DT\_Comp = \log(1 + \Sigma\;\mathrm{keywords})$. Coefficients are in log points; to convert to percentage effects, use $\exp(\beta) - 1$. Column~(1) is the baseline without controls; Column~(2) is the preferred specification with full controls. Robust standard errors clustered at the firm level. Significance: *** $p < 0.01$, ** $p < 0.05$, * $p < 0.10$.
 \end{tablenotes}
 \end{table}
 
-The estimates in Table~\ref{tab:baseline_did} compare the three baseline DID models. Column~(1), which includes firm and year fixed effects but no time-varying controls, yields a coefficient of 0.705 ($\mathrm{s.e.} = 0.038$, $p < 0.001$), equivalent to about $\exp(0.705)-1 \approx 102\%$ in the log-transformed digital-transformation index.
+The estimates in Table~\ref{tab:baseline_did} compare the two baseline DID models. Column~(1), which includes firm and year fixed effects but no time-varying controls, yields a coefficient of 0.705 ($\mathrm{s.e.} = 0.038$, $p < 0.001$), equivalent to about $\exp(0.705)-1 \approx 102\%$ in the log-transformed digital-transformation index.
 
-Adding rich time-varying controls in Column~(2) reduces the coefficient to 0.394 ($\mathrm{s.e.} = 0.039$, $p < 0.001$). This is the preferred specification because it balances covariate adjustment with preservation of meaningful treatment variation; the implied effect is $\exp(0.394)-1 \approx 48\%$. Column~(3) adds industry$\times$year and province$\times$year fixed effects and returns a smaller, statistically insignificant estimate (0.044; $\mathrm{s.e.} = 0.030$). We interpret Column~(3) as a conservative lower-bound diagnostic: because MSCI eligibility is correlated with industry composition, high-dimensional interactions may absorb part of the treatment-induced variation.
+Adding rich time-varying controls in Column~(2) reduces the coefficient to 0.394 ($\mathrm{s.e.} = 0.039$, $p < 0.001$). This is the preferred specification because it balances covariate adjustment with preservation of meaningful treatment variation; the implied effect is $\exp(0.394)-1 \approx 48\%$.
 
 \subsection{Stability Across Specifications and Control Sets}
 
-Key control variable coefficients align with theoretical expectations throughout. Firm size (log assets) enters positively (0.260 and 0.232 in columns 1 and 2), consistent with scale economies in digital investment. Leverage enters negatively ($-$0.264 and $-$0.075), confirming that financially constrained firms invest less in digital transformation. Cash flow enters positively (0.175 and 0.024), supporting the internal financing channel. Importantly, the sign stability of core controls across nested specifications suggests that the baseline treatment coefficient is not being generated by unstable model fit or extreme sensitivity to covariate inclusion.
+Key control variable coefficients align with theoretical expectations. Firm size (log assets) enters positively (0.260), consistent with scale economies in digital investment. Leverage enters negatively ($-$0.264), confirming that financially constrained firms invest less in digital transformation. Cash flow enters positively (0.175), supporting the internal financing channel. The sign stability of core controls is consistent with theoretical predictions and suggests that the baseline treatment coefficient is not being generated by unstable model fit or extreme sensitivity to covariate inclusion.
 
 \subsection{Economic Interpretation and Practical Significance}
 
