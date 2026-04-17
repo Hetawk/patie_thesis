@@ -9,7 +9,7 @@ The interpretive logic is sequential and cross-validating. Baseline estimates es
 
 This section reports the benchmark treatment effect under nested DID specifications. Comparing parsimonious and fully controlled models helps assess whether the estimated effect is sensitive to covariate structure and fixed-effect saturation.
 
-\subsection{Main Effect: MSCI Inclusion Increases DT\_Comp by 0.39 Log Points (Approximately 48 Percent)}
+\subsection{Main Effect}
 
 The central empirical question is whether MSCI inclusion produces a meaningful rise in corporate digital transformation after controlling for firm characteristics and common time shocks. Equation~(\ref{eq:twfe_did}) provides the main estimate by exploiting the quasi-experimental timing of phased MSCI inclusion, with firm and year fixed effects absorbing persistent firm differences and aggregate shocks. Two nested models are estimated: a parsimonious FE model and a preferred model with the full time-varying control set from Chapter~\ref{chap:research_design_1}.
 
@@ -72,7 +72,7 @@ Before turning to formal regression evidence, it is useful to examine the raw ti
 
 Figure~\ref{fig:event_study} displays mean digital transformation outcomes over time for the treatment and control groups. Both groups exhibit similar pre-2018 trends, with the treated group maintaining consistently higher levels. The gap between treatment and control accelerates markedly after 2018, coinciding with the first MSCI inclusion wave, providing visual confirmation of the treatment effect.
 
-\subsection{Dynamic Treatment Effect Coefficients with 95\% Confidence Intervals}
+\subsection{Dynamic Treatment Effect}
 
 Figure~\ref{fig:event_study} shows post-2018 divergence, but visual evidence alone cannot distinguish a true treatment shift from a pre-existing trend difference. Equation~(\ref{eq:event_study}) addresses this directly by estimating year-specific treatment coefficients $\delta_k$ relative to the omitted reference year $k=-1$.
 
@@ -99,7 +99,7 @@ Post-treatment coefficients increase monotonically from $\mathrm{post}_1$ ($\app
 
 The parallel trends assumption is validated through: (i)~graphical inspection of pre-treatment trajectories (Figure~\ref{fig:event_study}); (ii)~formal event-study pre-trend coefficients (Figure~\ref{fig:dynamic_effects}); and (iii)~statistical tests as reported in Section~6.2.3. All three approaches support the assumption.
 
-\subsection{Placebo Test---Distribution of 1,000 Randomized Treatment Assignments}
+\subsection{Placebo Test}
 
 A standard concern with quasi-experimental designs is that an estimated treatment effect may reflect a spurious correlation arising from sample construction or model specification rather than a genuine causal mechanism.
 
@@ -505,7 +505,7 @@ Figure~\ref{fig:mechanism_pathway} illustrates the conceptual multi-channel path
 
 Figure~\ref{fig:mechanism_channels} presents the quantitative DID estimates for the six directly tested proxies in the financing and governance channels.
 
-\subsection{Financing Constraint Channel: KZ Index, Bank Leverage, and Cashflow/Assets}
+\subsection{Financing Constraint Channel}
 
 The financing-constraint channel predicts that MSCI inclusion lowers the effective cost of external capital for treated firms.
 
@@ -536,7 +536,7 @@ $N$ & 28,339 & 23,552 & 34,770 \\
 
 The financing estimates show a coherent pattern once variable scaling is considered. The KZ coefficient is negative ($-$0.0385) but imprecise (SE $=0.0733$, $p = 0.599$), so the composite index does not move significantly in this sample. In contrast, Bank Leverage declines significantly ($-$0.0318***, $p < 0.001$), equivalent to about a 3.2 percentage-point decline in bank-debt reliance. CashFlow/Assets increases by 0.0201*** ($p < 0.001$), or roughly a 2.0 percentage-point rise in internal funding capacity. The divergence between the noisy composite index and the precise balance-sheet proxies is informative rather than inconsistent: financing relief appears strongest on directly measured funding margins.
 
-\subsection{Governance Channel: Independent Directors and Top-10 Ownership HHI}
+\subsection{Governance Channel}
 
 International institutional investors are documented advocates of governance reform as a condition of sustained capital allocation~\cite{Aggarwal2011}.
 
@@ -567,7 +567,7 @@ $N$ & 26,522 & 20,136 & 34,753 \\
 
 Governance estimates are uniformly in the predicted direction and statistically significant. MSCI-included firms add independent directors ($+$0.0518***, $p = 0.0007$). Although the annual increment per firm is modest, the estimate is precise in a large sample ($N=26{,}522$). More importantly, the independent-director ratio rises by 1.8238 percentage points ($p = 0.0012$), indicating compositional strengthening rather than simple board expansion. Top-10 Ownership HHI declines ($-$0.0302***, $p < 0.001$), consistent with ownership dispersion and broader minority-shareholder monitoring scope. Across these proxies, the evidence consistently supports a robust and economically meaningful governance channel.
 
-\subsection{Knowledge Spillover Channel: Deferred Direct Test and Data Requirements}
+\subsection{Knowledge Spillover Channel}
 
 The knowledge-spillover mechanism remains theoretically central to the thesis, but it is not directly estimated in the baseline mechanism regressions. Recent evidence shows that digital transformation can generate information spillovers across firms and market participants~\cite{WangWang2026}, and that spillover intensity may vary with strategic competition conditions in manufacturing settings~\cite{LiuGu2026}, reinforcing the conceptual relevance of this channel in our setting. A direct mechanism test requires mediator variables that map to the chain MSCI inclusion $\to$ external information intermediaries/investors $\to$ firm learning and implementation. In this context, analyst coverage (and optionally analyst forecast dispersion) and foreign institutional ownership are the preferred first-stage mediators. Because these variables are not yet integrated into the current merged panel, this thesis does not report a direct knowledge-channel coefficient and avoids proxy substitution that could blur causal interpretation.
 
