@@ -1,9 +1,9 @@
 \chapter{Research Design~I: Causal Identification of Capital Market Liberalization Effects}
 \label{chap:research_design_1}
 
-This chapter presents the causal identification strategy used to estimate the effect of capital market liberalization on firm-level digital transformation. It clarifies treatment construction, sample design, model specification, and identification assumptions in a transparent sequence. Consistent with state-of-the-art empirical standards in applied economics and corporate finance, the chapter combines baseline DID estimation with dynamic tests, matching-based diagnostics, and explicit discussion of possible threats to internal validity.
+This chapter presents the causal identification strategy used to estimate the effect of capital market liberalization on firm-level digital transformation. It lays out treatment construction, sample design, model specification, and identification assumptions in a transparent sequence. In line with current empirical standards in applied economics and corporate finance, the chapter combines baseline DID estimation with dynamic diagnostics, matching-based checks, and explicit discussion of threats to internal validity.
 
-The chapter is intentionally organized as a credibility protocol. Each design component is introduced together with the specific inferential risk it is meant to address, including selection on observables, differential pre-trends, timing heterogeneity, and disclosure-measurement artifacts. This structure allows readers to evaluate not only the final estimator but also the chain of supporting assumptions and diagnostics that justify interpretation. In this sense, Chapter~\ref{chap:research_design_1} functions as the methodological backbone of the thesis.
+The chapter is deliberately organized as a credibility protocol. Each design component is paired with the inferential risk it is intended to address, including selection on observables, differential pre-trends, timing heterogeneity, and disclosure-measurement artifacts. This structure helps readers assess not only the final estimator, but also the chain of assumptions and diagnostics behind the interpretation. In this sense, Chapter~\ref{chap:research_design_1} serves as the methodological backbone of the thesis.
 
 \section{Sample and Data Source}
 
@@ -19,7 +19,7 @@ MSCI constituent lists and weight schedules are compiled from official MSCI Emer
 
 \subsection{Sample Period: 2010--2022}
 
-The sample spans 2010 to 2022, providing four pre-treatment years at baseline (2010--2017) and up to four post-treatment years (2018--2022). The pre-treatment window is sufficient to validate parallel trends assumptions; the post-treatment window captures both immediate and sustained effects. From a design perspective, this horizon balances two competing goals: obtaining enough pre-period observations for credible trend diagnostics while retaining a long enough post-period to observe dynamic accumulation in digital transformation outcomes. The window also covers major macro and regulatory variation, allowing year fixed effects and robustness checks to absorb common shocks that might otherwise confound treatment estimates.
+The sample covers 2010--2022, delivering a long pre-treatment window (2010--2017) and a meaningful post-treatment period (2018--2022). The pre-period is long enough for credible trend diagnostics, while the post-period captures both immediate and medium-run effects. From a design perspective, this horizon balances two priorities: sufficient pre-treatment depth for identification checks and enough post-treatment years to observe cumulative adjustment in digital transformation outcomes. The period also includes substantial macro and regulatory variation, allowing year fixed effects and robustness tests to absorb common shocks that could otherwise confound treatment estimates.
 
 \subsection{Exclusion Criteria: Financial Institutions and Regulated Utilities}
 
@@ -31,7 +31,7 @@ Firms are assigned to treatment ($\mathrm{MSCI} = 1$) if they appear on any MSCI
 
 \subsection{Final Sample: 35,264 Firm-Year Observations, 2,712 Unique Firms}
 
-The final dataset contains 35,264 firm-year observations representing 2,712 unique firms, with 1,644 observations corresponding to MSCI constituent (treated) firms. The ratio of treated-to-control observations (1,644\,:\,33,620) reflects MSCI's selective criteria targeting large-cap, liquid, and accessible firms. Although treatment prevalence is relatively low, this structure is typical for index-inclusion natural experiments and remains suitable for inference when fixed effects and clustered standard errors are applied. The large untreated pool also improves the precision of counterfactual trend estimation in event-study and placebo exercises.
+The final dataset contains 35,264 firm-year observations for 2,712 firms, including 1,644 treated observations from MSCI constituents. The treated-to-control ratio (1,644\,:\,33,620) reflects MSCI's selective rules targeting larger, more liquid, and more accessible firms. Although treatment prevalence is modest, this structure is typical in index-inclusion natural experiments and remains well suited for inference with fixed effects and clustered standard errors. The large untreated pool also improves precision in counterfactual trend estimation for event-study and placebo analyses.
 
 \section{Model Design}
 
@@ -78,7 +78,7 @@ To address residual selection on observable characteristics, we augment the base
 \subsection{Threats to Identification and Mitigation Strategies}
 \label{sec:threats}
 
-The primary threats to identification are: (i)~pre-existing trends---firms selected into MSCI may have had faster-growing digital transformation intensity prior to inclusion; (ii)~confounding events---contemporaneous reforms (e.g., STAR Market establishment, COVID-19) may differentially affect treated and control firms; and (iii)~disclosure strategic response---firms may increase digital-related language post-inclusion without substantive operational changes. We address these through event study pre-trend tests, exclusion of contemporaneous reform events, disclosure-length robustness checks, and 1,000-iteration placebo tests. In addition, we report staggered-adoption diagnostics motivated by the modern DID literature, which cautions that conventional TWFE coefficients can be misleading under heterogeneous treatment effects. Taken together, these safeguards reduce the likelihood that results are driven by differential trends, timing artifacts, or pure disclosure inflation.
+The main identification threats are: (i)~pre-existing trends, where firms eventually selected into MSCI may already have had faster digital-transformation growth; (ii)~confounding events, where contemporaneous shocks (for example, STAR Market reforms or COVID-19) may affect treated and control firms differently; and (iii)~strategic disclosure responses, where post-inclusion language changes may not reflect operational change. We address these risks through event-study pre-trend tests, exclusions around major contemporaneous reforms, disclosure-length robustness checks, and 1,000-iteration placebo tests. We also report staggered-adoption diagnostics motivated by the modern DID literature, which shows that conventional TWFE estimates can be distorted under heterogeneous treatment effects. Taken together, these safeguards reduce the chance that results are driven by differential trends, timing artifacts, or pure disclosure inflation.
 
 \section{Data Descriptions and Descriptive Statistics}
 
@@ -138,7 +138,7 @@ All continuous variables are winsorized at the 1st and 99th percentiles to mitig
 
 \subsection{Measurement of Variables}
 
-Reproducibility in empirical research requires that conceptual variable definitions be accurately mapped to their computational counterparts in the underlying database. Small differences in operationalization---such as whether leverage is measured using total liabilities or net debt, or whether firm age is calculated from the listing date versus the incorporation date---can greatly influence coefficient sizes and statistical significance. The measurement specifications below detail every technical field name, data type, and computational formula used throughout the analysis, aligning directly with the column identifiers in the CSMAR GTA database.
+Reproducibility requires conceptual variables to map precisely to their computational counterparts in the source database. Small operational choices---for example, whether leverage uses total liabilities or net debt, or whether firm age is based on listing year versus incorporation year---can materially change coefficient magnitudes and significance. The measurement specifications below therefore document each technical field name, data type, and computational formula used in the analysis, aligned directly with CSMAR GTA column identifiers.
 
 \begin{table}[htbp]
 \centering

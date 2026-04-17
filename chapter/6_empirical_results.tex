@@ -1,9 +1,9 @@
 \chapter{Empirical Results and Discussion}
 \label{chap:empirical_results}
 
-This chapter presents the empirical findings in a cumulative structure, moving from baseline treatment estimates to dynamic effects, robustness diagnostics, heterogeneity patterns, and mechanism evidence. The chapter is designed to evaluate not only whether an effect exists, but also when it appears, where it is strongest, and through which channels it operates. This sequencing aligns with state-of-the-art reporting standards for causal empirical research.
+This chapter presents the empirical findings in a cumulative sequence: baseline treatment estimates, dynamic effects, robustness diagnostics, heterogeneity patterns, and mechanism evidence. The analysis asks not only whether an effect exists, but also when it emerges, where it is strongest, and through which channels it operates. This structure follows current reporting standards in causal empirical research.
 
-The interpretive logic of the chapter is sequential and cross-validating. Baseline estimates establish existence and magnitude; event studies test temporal plausibility; falsification and sensitivity checks test robustness; heterogeneity analyses identify boundary conditions; and mechanism regressions assess channel coherence. This layered approach is intended to reduce over-reliance on any single coefficient and to strengthen substantive inference through convergence of multiple empirical diagnostics.
+The interpretive logic is sequential and cross-validating. Baseline estimates establish existence and magnitude; event studies test timing plausibility; falsification and sensitivity analyses test robustness; heterogeneity results identify boundary conditions; and mechanism regressions test channel coherence. This layered approach reduces reliance on any single coefficient and strengthens substantive inference through convergence across diagnostics.
 
 \section{Baseline Regression Results}
 
@@ -11,7 +11,7 @@ This section establishes the benchmark effect size and statistical reliability o
 
 \subsection{Main Effect: MSCI Inclusion Increases DT\_Comp by 0.39 Log Points ($\approx$48\%)}
 
-The first and most fundamental empirical question is whether MSCI index inclusion leads to a statistically and economically meaningful increase in corporate digital transformation, after controlling for firm-specific traits and common time trends. The two-way fixed effects DID model in Equation~(\ref{eq:twfe_did}) offers the main causal estimate by leveraging the quasi-experimental timing of MSCI phased inclusion, using firm and year fixed effects to account for permanent differences across firms and overall year shocks. To examine how sensitive the main coefficient is to different control specifications and fixed-effect structures, three nested models are estimated sequentially: a simple model with only firm and year fixed effects, a preferred model that includes the full set of time-varying controls from Chapter~\ref{chap:research_design_1}, and a fully saturated model that incorporates industry-by-year and province-by-year interactions.
+The central empirical question is whether MSCI inclusion produces a statistically and economically meaningful rise in corporate digital transformation after controlling for firm-specific characteristics and common time shocks. Equation~(\ref{eq:twfe_did}) provides the main estimate by exploiting the quasi-experimental timing of phased MSCI inclusion, with firm and year fixed effects absorbing persistent firm differences and aggregate shocks. To assess specification sensitivity, three nested models are estimated: a parsimonious FE model, a preferred model with the full time-varying control set from Chapter~\ref{chap:research_design_1}, and a fully saturated model with industry-by-year and province-by-year interactions.
 
 \begin{table}[htbp]
 \centering
@@ -46,9 +46,9 @@ $R^2$ & 0.010 & 0.091 & 0.504 \\
 \end{tablenotes}
 \end{table}
 
-The estimates in Table~\ref{tab:baseline_did} compare three baseline DID models. Column~(1) features firm and year fixed effects but no time-varying controls; the coefficient on MSCI $\times$ Post is 0.705 ($\mathrm{s.e.} = 0.038$, $p < 0.001$), which translates to $\exp(0.705) - 1 \approx 102\%$ increase in the log-transformed digital transformation index.
+The estimates in Table~\ref{tab:baseline_did} compare the three baseline DID models. Column~(1), which includes firm and year fixed effects but no time-varying controls, yields a coefficient of 0.705 ($\mathrm{s.e.} = 0.038$, $p < 0.001$), equivalent to about $\exp(0.705)-1 \approx 102\%$ in the log-transformed digital-transformation index.
 
-Adding rich time-varying controls in Column~(2) reduces the magnitude to 0.394 ($\mathrm{s.e.} = 0.039$, $p < 0.001$). We consider Column~(2) our preferred specification because it balances covariate adjustment with the preservation of treatment variation; $\exp(0.394) - 1 \approx 48\%$. Column~(3) further enhances the baseline with industry$\times$year and province$\times$year fixed effects, resulting in a smaller, statistically insignificant coefficient (0.044; $\mathrm{s.e.} = 0.030$). We interpret Column~(3) as a conservative lower bound: since MSCI eligibility correlates with industry composition, interactive fixed effects might absorb treatment-induced variation, indicating over-controlling rather than evidence of a null effect.
+Adding rich time-varying controls in Column~(2) reduces the coefficient to 0.394 ($\mathrm{s.e.} = 0.039$, $p < 0.001$). This is the preferred specification because it balances covariate adjustment with preservation of meaningful treatment variation; the implied effect is $\exp(0.394)-1 \approx 48\%$. Column~(3) adds industry$\times$year and province$\times$year fixed effects and returns a smaller, statistically insignificant estimate (0.044; $\mathrm{s.e.} = 0.030$). We interpret Column~(3) as a conservative lower-bound diagnostic: because MSCI eligibility is correlated with industry composition, high-dimensional interactions may absorb part of the treatment-induced variation.
 
 \subsection{Stability Across Specifications and Control Sets}
 
@@ -63,8 +63,7 @@ At the control group mean of 12.78 keywords, the preferred estimate of 0.394 log
 This section evaluates treatment timing and dynamic response paths using event-study methods. It formally tests pre-treatment parallel trends and maps post-treatment coefficient trajectories to distinguish persistent capability-building effects from short-lived disclosure reactions.
 
 \subsection{Mean Digital Transformation Outcomes for Treated vs.\ Control Firms}
-
-Before analyzing formal regression evidence, it is helpful to examine the raw time-series trajectories of digital transformation for both treated and control firms.
+Before turning to formal regression evidence, it is useful to examine the raw time-series trajectories of digital transformation for treated and control firms.
 
 \begin{figure}[htbp]
 \centering
@@ -77,7 +76,7 @@ Figure~\ref{fig:event_study} displays mean digital transformation outcomes over 
 
 \subsection{Dynamic Treatment Effect Coefficients with 95\% Confidence Intervals}
 
-While Figure~\ref{fig:event_study} provides visual confirmation that the two groups diverge after 2018, it does not formally distinguish between a genuine post-treatment shift and a pre-existing differential trend. The event-study regression in Equation~(\ref{eq:event_study}) addresses this by estimating year-specific treatment coefficients $\delta_k$, each expressed relative to the omitted reference year $k = -1$.
+Figure~\ref{fig:event_study} shows post-2018 divergence, but visual evidence alone cannot distinguish a true treatment shift from a pre-existing trend difference. Equation~(\ref{eq:event_study}) addresses this directly by estimating year-specific treatment coefficients $\delta_k$ relative to the omitted reference year $k=-1$.
 
 \begin{figure}[htbp]
 \centering
@@ -146,12 +145,12 @@ Matched Pairs & 1,581 & 1,340 & N/A \\
 \end{tablenotes}
 \end{table}
 
-The matched-sample evidence in Table~\ref{tab:psm_did} is directionally consistent with the baseline model but less precise. Columns~(1) and~(2) implement PSM-DID using overall and year-by-year matching; both MSCI $\times$ Post coefficients are positive, but only Column~(2) is statistically significant. Relative to the control mean (12.78), the level-form magnitudes imply roughly 15--21\% effects, which should be interpreted as supportive sensitivity evidence rather than as a replacement for the preferred baseline estimate.
+The matched-sample evidence in Table~\ref{tab:psm_did} is directionally consistent with the baseline, although less precise. Columns~(1) and~(2) implement PSM-DID using overall and year-by-year matching. Both MSCI $\times$ Post coefficients are positive, though only Column~(2) is statistically significant. Relative to the control mean (12.78), the level-form magnitudes imply effects of roughly 15--21\%. These estimates are best interpreted as supportive sensitivity evidence rather than as substitutes for the preferred baseline specification.
 
 \subsection{Alternative Measures of Digital Transformation}
 \label{sec:alt_measures}
 
-A key vulnerability of any text-based outcome measure is sensitivity to the particular choice of operationalization. Eight alternative digital transformation proxies are examined across four panels.
+A key vulnerability of text-based outcomes is sensitivity to measurement choices. To address this concern directly, eight alternative digital-transformation proxies are examined across four panels.
 
 \begin{table}[htbp]
 \centering
@@ -339,7 +338,7 @@ Manufacturing-only sample & Positive sign preserved & Qualitatively consistent &
 
 \section{Heterogeneity Analysis}
 
-This section examines cross-sectional heterogeneity in treatment effects across regions, industries, and firm characteristics. Rather than relying only on average effects, it identifies boundary conditions under which liberalization produces stronger or weaker digital transformation responses, thereby strengthening mechanism interpretation and policy relevance.
+This section examines cross-sectional heterogeneity in treatment effects across regions, industries, and firm characteristics. Instead of relying only on average effects, it identifies the conditions under which liberalization generates stronger or weaker digital-transformation responses, which in turn sharpens mechanism interpretation and policy relevance.
 
 \subsection{Heterogeneity Analysis Based on Area Level}
 
@@ -510,7 +509,7 @@ Figure~\ref{fig:mechanism_channels} presents the quantitative DID estimates for 
 
 \subsection{Financing Constraint Channel: KZ Index, Bank Leverage, and Cashflow/Assets}
 
-The financing constraint channel proposes that MSCI inclusion lowers the cost of external capital for treated firms.
+The financing-constraint channel predicts that MSCI inclusion lowers the effective cost of external capital for treated firms.
 
 To make this channel operational, the thesis uses three complementary firm-year proxies with distinct measurement logic. KZ Index is treated as a composite financing-friction score where larger values indicate tighter constraints. Bank Leverage is the bank-debt reliance ratio in the merged panel (scaled by firm size), so lower values indicate reduced dependence on bank credit after treatment. CashFlow/Assets is operating cash flow scaled by total assets and captures internally generated liquidity available for digital investment. All three mechanism regressions retain the same identification structure as the baseline model (Industry+Year+Province fixed effects with firm-clustered standard errors), so channel coefficients remain directly comparable to the main DID specification.
 
@@ -537,7 +536,7 @@ $N$ & 28,339 & 23,552 & 34,770 \\
 \end{tablenotes}
 \end{table}
 
-The financing estimates show an internally consistent pattern once variable scaling is accounted for. The KZ coefficient is negative ($-$0.0385) but imprecise (SE $=0.0733$, $p = 0.599$), so the broad composite index does not provide statistically reliable movement in this sample. By contrast, Bank Leverage declines significantly ($-$0.0318***, $p < 0.001$); on a ratio scale this is approximately a 3.2 percentage-point reduction in bank-debt reliance after inclusion. CashFlow/Assets rises by 0.0201*** ($p < 0.001$), equivalent to roughly a 2.0 percentage-point increase in internally generated funding capacity. The contrast between the noisy composite index and the precise balance-sheet/liquidity proxies is informative rather than contradictory: financing easing appears strongest in directly measured funding margins.
+The financing estimates show a coherent pattern once variable scaling is considered. The KZ coefficient is negative ($-$0.0385) but imprecise (SE $=0.0733$, $p = 0.599$), so the composite index does not move significantly in this sample. In contrast, Bank Leverage declines significantly ($-$0.0318***, $p < 0.001$), equivalent to about a 3.2 percentage-point decline in bank-debt reliance. CashFlow/Assets increases by 0.0201*** ($p < 0.001$), or roughly a 2.0 percentage-point rise in internal funding capacity. The divergence between the noisy composite index and the precise balance-sheet proxies is informative rather than inconsistent: financing relief appears strongest on directly measured funding margins.
 
 \subsection{Governance Channel: Independent Directors and Top-10 Ownership HHI}
 
@@ -568,7 +567,7 @@ $N$ & 26,522 & 20,136 & 34,753 \\
 \end{tablenotes}
 \end{table}
 
-Governance estimates are consistently in the predicted direction and statistically significant. MSCI-included firms add independent directors ($+$0.0518***, $p = 0.0007$); while the per-firm annual increment is modest, the estimate is precise across a large sample ($N=26{,}522$). More importantly, the independent-director share rises by 1.8238 percentage points ($p = 0.0012$), showing that the result is not merely a larger board but a higher governance-independence share. The Top-10 Ownership HHI declines ($-$0.0302***, $p < 0.001$), implying measurable ownership dispersion and broader scope for minority-shareholder oversight. Taken jointly, these three proxies provide convergent evidence that the governance channel is both statistically stable and economically interpretable in this dataset.
+Governance estimates are uniformly in the predicted direction and statistically significant. MSCI-included firms add independent directors ($+$0.0518***, $p = 0.0007$). Although the annual increment per firm is modest, the estimate is precise in a large sample ($N=26{,}522$). More importantly, the independent-director ratio rises by 1.8238 percentage points ($p = 0.0012$), indicating compositional strengthening rather than simple board expansion. Top-10 Ownership HHI declines ($-$0.0302***, $p < 0.001$), consistent with ownership dispersion and broader minority-shareholder monitoring scope. Taken together, these proxies provide convergent evidence that the governance channel is statistically robust and economically meaningful.
 
 \subsection{Knowledge Spillover Channel: Deferred Direct Test and Data Requirements}
 
@@ -576,7 +575,7 @@ The knowledge-spillover mechanism remains theoretically central to the thesis, b
 
 For transparency, the intended measurement protocol is as follows: analyst coverage is defined as the number of analysts issuing firm-year forecasts; analyst forecast dispersion is the cross-analyst standard deviation of earnings forecasts; foreign institutional ownership is the fraction of shares held by foreign institutions in each firm-year; and cross-border exposure proxies include export intensity, overseas subsidiary presence, and foreign director participation. These variables are conceptually close to the mechanism chain and therefore preferred over indirect substitutes. As a supplementary check, Appendix Table~\ref{tab:appendix_spillover_proxy} reports an exploratory peer-spillover proxy regression based on leave-one-out industry-year peer digitalization. The interaction term (MSCI $\times$ PeerDT) is positive but statistically insignificant ($p = 0.114$), so it is reported only as directional context rather than direct mechanism evidence. The deferred design choice is methodological rather than substantive: the thesis prioritizes identification quality by reporting no direct-mediator coefficient instead of reporting a weakly interpretable proxy-based estimate.
 
-To keep this deferred channel analytically transparent, Table~\ref{tab:knowledge_deferred} reports a structured measurement-and-identification roadmap rather than a placeholder pseudo-regression.
+To maintain analytical transparency for this deferred channel, Table~\ref{tab:knowledge_deferred} reports a structured measurement and identification roadmap rather than a placeholder pseudo-regression.
 
 \begin{table}[!htbp]
 \centering
@@ -635,13 +634,13 @@ Table~\ref{tab:cross_channel} shows a clear ranking in empirical strength. In fi
 
 \section{Discussion}
 
-This section integrates the empirical evidence into a coherent interpretive framework and evaluates its implications for theory, method, and policy.
+This section integrates the evidence into a coherent interpretive framework and discusses implications for theory, methodology, and policy.
 
 \subsection{Interpretation of Main Findings in Theoretical Context}
 
 The 0.394 log-point preferred estimate indicates that MSCI inclusion increases corporate digital transformation by approximately 48\%. This magnitude is economically significant---corresponding to half a within-firm standard deviation and a multiple of the control group's 4\% organic annual growth rate---and directionally consistent with the theoretical framework in Chapter~\ref{chap:literature_review}. Mechanism evidence in Section~6.5 is strongest for governance (3/3 proxies significant), with supportive but mixed precision in financing (2/3 proxies significant).
 
-The heterogeneity patterns---stronger effects in eastern provinces, technology-intensive industries, and high-end manufacturing subsectors---are consistent with an absorptive capacity framework: international capital and knowledge flows generate the largest digital transformation returns when complementary institutional, human capital, and technological resources are already in place.
+The heterogeneity patterns---stronger effects in eastern provinces, technology-intensive industries, and high-end manufacturing subsectors---are consistent with an absorptive-capacity framework. International capital and knowledge flows appear to generate the largest digital-transformation returns where complementary institutional, human-capital, and technological resources are already in place.
 
 \subsection{Implications for the Capital Market Liberalization Literature}
 
@@ -649,7 +648,7 @@ This study extends the capital market liberalization literature in three ways. F
 
 \subsection{Implications for the Digital Transformation and Computational Economics Literature}
 
-By integrating validated text-as-data measures with a well-identified quasi-experiment, this study demonstrates the feasibility of causal inference about digital transformation drivers at scale in emerging markets. The consistent findings across eight alternative outcome measures validate the computational text analysis methodology as a reliable tool for studying corporate innovation.
+By combining validated text-as-data measures with a well-identified quasi-experiment, this study demonstrates that causal inference on digital-transformation drivers is feasible at scale in emerging markets. The consistency of results across eight alternative outcome measures further supports computational text analysis as a reliable approach for studying corporate innovation.
 
 \subsection{Policy Implications for Regulators, Firms, and International Investors}
 

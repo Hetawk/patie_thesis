@@ -1,13 +1,13 @@
 \chapter{Institutional Background and Hypothesis Development}
 \label{chap:institutional_background}
 
-This chapter establishes the institutional context and formal hypothesis structure underpinning the empirical analysis. It first explains the pre-liberalization structure of China's A-share market and the role of Stock Connect as implementation infrastructure for foreign participation. It then details the MSCI inclusion timeline and rule-based eligibility criteria, highlighting why the reform provides plausibly exogenous variation in international capital access. Finally, the chapter translates the conceptual framework from Chapter~\ref{chap:literature_review} into explicit testable hypotheses.
+This chapter establishes the institutional context and formal hypothesis structure for the empirical analysis. It first explains the pre-liberalization structure of China's A-share market and the role of Stock Connect as implementation infrastructure for foreign participation. It then details the MSCI inclusion timeline and rule-based eligibility criteria, clarifying why the reform generates plausibly exogenous variation in international capital access. Finally, it translates the conceptual framework from Chapter~\ref{chap:literature_review} into explicit, testable hypotheses.
 
 \section{China's Capital Market Structure Prior to Liberalization}
 
 \subsection{The A-Share Market and Domestic Investor Segmentation}
 
-China's A-share market---the renminbi-denominated equity market listed on the Shanghai and Shenzhen Stock Exchanges---was historically subject to strict foreign ownership restrictions and capital controls, which created near-complete segmentation from international capital flows~\cite{Cheng2024}. Before liberalization reforms, foreign investors could access mainland Chinese equities only through the limited QFII (Qualified Foreign Institutional Investor) and RQFII programs, which imposed strict quotas and administrative barriers. This segmentation meant that Chinese listed firms relied almost entirely on domestic capital markets, characterized by shorter investment horizons, weaker corporate governance standards, and limited exposure to global best practices.
+China's A-share market---the renminbi-denominated equity market on the Shanghai and Shenzhen exchanges---was historically governed by strict foreign ownership restrictions and capital controls, creating near-complete segmentation from international capital flows~\cite{Cheng2024}. Before liberalization, foreign investors could access mainland equities mainly through QFII (Qualified Foreign Institutional Investor) and RQFII channels, both constrained by quotas and administrative barriers. Under this segmented regime, listed firms relied primarily on domestic capital, typically associated with shorter investment horizons, weaker governance pressure, and limited exposure to global best practices.
 
 Figure~\ref{fig:sec31_segmentation_stats} provides a data-based characterization of this segmented pre-liberalization structure using only pre-treatment observations (2010--2017). The chart reports standardized mean gaps between firms that are eventually included in MSCI (2018--2022) and firms never included. The gaps are economically large and statistically precise for firm size (1.20 standard deviations, $p<0.01$), total market value (0.80 standard deviations, $p<0.01$), and independent-director representation (0.47 standard deviations, $p<0.01$), showing that the subset of firms later connected to global capital was already structurally distinct within the domestic A-share universe.
 
@@ -20,13 +20,13 @@ Figure~\ref{fig:sec31_segmentation_stats} provides a data-based characterization
 
 \subsection{Stock Connect Programs as the Technical Infrastructure for Liberalization}
 
-The technical infrastructure for capital market liberalization was established through the Stock Connect programs: Shanghai--Hong Kong Stock Connect (launched November 2014) and Shenzhen--Hong Kong Stock Connect (launched December 2016)~\cite{WangChia2014}. These programs developed daily and aggregate quotas, currency hedging methods, and settlement protocols that approved foreign investors to buy A-shares while adhering to capital control regimes. By 2018, these systems were sufficiently developed to handle the substantial capital movements associated with MSCI inclusion~\cite{Yin2023}.
+The technical foundation for liberalization was built through Stock Connect: Shanghai--Hong Kong Stock Connect (November 2014) and Shenzhen--Hong Kong Stock Connect (December 2016)~\cite{WangChia2014}. These programs established quota systems, currency-conversion arrangements, and settlement protocols that allowed foreign participation in A-shares while preserving capital-control constraints. By 2018, the platform had matured enough to accommodate the larger portfolio reallocations associated with MSCI inclusion~\cite{Yin2023}.
 
 \section{The MSCI Emerging Markets Index and the A-Share Inclusion Process}
 
 \subsection{MSCI as a Global Benchmark: Scale, Influence, and Index Composition}
 
-The MSCI Emerging Markets Index is the main benchmark for global institutional investors investing in developing market equities, with about \$1.9 trillion in assets under management tracking or comparing against MSCI emerging market indices in 2018. The index's composition determines mandatory portfolio allocations for passive funds and acts as a reference for active managers, influencing capital flows to the included companies~\cite{Wei2020}.
+The MSCI Emerging Markets Index is a primary benchmark for global institutional investment in developing-market equities. In 2018, roughly \$1.9 trillion in assets tracked or benchmarked MSCI emerging-market indices. Because passive funds mechanically follow index composition and active managers often benchmark against it, index membership materially affects capital allocation toward included firms~\cite{Wei2020}.
 
 \subsection{Inclusion Criteria: Market Capitalization, Liquidity, and Stock Connect Accessibility}
 
@@ -64,11 +64,11 @@ Figure~\ref{fig:sec32_rollout_timeline} visualizes the realized treatment rollou
 
 \subsection{Quasi-Experimental Properties of the Inclusion Design}
 
-Three features make MSCI inclusion a strong quasi-experimental setting. First, the selection criteria are mechanical and unrelated to digital transformation propensity. Second, the timeline was externally imposed by MSCI, independent of Chinese government or firm decisions. Third, the phased implementation establishes clear pre- and post-treatment periods and multiple cohorts, enabling staggered adoption analysis.
+MSCI inclusion has three features that make it a strong quasi-experimental setting. First, eligibility criteria are mechanical and not based on firms' digital-transformation strategies. Second, the rollout timeline was set externally by MSCI rather than by Chinese regulators or individual firms. Third, phased implementation creates clear pre- and post-treatment windows with multiple cohorts, which supports staggered-adoption analysis.
 
 \section{Hypothesis Development}
 
-Building on the institutional analysis above, this section develops hypotheses in three parts: direct effect (3.3.1), impact mechanisms (3.3.2), and heterogeneity (3.3.3). Consistent with the supervisor's recommendation, Sections~3.1 and~3.2 above provide data-based charts to characterize market structure and inclusion design before formal hypothesis statements.
+Building on the institutional evidence above, this section develops hypotheses in three parts: direct effect (3.3.1), transmission mechanisms (3.3.2), and heterogeneity (3.3.3). Consistent with the recommended chapter logic, Sections~3.1 and~3.2 first provide data-based profiles of market structure and inclusion design before formal hypothesis statements.
 
 For clarity, we define the treatment shock as $X_{it} = \mathrm{MSCI}_i \times \mathrm{Post}_t$ and the outcome as $Y_{it} = \mathrm{DT}_{it}$ (firm-level digital transformation intensity). The core causal question is how $X$ affects $Y$, and through which channels this effect is transmitted.
 
@@ -91,7 +91,7 @@ Because digital transformation requires high fixed costs, complementary organiza
 
 \textbf{Direct causal path:} $X \rightarrow Y$.
 
-The expected empirical signature of H1 has three components. First, in two-way fixed-effect DID models, the coefficient on $X_{it}$ should be positive after conditioning on common shocks and time-invariant firm heterogeneity. Second, in event-study designs, pre-treatment coefficients should be close to zero, while post-treatment coefficients should shift upward if the liberalization shock is causal. Third, under a capability-building interpretation, post-treatment effects should persist or accumulate over subsequent periods rather than appearing as a one-period spike.
+The empirical signature of H1 has three parts. First, in two-way fixed-effects DID models, the coefficient on $X_{it}$ should be positive after conditioning on common shocks and time-invariant firm heterogeneity. Second, in event-study models, pre-treatment coefficients should remain near zero, while post-treatment coefficients should move upward if the liberalization shock is causal. Third, under a capability-building interpretation, effects should persist or accumulate over time rather than appearing as a one-period spike.
 
 \emph{Empirical implication:} In DID and event-study models, the treatment interaction should be positive, pre-trend coefficients should be statistically indistinguishable from zero, and post-treatment dynamic coefficients should remain above pre-treatment coefficients.
 
@@ -114,7 +114,7 @@ This decomposition is useful because it separates total reduced-form effects fro
 
 \textbf{H2c (Knowledge-spillover channel):} $X \rightarrow M^{\mathrm{Know}} \rightarrow Y$. Liberalization can also expand information links to global analysts, institutions, and benchmarking networks, reducing learning costs and uncertainty in technology adoption~\cite{Zheng2021,Sun2022,Zhu2023,LiShen2021,WangWang2026}. This channel is theoretically central but empirically demanding because it requires direct mediator series (for example, analyst coverage and foreign ownership) to avoid weak proxy interpretation~\cite{LiuGu2026}.
 
-Two design choices follow from this framework. First, financing and governance channels can be tested directly with available balance-sheet and governance mediators. Second, the knowledge channel is maintained as a formal hypothesis and interpreted with exploratory evidence in the current sample. This choice prioritizes measurement validity and avoids over-interpreting indirect proxies as definitive mechanism evidence.
+This framework leads to two design choices. First, financing and governance channels are tested directly using available balance-sheet and governance mediators. Second, the knowledge channel is retained as a formal hypothesis but interpreted with exploratory evidence in the current sample. This choice prioritizes measurement validity and avoids over-interpreting indirect proxies as definitive mechanism evidence.
 
 \emph{Empirical implication:} Channel-specific regressions should show directionally consistent financing and governance responses (signs and magnitudes aligned with theory), while knowledge-channel results in the current sample should be interpreted as suggestive rather than definitive.
 
