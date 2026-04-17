@@ -19,9 +19,8 @@
 \RequirePackage{amsmath,amssymb,amsfonts,geometry,makeidx,graphicx,caption,verbatim,pdfpages,fancyhdr,placeins,xcolor,enumitem,float,chngcntr,setspace,etoolbox,longtable}
 \RequirePackage{truncate}
 \ifXeTeX
-    % txfonts is OT1/T1-oriented and triggers TU font-shape warnings under XeLaTeX.
-    % Keep Times-like math appearance with a Unicode-safe math package.
-    \RequirePackage{newtxmath}
+    % unicode-math is the standard Unicode-safe math package for XeLaTeX/LuaLaTeX.
+    \RequirePackage{unicode-math}
 \else
     \RequirePackage{txfonts}
 \fi
