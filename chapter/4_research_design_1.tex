@@ -1,13 +1,13 @@
 \chapter{Research Design~I: Causal Identification of Capital Market Liberalization Effects}
 \label{chap:research_design_1}
 
-This chapter presents the causal identification strategy used to estimate the effect of capital market liberalization on firm-level digital transformation. It lays out treatment construction, sample design, model specification, and identification assumptions in a transparent sequence. In line with current empirical standards in applied economics and corporate finance, the chapter combines baseline DID estimation with dynamic diagnostics, matching-based checks, and explicit discussion of threats to internal validity.
+This chapter presents the identification strategy used to estimate the effect of capital market liberalization on firm-level digital transformation. It covers treatment construction, sample design, model specification, and identification assumptions, following current empirical standards in applied economics and corporate finance.
 
-The chapter is deliberately organized as a credibility protocol. Each design component is paired with the inferential risk it is intended to address, including selection on observables, differential pre-trends, timing heterogeneity, and disclosure-measurement artifacts. This structure helps readers assess not only the final estimator, but also the chain of assumptions and diagnostics behind the interpretation. In this sense, Chapter~\ref{chap:research_design_1} serves as the methodological backbone of the thesis.
+Each design component is paired with the inferential risk it addresses---selection on observables, differential pre-trends, timing heterogeneity, and disclosure-measurement artifacts---so that readers can assess not only the final estimator, but also the assumptions behind it.
 
 \section{Sample and Data Source}
 
-This section documents the empirical foundation of the analysis: data origin, sample filters, treatment assignment rules, and final panel structure. The focus is reproducibility and comparability, ensuring that each analytical step can be replicated from primary databases and official index records.
+This section documents the empirical foundation: data origin, sample filters, treatment assignment rules, and final panel structure.
 
 \subsection{CSMAR Financial and Corporate Governance Database}
 
@@ -35,7 +35,7 @@ The final dataset contains 35,264 firm-year observations for 2,712 firms, includ
 
 \section{Model Design}
 
-This section develops the econometric framework used to identify causal effects. It introduces the two-way fixed effects DID baseline, event-study dynamics, and matched-sample extensions, and explains how each specification addresses a distinct identification risk. The objective is not only to estimate an average treatment effect, but also to test whether that effect is temporally coherent, robust across specifications, and consistent with quasi-experimental identification logic.
+This section develops the econometric framework. It introduces the two-way fixed effects DID baseline, event-study dynamics, and matched-sample extensions, and explains how each specification addresses a distinct identification concern.
 
 Before presenting the formal equations, Figure~\ref{fig:model_design} summarizes the full research model design as an integrated identification workflow. The figure links institutional treatment construction, sample and variable architecture, and outcome measurement to the three complementary estimation strategies used in this thesis (TWFE-DID, event study, and PSM-DID).
 
