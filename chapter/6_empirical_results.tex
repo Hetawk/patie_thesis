@@ -1,7 +1,7 @@
 \chapter{Empirical Results and Discussion}
 \label{chap:empirical_results}
 
-This chapter presents the empirical findings in a cumulative sequence: baseline treatment estimates, dynamic effects, robustness diagnostics, heterogeneity patterns, and mechanism evidence. The analysis asks not only whether an effect exists, but also when it emerges, where it is strongest, and through which channels it operates.
+This chapter reports empirical estimates in a cumulative identification sequence: baseline treatment estimates, dynamic effects, robustness diagnostics, heterogeneity patterns, and mechanism evidence. The analysis evaluates not only whether a treatment effect exists, but also when it emerges, where it is strongest, and through which channels it operates.
 
 The interpretive logic is sequential and cross-validating. Baseline estimates establish existence and magnitude; event studies test timing plausibility; falsification and sensitivity analyses assess robustness; heterogeneity results identify boundary conditions; and mechanism regressions test channel coherence. Together, these layers reduce reliance on any single coefficient and strengthen substantive inference.
 
@@ -11,11 +11,11 @@ This section reports the benchmark treatment effect under nested DID specificati
 
 \subsection{Main Effect}
 
-The central empirical question is whether MSCI inclusion produces a meaningful rise in corporate digital transformation after controlling for firm characteristics and common time shocks. Equation~(\ref{eq:twfe_did}) provides the main estimate by exploiting the quasi-experimental timing of phased MSCI inclusion, with firm and year fixed effects absorbing persistent firm differences and aggregate shocks. Two nested models are estimated: a parsimonious FE model and a preferred model with the full time-varying control set from Chapter~\ref{chap:research_design_1}.
+The central empirical question is whether MSCI inclusion causes a post-inclusion increase in corporate digital transformation relative to non-included firms, after controlling for firm characteristics and common time shocks. Equation~(\ref{eq:twfe_did}) provides the main estimate by exploiting the quasi-experimental timing of phased MSCI inclusion, with firm and year fixed effects absorbing persistent firm differences and aggregate shocks. Two nested models are estimated: a parsimonious FE model and a preferred model with the full time-varying control set from Chapter~\ref{chap:research_design_1}.
 
 \begin{table}[htbp]
 \centering
-\caption{Baseline Difference-in-Differences Estimates}
+\caption{Baseline difference-in-differences estimates}
 \label{tab:baseline_did}
 \small
 \begin{tabular}{lcc}
@@ -46,7 +46,7 @@ $R^2$ & 0.010 & 0.091 \\
 
 The estimates in Table~\ref{tab:baseline_did} compare the two baseline DID models. Column~(1), which includes firm and year fixed effects but no time-varying controls, yields a coefficient of 0.705 ($\mathrm{s.e.} = 0.038$, $p < 0.001$), equivalent to about $\exp(0.705)-1 \approx 102\%$ in the log-transformed digital-transformation index.
 
-Adding rich time-varying controls in Column~(2) reduces the coefficient to 0.394 ($\mathrm{s.e.} = 0.039$, $p < 0.001$). This is the preferred specification because it balances covariate adjustment with preservation of meaningful treatment variation; the implied effect is $\exp(0.394)-1 \approx 48\%$.
+Adding rich time-varying controls in Column~(2) reduces the coefficient to 0.394 ($\mathrm{s.e.} = 0.039$, $p < 0.001$). This is the preferred specification because it balances covariate adjustment with preservation of meaningful treatment variation; the implied semi-elasticity is $\exp(0.394)-1 \approx 48\%$ for treated firms relative to controls.
 
 \subsection{Stability Across Specifications and Control Sets}
 
@@ -74,7 +74,7 @@ Figure~\ref{fig:event_study} displays mean digital transformation outcomes over 
 
 \subsection{Dynamic Treatment Effect}
 
-Figure~\ref{fig:event_study} shows post-2018 divergence, but visual evidence alone cannot distinguish a true treatment shift from a pre-existing trend difference. Equation~(\ref{eq:event_study}) addresses this directly by estimating year-specific treatment coefficients $\delta_k$ relative to the omitted reference year $k=-1$.
+Figure~\ref{fig:event_study} reports post-2018 divergence, but visual evidence alone cannot distinguish a true treatment shift from a pre-existing trend difference. Equation~(\ref{eq:event_study}) addresses this directly by estimating year-specific treatment coefficients $\delta_k$ relative to the omitted reference year $k=-1$.
 
 \begin{figure}[htbp]
 \centering
@@ -91,13 +91,13 @@ The joint pre-trend $F$-test ($p \approx 0.11$) and linear trend test ($p \appro
 
 \subsection{Post-Treatment Dynamics: Persistence and Accumulation of Effects}
 
-Post-treatment coefficients increase monotonically from $\mathrm{post}_1$ ($\approx 0.26$) through $\mathrm{post}_2$ ($\approx 0.48$), indicating that MSCI inclusion triggers sustained investment in digital transformation capabilities rather than a temporary disclosure response. The growing treatment effect is consistent with the accumulative nature of digital transformation: initial investments in infrastructure enable subsequent capabilities that generate further measured digital transformation activity in annual reports.
+Post-treatment coefficients increase monotonically from $\mathrm{post}_1$ ($\approx 0.26$) through $\mathrm{post}_2$ ($\approx 0.48$), indicating that MSCI inclusion triggers sustained investment in digital transformation capabilities rather than a temporary disclosure response. The growing treatment effect is consistent with the accumulative nature of digital transformation. Initial infrastructure investments appear to enable subsequent capabilities that generate additional measured digital-transformation activity in annual reports.
 
 \section{Robustness and Endogeneity Tests}
 
 \subsection{Parallel Trend Test}
 
-The parallel trends assumption is validated through: (i)~graphical inspection of pre-treatment trajectories (Figure~\ref{fig:event_study}); (ii)~formal event-study pre-trend coefficients (Figure~\ref{fig:dynamic_effects}); and (iii)~statistical tests as reported in Section~6.2.3. All three approaches support the assumption.
+The parallel trends assumption is validated in three ways. First, graphical inspection of pre-treatment trajectories in Figure~\ref{fig:event_study}. Second, formal event-study pre-trend coefficients in Figure~\ref{fig:dynamic_effects}. Third, statistical tests reported in Section~6.2.3. All three approaches support the assumption.
 
 \subsection{Placebo Test}
 
@@ -110,7 +110,7 @@ A standard concern with quasi-experimental designs is that an estimated treatmen
 \label{fig:placebo}
 \end{figure}
 
-Figure~\ref{fig:placebo} displays the distribution of MSCI $\times$ Post coefficients from 1,000 iterations where MSCI inclusion status is randomly reassigned among non-treated firms. The null distribution has mean 0.0001 and standard deviation 0.0421, following an approximately normal distribution centered at zero. The actual treatment estimate (0.108 in the placebo specification) lies well outside the 95th percentile of this distribution (critical value $\approx 0.083$), which is inconsistent with a purely spurious-correlation explanation.
+Figure~\ref{fig:placebo} displays the distribution of MSCI $\times$ Post coefficients from 1,000 iterations where MSCI inclusion status is randomly reassigned among non-treated firms. The null distribution has mean 0.0001 and standard deviation 0.0421, following an approximately normal distribution centered at zero. Under the same placebo framework, the non-random assignment estimate is 0.108, which lies beyond the 95th percentile of the null distribution (critical value $\approx 0.083$). This pattern is inconsistent with a purely spurious-correlation explanation.
 
 \subsection{PSM-DID}
 
@@ -218,7 +218,7 @@ $R^2$ & 0.003 & 0.002 & 0.001 &  \\
 \end{tablenotes}
 \end{table}
 
-Table~\ref{tab:alt_measures} shows MSCI $\times$ Post coefficients for eight alternative digital transformation outcome measures. Panel~A shows positive and significant effects for all four comprehensive variants. Panel~B shows significant effects for AI (0.747***) and Big Data (0.396**). Panel~C confirms positive effects using binary (0.021***) and standardized Z-score (0.063***) specifications. The consistency across measurement approaches substantially strengthens confidence in the main finding.
+Table~\ref{tab:alt_measures} reports MSCI $\times$ Post coefficients for eight alternative digital transformation outcome measures. Panel~A reports positive and significant effects for all four comprehensive variants. Panel~B indicates significant effects for AI (0.747***) and Big Data (0.396**). Panel~C confirms positive effects using binary (0.021***) and standardized Z-score (0.063***) specifications. Consistency across measurement approaches substantially strengthens confidence in the main finding.
 
 \subsection{Staggered Adoption Diagnostics and Cohort-Specific Average Treatment Effects}
 
@@ -397,7 +397,7 @@ Figure~\ref{fig:regional_hetero} visualizes these results in a dual-panel format
 
 \subsection{Heterogeneity Analysis Based on Industry Level}
 
-Panel~B of Table~\ref{tab:heterogeneity} reports the industry-level heterogeneity estimates. Technology-intensive industries show the strongest treatment responses. Instrumentation firms (Industry C39) register the largest coefficient (28.130***), followed by electrical equipment manufacturers (Industry C38: 13.032***) and transportation equipment (Industry C27: 2.764***). The high-tech versus low-tech differential of 50.589** ($p = 0.035$) is statistically significant and economically large---equivalent to approximately four times the control mean.
+Panel~B of Table~\ref{tab:heterogeneity} reports the industry-level heterogeneity estimates. Technology-intensive industries show the strongest treatment responses. Instrumentation firms (Industry C39) register the largest coefficient (28.130***), followed by electrical equipment manufacturers (Industry C38: 13.032***) and transportation equipment (Industry C27: 2.764***). The high-tech versus low-tech differential is 50.589** ($p = 0.035$), which is statistically significant and economically large. The estimate is roughly four times the control mean.
 
 \subsection{Heterogeneity Analysis Based on Technology Domain}
 
@@ -485,7 +485,7 @@ Pre-treatment digital transformation level (lower baseline DT) & Stronger effect
 
 \section{Mechanism Evidence}
 
-The three theoretical channels---financing constraint relaxation, governance improvement, and knowledge spillovers---generate distinct empirical predictions. This thesis directly tests the first two channels by estimating Equation~(\ref{eq:twfe_did}) with channel-specific proxy outcomes. The knowledge-spillover channel remains part of the conceptual framework, but its direct empirical test is deferred because the current merged panel does not include direct mediator variables such as analyst coverage and foreign institutional ownership.
+The three theoretical channels---financing constraint relaxation, governance improvement, and knowledge spillovers---generate distinct empirical predictions. This study directly tests the first two channels by estimating Equation~(\ref{eq:twfe_did}) with channel-specific proxy outcomes. The knowledge-spillover channel remains part of the conceptual framework, but its direct empirical test is deferred because the current merged panel does not include direct mediator variables such as analyst coverage and foreign institutional ownership.
 
 \begin{figure}[htbp]
 \centering
@@ -509,7 +509,7 @@ Figure~\ref{fig:mechanism_channels} presents the quantitative DID estimates for 
 
 The financing-constraint channel predicts that MSCI inclusion lowers the effective cost of external capital for treated firms.
 
-To make this channel operational, the thesis uses three complementary firm-year proxies with distinct measurement logic. The KZ index is treated as a composite financing-friction score where larger values indicate tighter constraints. Bank leverage is the bank-debt reliance ratio in the merged panel (scaled by firm size), so lower values indicate reduced dependence on bank credit after treatment. CashFlow/Assets is operating cash flow scaled by total assets and captures internally generated liquidity available for digital investment. All three mechanism regressions retain the same identification structure as the baseline model (Industry+Year+Province fixed effects with firm-clustered standard errors), so channel coefficients remain directly comparable to the main DID specification.
+To make this channel operational, the study uses three complementary firm-year proxies with distinct measurement logic. The KZ index is treated as a composite financing-friction score where larger values indicate tighter constraints. Bank leverage is the bank-debt reliance ratio in the merged panel (scaled by firm size), so lower values indicate reduced dependence on bank credit after treatment. CashFlow/Assets is operating cash flow scaled by total assets and captures internally generated liquidity available for digital investment. All three mechanism regressions retain the same identification structure as the baseline model (Industry+Year+Province fixed effects with firm-clustered standard errors), so channel coefficients remain directly comparable to the main DID specification.
 
 \begin{table}[htbp]
 \centering
@@ -569,9 +569,9 @@ Governance estimates are uniformly in the predicted direction and statistically 
 
 \subsection{Knowledge Spillover Channel}
 
-The knowledge-spillover mechanism remains theoretically central to the thesis, but it is not directly estimated in the baseline mechanism regressions. Recent evidence shows that digital transformation can generate information spillovers across firms and market participants~\cite{WangWang2026}, and that spillover intensity may vary with strategic competition conditions in manufacturing settings~\cite{LiuGu2026}, reinforcing the conceptual relevance of this channel in our setting. A direct mechanism test requires mediator variables that map to the chain MSCI inclusion $\to$ external information intermediaries/investors $\to$ firm learning and implementation. In this context, analyst coverage (and optionally analyst forecast dispersion) and foreign institutional ownership are the preferred first-stage mediators. Because these variables are not yet integrated into the current merged panel, this thesis does not report a direct knowledge-channel coefficient and avoids proxy substitution that could blur causal interpretation.
+The knowledge-spillover mechanism remains theoretically central to the study, but it is not directly estimated in the baseline mechanism regressions. Recent evidence shows that digital transformation can generate information spillovers across firms and market participants~\cite{WangWang2026}, and that spillover intensity may vary with strategic competition conditions in manufacturing settings~\cite{LiuGu2026}, reinforcing the conceptual relevance of this channel in our setting. A direct mechanism test requires mediator variables that map to the chain MSCI inclusion $\to$ external information intermediaries/investors $\to$ firm learning and implementation. In this context, analyst coverage (and optionally analyst forecast dispersion) and foreign institutional ownership are the preferred first-stage mediators. Because these variables are not yet integrated into the current merged panel, this study does not report a direct knowledge-channel coefficient and avoids proxy substitution that could blur causal interpretation.
 
-For transparency, the intended measurement protocol is as follows: analyst coverage is defined as the number of analysts issuing firm-year forecasts; analyst forecast dispersion is the cross-analyst standard deviation of earnings forecasts; foreign institutional ownership is the fraction of shares held by foreign institutions in each firm-year; and cross-border exposure proxies include export intensity, overseas subsidiary presence, and foreign director participation. These variables are conceptually close to the mechanism chain and therefore preferred over indirect substitutes. As a supplementary check, Appendix Table~\ref{tab:appendix_spillover_proxy} reports an exploratory peer-spillover proxy regression based on leave-one-out industry-year peer digital transformation. The interaction term (MSCI $\times$ PeerDT) is positive but statistically insignificant ($p = 0.114$), so it is reported only as directional context rather than direct mechanism evidence. The deferred design choice is methodological rather than substantive: the thesis prioritizes identification quality by reporting no direct-mediator coefficient instead of reporting a weakly interpretable proxy-based estimate.
+For transparency, the intended measurement protocol is as follows: analyst coverage is defined as the number of analysts issuing firm-year forecasts; analyst forecast dispersion is the cross-analyst standard deviation of earnings forecasts; foreign institutional ownership is the fraction of shares held by foreign institutions in each firm-year; and cross-border exposure proxies include export intensity, overseas subsidiary presence, and foreign director participation. These variables are conceptually close to the mechanism chain and therefore preferred over indirect substitutes. As a supplementary check, Appendix Table~\ref{tab:appendix_spillover_proxy} reports an exploratory peer-spillover proxy regression based on leave-one-out industry-year peer digital transformation. The interaction term (MSCI $\times$ PeerDT) is positive but statistically insignificant ($p = 0.114$), so it is reported only as directional context rather than direct mechanism evidence. The deferred design choice is methodological rather than substantive: the study prioritizes identification quality by reporting no direct-mediator coefficient instead of reporting a weakly interpretable proxy-based estimate.
 
 To maintain analytical transparency for this deferred channel, Table~\ref{tab:knowledge_deferred} reports a structured measurement and identification roadmap rather than a placeholder pseudo-regression.
 
@@ -598,7 +598,7 @@ Cross-border exposure proxies (exports, overseas subsidiaries, foreign directors
 
 The row-by-row design in Table~\ref{tab:knowledge_deferred} clarifies what is missing and why. Analyst variables identify the information-production margin, foreign ownership identifies monitoring and benchmarking pressure, and cross-border exposure identifies network-based diffusion. Reporting these rows explicitly improves interpretability relative to an ``NA'' coefficient table because it links each mediator to a concrete data source, expected sign, and planned test design.
 
-Overall, Section~6.5 provides direct mechanism evidence for financing and governance channels. For the knowledge-spillover channel, the thesis provides a transparent identification roadmap and data requirements, and reserves coefficient reporting for future work once direct mediators are fully integrated.
+Overall, Section~6.5 provides direct mechanism evidence for financing and governance channels. For the knowledge-spillover channel, the study provides a transparent identification roadmap and data requirements, and reserves coefficient reporting for future work once direct mediators are fully integrated.
 
 \paragraph{Cross-Channel Summary}
 
@@ -636,26 +636,28 @@ This section steps back from individual coefficients and considers what the comb
 
 \subsection{Interpretation of Main Findings}
 
-The preferred baseline estimate of 0.394 log points (approximately 48 percent) indicates a substantial increase in digital transformation following MSCI inclusion. To put this in perspective, the effect corresponds to roughly half a within-firm standard deviation and is several times larger than the control group's organic annual growth rate of about 4 percent. This is not a marginal adjustment in corporate disclosure---it reflects a meaningful shift in how treated firms engage with digital technologies.
+The preferred baseline estimate of 0.394 log points (approximately 48 percent) indicates a substantial increase in digital transformation following MSCI inclusion. To put this in perspective, the effect corresponds to roughly half a within-firm standard deviation and is several times larger than the control group's organic annual growth rate of about 4 percent. This magnitude indicates a meaningful strategic shift in treated firms' digital engagement.
 
-What makes this finding more credible is the pattern of supporting evidence. The event-study analysis shows no pre-existing trend divergence, and post-treatment effects grow over time rather than appearing as a one-off spike. This accumulation pattern is consistent with what we would expect if firms were building genuine digital capabilities---initial infrastructure investments enabling further rounds of adoption---rather than simply adjusting their annual-report language.
+The credibility of this estimate is reinforced by convergent supporting evidence. The event-study analysis indicates no pre-existing trend divergence, and post-treatment effects grow over time rather than appearing as a one-off spike. This accumulation pattern is consistent with gradual capability building---initial infrastructure investments enabling subsequent rounds of adoption---rather than a short-lived disclosure adjustment.
 
 The mechanism results help explain why the effect occurs. Governance improvements are the most robust channel: all three governance proxies move significantly in the predicted direction after inclusion. Treated firms add independent directors, strengthen board independence relative to board size, and experience ownership dispersion. These changes are consistent with the well-documented tendency of international institutional investors to push for stronger oversight and longer-horizon decision-making.
 
-The financing channel shows a more mixed picture. Bank leverage declines and internal cash flow improves---both significant at the 1 percent level---but the composite KZ index does not move significantly. This pattern suggests that the financing benefits of MSCI inclusion operate more through specific funding-structure changes than through a broad relaxation of overall financial constraints. In practical terms, treated firms appear to shift away from bank-dependent financing toward capital structures that are better suited to long-horizon digital investment.
+Financing-channel evidence is mixed but directionally consistent. Bank leverage declines and internal cash flow improves---both significant at the 1 percent level---but the composite KZ index does not move significantly. This pattern indicates that financing benefits of MSCI inclusion operate more through specific funding-structure adjustments than through a broad movement in composite-constraint indices. In practical terms, treated firms reallocate away from bank-dependent financing toward structures better suited to long-horizon digital investment.
 
-A limitation of the current analysis is the absence of direct measures for the knowledge-spillover channel, such as analyst coverage or foreign institutional ownership. While this channel is theoretically relevant, the thesis does not report a direct coefficient estimate and instead presents a structured measurement roadmap for future work. This choice reflects a preference for identification quality over completeness: reporting a weak or indirect proxy estimate could overstate the evidence for this channel.
+A limitation of the current analysis is the absence of direct measures for the knowledge-spillover channel, such as analyst coverage or foreign institutional ownership. While this channel is theoretically relevant, the study does not report a direct coefficient estimate and instead presents a structured measurement roadmap for future work. This choice reflects a preference for identification quality over completeness: reporting a weak or indirect proxy estimate could overstate the evidence for this channel.
 
 \subsection{Implications for the Capital Market Liberalization Literature}
 
-These findings extend the liberalization literature in a direction that has received limited attention. Most prior studies focus on financial outcomes---stock returns, liquidity, cost of capital---and treat real-side effects as secondary. The evidence presented here suggests that liberalization can influence how firms invest in technology and organizational capabilities, connecting financial integration to longer-term productivity-related behavior.
+These findings extend the liberalization literature in a direction that has received limited attention. Most prior studies focus on financial outcomes---stock returns, liquidity, cost of capital---and treat real-side effects as secondary. The evidence here indicates that liberalization influences how firms invest in technology and organizational capabilities, connecting financial integration to longer-term productivity-related behavior.
 
-The mechanism evidence adds specificity to this contribution. Rather than treating liberalization as a single undifferentiated shock, the thesis shows that its effects operate through at least two distinct pathways---governance strengthening and financing-structure adjustment---with different degrees of empirical precision. This distinction matters for policy because it implies that the real-economy benefits of financial opening depend partly on the governance and institutional conditions that accompany it.
+The mechanism evidence adds specificity to this contribution. Rather than treating liberalization as a single undifferentiated shock, the analysis shows that its effects operate through at least two distinct pathways---governance strengthening and financing-structure adjustment---with different degrees of empirical precision. This distinction matters for policy because it implies that the real-economy benefits of financial opening depend partly on the governance and institutional conditions that accompany it.
 
 The heterogeneity results reinforce this point. Treatment effects are strongest in eastern provinces, technology-intensive industries, and high-end manufacturing---settings where the complementary conditions for digital adoption are already in place. This pattern is consistent with an absorptive-capacity framework and suggests that liberalization amplifies existing capabilities rather than creating them from scratch.
 
 \subsection{Policy Implications}
 
-The results carry several practical implications. For policymakers considering capital-market opening, the evidence suggests that carefully sequenced liberalization can generate technology-upgrading benefits beyond conventional market-efficiency gains. However, the heterogeneity patterns indicate that these benefits are not automatic. Regions and firms with weaker institutional environments, thinner talent pools, or less developed digital infrastructure may not capture the same returns from international capital exposure. Complementary investments in governance quality, digital infrastructure, and human capital may therefore be needed to prevent widening regional disparities.
+The results carry several practical implications. For policymakers considering capital-market opening, the evidence indicates that carefully sequenced liberalization can generate technology-upgrading benefits beyond conventional market-efficiency gains. However, the heterogeneity patterns indicate that these benefits are not automatic. Regions and firms with weaker institutional environments, thinner talent pools, or less developed digital infrastructure may not capture the same returns from international capital exposure. Complementary investments in governance quality, digital infrastructure, and human capital may therefore be needed to prevent widening regional disparities.
 
 For firms, the findings suggest that pairing capital-market access with governance reform and transparent strategic planning can amplify the benefits of international investor engagement. For international investors, the results indicate that stewardship and monitoring functions are not merely symbolic---they can be active channels through which portfolio allocation influences real firm behavior.
+
+Chapter~\ref{chap:conclusion} synthesizes these empirical results into overall contributions, limitations, and future research priorities.

@@ -3,7 +3,7 @@
 
 This chapter presents the identification strategy used to estimate the effect of capital market liberalization on firm-level digital transformation. It covers treatment construction, sample design, model specification, and identification assumptions, following current empirical standards in applied economics and corporate finance.
 
-Each design component is paired with the inferential risk it addresses---selection on observables, differential pre-trends, timing heterogeneity, and disclosure-measurement artifacts---so that readers can assess not only the final estimator, but also the assumptions behind it.
+Each design component is paired with the inferential risk it addresses, including selection on observables, differential pre-trends, timing heterogeneity, and disclosure-measurement artifacts. This structure helps readers assess both the final estimator and the assumptions behind it.
 
 \section{Sample and Data Source}
 
@@ -37,7 +37,7 @@ The final dataset contains 35,264 firm-year observations for 2,712 firms, includ
 
 This section develops the econometric framework. It introduces the two-way fixed effects DID baseline, event-study dynamics, and matched-sample extensions, and explains how each specification addresses a distinct identification concern.
 
-Before presenting the formal equations, Figure~\ref{fig:model_design} summarizes the full research model design as an integrated identification workflow. The figure links institutional treatment construction, sample and variable architecture, and outcome measurement to the three complementary estimation strategies used in this thesis (TWFE-DID, event study, and PSM-DID).
+Before presenting the formal equations, Figure~\ref{fig:model_design} summarizes the full research model design as an integrated identification workflow. The figure links institutional treatment construction, sample and variable architecture, and outcome measurement to the three complementary estimation strategies used in this study (TWFE-DID, event study, and PSM-DID).
 
 \begin{figure}[htbp]
 \centering
@@ -53,7 +53,7 @@ As a research model design, Figure~\ref{fig:model_design} highlights the inferen
 
 MSCI inclusion meets the key requirements of a natural experiment. Inclusion criteria are mechanical---free-float market capitalization, liquidity thresholds, and Stock Connect accessibility---and are independent of firms' underlying digital transformation trajectories. The policy schedule was enforced externally by MSCI, without input from Chinese authorities or individual firms. These properties generate plausibly exogenous variation in international capital access, supporting the causal interpretation of our DID estimates. Following contemporary causal-design standards, we do not rely on exogeneity by assertion alone; instead, we combine institutional argumentation with empirical diagnostics, including pre-trend checks, placebo assignments, and alternative estimators designed for staggered treatment settings.
 
-\subsection{Two-Way Fixed Effects Difference-in-Differences Specification}
+\subsection{Two-way fixed effects difference-in-differences specification}
 
 We estimate the following two-way fixed effects DID specification:
 \begin{equation}
@@ -71,7 +71,7 @@ DT_{it} = \alpha + \sum_{k} \delta_k \, \mathrm{MSCI}_i \times \mathbf{1}[t - T_
 \end{equation}
 where $T_i$ denotes firm $i$'s inclusion year, and $k = -1$ is omitted as the reference period. Dynamic coefficients $\delta_k$ reveal whether digital transformation intensity rises precisely around the inclusion window and whether effects persist over time.
 
-\subsection{Propensity Score Matching Difference-in-Differences (PSM-DID)}
+\subsection{Propensity score matching difference-in-differences (PSM-DID)}
 
 To address residual selection on observable characteristics, we augment the baseline DID with propensity score matching. We estimate inclusion probability using pre-treatment (2016) characteristics via logistic regression, implement nearest-neighbor matching with replacement and a 0.01 caliper, and retain up to three controls per treated firm. Covariate balance diagnostics confirm standardized mean differences below 0.1 for all matching variables. Re-estimating Equation~(\ref{eq:twfe_did}) on the matched panel yields a PSM-DID estimator robust to observable selection bias. Methodologically, the matched design is used as a complement rather than a substitute for fixed-effects identification: matching improves overlap on observables, while DID continues to absorb time-invariant unobserved heterogeneity and common shocks.
 
@@ -211,3 +211,5 @@ Table~\ref{tab:descriptive_stats} presents comprehensive descriptive statistics 
 First, MSCI-included firms exhibit substantially higher baseline digital transformation intensity (mean = 22.21 keyword counts) compared to non-included firms (mean = 12.78), a difference of 9.44 that is statistically significant at the 1\% level ($t = 10.95$). Second, treated firms are systematically larger, with mean log assets of 24.34 versus 22.03 for controls, corresponding to approximately a 10-fold difference in asset scale. Third, MSCI constituents are more mature, averaging 15.6 years since incorporation versus 9.4 years for non-constituents. Fourth, treated firms demonstrate superior financial performance: higher profitability (ROA: 6.3\% vs.\ 3.5\%), stronger equity returns (ROE: 10.3\% vs.\ 0.4\%), and elevated market valuations (Tobin's $Q$: 2.55 vs.\ 2.15). Fifth, governance structures differ systematically, with MSCI firms maintaining larger boards and more independent directors. Interestingly, financial leverage (42.1\% vs.\ 40.0\%) and cash flow ratios (21.2\% vs.\ 21.3\%) are economically similar across groups.
 
 These systematic pre-treatment differences underscore the importance of our combined DID and PSM identification strategy.
+
+Chapter~\ref{chap:research_design_2} then documents construction and validation of the text-based outcome variables, and Chapter~\ref{chap:empirical_results} implements the estimation sequence defined in this chapter.

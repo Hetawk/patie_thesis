@@ -3,7 +3,7 @@
 
 This chapter describes the measurement framework used to quantify digital transformation intensity from annual-report disclosures. It covers corpus construction, Chinese-language tokenization, dictionary design, index aggregation, and validation. In line with current text-as-data standards, measurement is treated as a core inferential component rather than a purely technical preprocessing step.
 
-Because measurement error is a first-order concern in causal analysis with textual outcomes, the chapter documents not only how the index is constructed, but also why each preprocessing and validation choice matters for construct validity. By combining linguistic adaptation, domain-specific dictionaries, and multiple robustness specifications, the analysis shows that the estimated policy effects are stable across plausible measurement alternatives.
+Because measurement error is a first-order concern in causal analysis with textual outcomes, the chapter documents not only how the index is constructed, but also why each preprocessing and validation choice matters for construct validity. By combining linguistic adaptation, domain-specific dictionaries, and multiple robustness specifications, this chapter demonstrates that estimated treatment effects are stable across plausible measurement alternatives.
 
 \section{Motivation: Why Text-Based Measurement for Digital Transformation?}
 
@@ -55,7 +55,7 @@ Dictionary quality is validated through manual coding of 500 randomly selected a
 
 For each firm-year, we compute six technology-specific sub-indices $DT_j = $ count of keywords in cluster $j$ identified in the annual report text. These sub-indices serve as inputs for technology heterogeneity analysis (Section~\ref{sec:alt_measures}) and allow testing of Hypothesis~2.
 
-\subsection{Composite Index: $DT\_Comp = \log(1 + \Sigma\;\mathrm{keywords})$}
+\subsection{\texorpdfstring{Composite Index: $DT\_Comp = \log(1 + \Sigma\;\mathrm{keywords})$}{Composite Index: DT\_Comp = log(1 + sum keywords)}}
 
 The primary outcome variable is the composite index $DT\_Comp = \log(1 + \sum_j DT_j)$, which aggregates keyword frequencies across all six clusters using a logarithmic transformation. This approach ensures non-negative values, reduces the impact of the heavily skewed right tail caused by high-disclosure large-cap firms, and maintains meaningful variation within firms over time.
 
@@ -65,17 +65,17 @@ In addition to winsorization (1st--99th percentile), the logarithmic transformat
 
 \section{Construct Validity of the Computational Measure}
 
-\subsection{Correlation with IT Investment ($\rho = 0.67$)}
+\subsection{\texorpdfstring{Correlation with IT Investment ($\rho = 0.67$)}{Correlation with IT Investment (rho = 0.67)}}
 
 The composite $DT\_Comp$ index shows a Pearson correlation of $\rho = 0.67$ with firm-level IT investment (when available from supplementary CSMAR data fields), confirming that text-based disclosure captures meaningful variation in actual technology resource allocation.
 
-\subsection{Correlation with Digital Patent Applications ($\rho = 0.71$)}
+\subsection{\texorpdfstring{Correlation with Digital Patent Applications ($\rho = 0.71$)}{Correlation with Digital Patent Applications (rho = 0.71)}}
 
 The correlation with digital patent applications (patents in AI, software, and digital systems from CNRDS patent database) is $\rho = 0.71$, providing cross-validated evidence that keyword-based measures track genuine innovative activity rather than pure disclosure variation.
 
 \subsection{Sensitivity Analysis Across Alternative Algorithmic Specifications}
 
-We report results for eight alternative operationalizations of the dependent variable (Table~\ref{tab:alt_measures} in Chapter~\ref{chap:empirical_results}), including: (i)~alternative composite aggregations (DT\_Comp\_B); (ii)~application-domain sub-indices (DT\_App\_A, DT\_App\_B); (iii)~technology-specific measures (AI\_Tech, BigData\_Tech, Cloud\_Tech, Blockchain\_Tech); (iv)~binary and standardized variants; and (v)~mention frequency versus intensity measures.
+We report results for eight alternative operationalizations of the dependent variable (Table~\ref{tab:alt_measures} in Chapter~\ref{chap:empirical_results}). These alternatives cover five groups. The first group contains alternative composite aggregations (DT\_Comp\_B). The second group contains application-domain sub-indices (DT\_App\_A, DT\_App\_B). The third group contains technology-specific measures (AI\_Tech, BigData\_Tech, Cloud\_Tech, and Blockchain\_Tech). The fourth group contains binary and standardized variants. The fifth group contains mention frequency versus intensity measures.
 
 \section{Disclosure Verbosity and Strategic Disclosure Bias}
 
@@ -90,3 +90,5 @@ As an alternative approach, we augment the baseline DID specification (Equation~
 \subsection{Residual Limitations and Scope of the Computational Approach}
 
 We recognize that text-based measures capture disclosed digital orientation and intensity rather than direct accounting records of realized technology expenditure. After MSCI inclusion, firms may strategically increase digital language to appeal to international investors without equivalent operational change. However, the evidence remains more consistent with substantive transformation than pure disclosure management: effects are strongest in technology-specific outcomes (especially AI and Big Data), heterogeneity patterns align with capability-based expectations, and results persist after disclosure-length adjustments.
+
+These measurement choices provide the outcome architecture used in Chapter~\ref{chap:empirical_results} and preserve consistency with the identification design in Chapter~\ref{chap:research_design_1}.

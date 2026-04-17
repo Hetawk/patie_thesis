@@ -18,7 +18,13 @@
 \RequirePackage{ragged2e}
 \RequirePackage{amsmath,amssymb,amsfonts,geometry,makeidx,graphicx,caption,verbatim,pdfpages,fancyhdr,placeins,xcolor,enumitem,float,chngcntr,setspace,etoolbox,longtable}
 \RequirePackage{truncate}
-\RequirePackage{txfonts}
+\ifXeTeX
+    % txfonts is OT1/T1-oriented and triggers TU font-shape warnings under XeLaTeX.
+    % Keep Times-like math appearance with a Unicode-safe math package.
+    \RequirePackage{newtxmath}
+\else
+    \RequirePackage{txfonts}
+\fi
 \RequirePackage[colorlinks=true,allcolors=black,unicode=true,bookmarksnumbered=true,bookmarksopen=true,pdfencoding=auto]{hyperref}
 \RequirePackage[nameinlink]{cleveref}
 \RequirePackage[linesnumbered,ruled,vlined]{algorithm2e}
