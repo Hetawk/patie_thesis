@@ -5,24 +5,22 @@ This chapter synthesizes the main findings, contributions, and limitations of th
 
 \section{Summary of Main Findings}
 
-Using a difference-in-differences design on 35,264 firm-year observations (2010--2022) and validated NLP-based digital transformation measures, this study estimates that phased inclusion of Chinese A-share firms in the MSCI Emerging Markets Index increases digital transformation intensity by 0.394 log points (approximately 48 percent relative to pre-treatment levels). The effect is:
+Using a difference-in-differences framework on 35,264 firm-year observations (2010--2022) and NLP-based digital-transformation measures, this study finds a positive but estimator-sensitive relationship between MSCI inclusion and firm digital-transformation outcomes. The main evidence can be summarized as follows:
 \begin{enumerate}
-\item statistically significant at the 1\% level in the preferred specification;
-\item robust across eight alternative outcome measures, disclosure-length controls, and multiple falsification tests; with PSM-DID and cohort-based staggered-adoption diagnostics directionally supportive but more conservative in precision;
-\item supported by event-study evidence consistent with pre-treatment parallel trends and by 1,000-iteration placebo tests that reject spurious treatment assignment; and
-\item supported by direct mechanism evidence in financing and governance channels.
+\item TWFE benchmark estimates are positive and statistically strong (0.394 log points in the controlled specification), but cohort-based modern DID diagnostics are materially smaller and less precise, indicating substantial sensitivity to estimator choice under staggered treatment timing;
+\item event-study and placebo evidence supports treatment timing plausibility, while alternative outcomes and disclosure-length checks support directional robustness under a hybrid disclosure-substantive measure interpretation;
+\item heterogeneity patterns are strongest in high-technology and institutionally developed settings, consistent with absorptive-capacity and institutional-complementarity mechanisms;
+\item mechanism evidence is mixed across channels: financing results align more with financing-structure adjustment than broad constraint relaxation, governance proxies suggest strengthened external monitoring conditions with institutional caveats, and direct knowledge-spillover testing remains deferred because key mediators are not yet fully integrated.
 \end{enumerate}
 
-Heterogeneity analysis reveals that effects are strongest among firms in eastern provinces (approximately 126 percent of the control mean), in technology-intensive industries (Instrumentation: 28.130***; Electrical Equipment: 13.032***), and in high-end manufacturing subcategories. This pattern is consistent with an absorptive-capacity interpretation: international capital and knowledge flows generate the largest digital transformation gains where complementary institutional and organizational resources are already in place.
-
-Overall, the results suggest that capital market liberalization in emerging economies can serve as a catalyst for technological upgrading, particularly when financial opening is accompanied by governance quality and organizational absorptive capacity. The evidence points to a combined financing-and-governance mechanism rather than a purely financial explanation of inclusion effects.
+Overall, the findings suggest that capital-market liberalization can support digital upgrading, but the average effect is moderate, heterogeneous, and conditional on implementation capacity and institutional context. The study therefore emphasizes calibrated interpretation over universal causal claims.
 
 \section{Contributions}
 
 \begin{enumerate}
-\item \textbf{Causal identification of digital transformation drivers:} This study provides quasi-experimental evidence that international financial integration is associated with higher firm-level digital transformation intensity in an emerging market context, with estimates consistent with a causal interpretation under maintained identification assumptions.
+\item \textbf{Identification-oriented evidence on digital transformation drivers:} This study provides quasi-experimental evidence that international financial integration is associated with higher firm-level digital transformation intensity in an emerging-market context, while explicitly documenting estimator sensitivity and treatment heterogeneity under staggered adoption.
 
-\item \textbf{Integration of text-as-data with causal econometrics:} The study provides evidence that validated NLP-based disclosure measures can be embedded in rigorous DID workflows when accompanied by normalization, placebo testing, and alternative-outcome sensitivity checks.
+\item \textbf{Integration of text-as-data with econometric identification:} The study provides evidence that validated NLP-based disclosure measures can be embedded in rigorous DID workflows when accompanied by normalization, placebo testing, and alternative-outcome sensitivity checks.
 
 \item \textbf{Unified mechanism architecture:} Instead of testing channels separately, the study evaluates financing and governance pathways under a common treatment design, generating internally coherent evidence across six directly tested proxy variables.
 
@@ -33,15 +31,17 @@ These contributions are mutually reinforcing: stronger identification supports m
 
 \section{Limitations}
 
-Four limitations merit explicit acknowledgment.
+Five limitations merit explicit acknowledgment.
 
-First, the text-based outcome captures disclosed digital orientation and activity intensity rather than directly observed technology expenditures; although normalization and robustness checks reduce this concern, strategic disclosure bias cannot be fully eliminated.
+First, the text-based outcome captures disclosed digital orientation and intensity rather than direct implementation records. Although normalization and robustness checks mitigate this concern, symbolic disclosure incentives cannot be fully separated from substantive transformation in the current measure.
 
-Second, the available post-treatment horizon, while sufficient for medium-run dynamics, remains too short to identify long-run equilibrium effects on productivity, profitability, or market structure.
+Second, treatment-effect magnitudes are sensitive to estimator choice in staggered-treatment settings. Modern DID diagnostics indicate that conventional TWFE estimates may overstate average effects when treatment responses are heterogeneous across cohorts and time.
 
-Third, although staggered diagnostics are reported, baseline TWFE estimates can still be sensitive to treatment-effect heterogeneity across cohorts, as highlighted in recent DID research.
+Third, MSCI inclusion is rule-based but not randomly assigned. Treated firms differ systematically from untreated firms on pre-treatment characteristics such as size, liquidity, and governance, and residual bias from unobserved selection cannot be fully ruled out.
 
-Fourth, a limitation of this study is the absence of direct measures for the knowledge-spillover channel, such as analyst coverage or foreign institutional ownership. The evidence for this channel remains exploratory rather than based on direct-mediator estimates, and conclusions should be interpreted accordingly. Future research should incorporate these variables to provide a more complete mechanism analysis.
+Fourth, mechanism measurement remains uneven across channels. Financing and governance proxies are observable in the current panel, but direct knowledge-spillover mediators (e.g., analyst coverage and foreign institutional ownership) are not yet fully harmonized.
+
+Fifth, external validity is bounded by the Chinese institutional context. Financial structure, disclosure regulation, and digital-economy conditions differ across emerging markets, so cross-country generalization should be made cautiously.
 
 \section{Future Work}
 
@@ -57,4 +57,4 @@ Fourth, extending the sample beyond 2022 will allow testing whether estimated ef
 
 Fifth, richer NLP methods such as supervised classification, contextual embeddings, and topic evolution models can improve construct validity by distinguishing strategic rhetoric from operational implementation in corporate digital narratives.
 
-Taken together, the study positions capital market liberalization as an economically meaningful driver of firm-level digital upgrading, with effects that are causal in design, heterogeneous in incidence, and channel-specific in transmission.
+Taken together, the study positions capital market liberalization as a potentially important but conditional contributor to firm-level digital upgrading, with effects that are heterogeneous, estimator-sensitive, and channel-specific in transmission.

@@ -15,7 +15,7 @@ Traditional proxies for digital transformation face three limitations. IT expend
 
 \subsection{The Case for Computational Analysis of Annual Report Disclosures}
 
-Annual reports are mandatory, standardized, and publicly available for all listed firms, which provides near-complete sample coverage without survey attrition. Prior validation studies~\cite{ChenZhang2024,YLi2023} show that keyword frequencies in Chinese annual reports correlate positively with IT investment ($\rho = 0.67$), software capitalization, and digital patent applications ($\rho = 0.71$). This approach makes large-scale analysis feasible in emerging markets where traditional survey data are limited. Methodologically, computational text analysis also supports transparent preprocessing pipelines, reproducible dictionaries, and systematic sensitivity checks across alternative index constructions.
+Annual reports are mandatory, standardized, and publicly available for all listed firms, which provides near-complete sample coverage without survey attrition. This makes computational text analysis feasible at scale in emerging markets where direct firm-year investment data are incomplete. At the same time, disclosure text combines substantive implementation information with strategic investor-facing communication. The resulting indicator should therefore be interpreted as a disclosure-based proxy for digital orientation and intensity, not as a one-to-one accounting measure of realized implementation. Methodologically, transparent preprocessing pipelines, reproducible dictionaries, and sensitivity checks across alternative constructions are used to improve interpretability under this hybrid-measure view.
 
 \section{Annual Report Corpus and Document Processing}
 
@@ -65,13 +65,15 @@ In addition to winsorization (1st--99th percentile), the logarithmic transformat
 
 \section{Construct Validity of the Computational Measure}
 
+The text-based index is interpreted as a hybrid indicator that captures both substantive digital investment orientation and strategic disclosure behavior. This framing is important in the MSCI setting because inclusion may raise incentives to communicate modernization narratives to international investors. Construct-validity diagnostics therefore assess whether the disclosure-based signal remains economically informative, while acknowledging that it cannot fully separate rhetoric from implementation.
+
 \subsection{\texorpdfstring{Correlation with IT Investment ($\rho = 0.67$)}{Correlation with IT Investment (rho = 0.67)}}
 
-The composite $DT\_Comp$ index shows a Pearson correlation of $\rho = 0.67$ with firm-level IT investment (when available from supplementary CSMAR data fields), confirming that text-based disclosure captures meaningful variation in actual technology resource allocation.
+The composite $DT\_Comp$ index shows a Pearson correlation of $\rho = 0.67$ with firm-level IT investment (when available from supplementary CSMAR data fields). This provides supportive evidence that the text measure contains meaningful implementation-related information, while also implying that substantial variation remains outside direct IT-spending proxies.
 
 \subsection{\texorpdfstring{Correlation with Digital Patent Applications ($\rho = 0.71$)}{Correlation with Digital Patent Applications (rho = 0.71)}}
 
-The correlation with digital patent applications (patents in AI, software, and digital systems from CNRDS patent database) is $\rho = 0.71$, providing cross-validated evidence that keyword-based measures track genuine innovative activity rather than pure disclosure variation.
+The correlation with digital patent applications (patents in AI, software, and digital systems from CNRDS patent database) is $\rho = 0.71$. This cross-validation is consistent with genuine innovative activity, but it does not by itself rule out strategic disclosure incentives in annual-report narratives.
 
 \subsection{Sensitivity Analysis Across Alternative Algorithmic Specifications}
 
@@ -89,6 +91,10 @@ As an alternative approach, we augment the baseline DID specification (Equation~
 
 \subsection{Residual Limitations and Scope of the Computational Approach}
 
-We recognize that text-based measures capture disclosed digital orientation and intensity rather than direct accounting records of realized technology expenditure. After MSCI inclusion, firms may strategically increase digital language to appeal to international investors without equivalent operational change. However, the evidence remains more consistent with substantive transformation than pure disclosure management: effects are strongest in technology-specific outcomes (especially AI and Big Data), heterogeneity patterns align with capability-based expectations, and results persist after disclosure-length adjustments.
+The computational index should be interpreted as a disclosure-based proxy that combines substantive and symbolic components. After MSCI inclusion, firms may strategically increase digital language to align with international investor expectations, even when implementation depth varies across firms.
+
+Within these constraints, several findings suggest the measure remains economically informative rather than purely cosmetic: treatment effects show persistence in dynamic specifications, technology-specific patterns are stronger in domains with higher implementation requirements (especially AI and Big Data), and core results remain directionally stable after disclosure-length normalization and alternative outcome constructions.
+
+Nevertheless, the current measure cannot fully separate strategic communication from realized implementation intensity. Future extensions should integrate direct substantive indicators such as digital patent shares, software copyright registrations, ERP/CRM procurement records, and machine-learning classification of implementation-detail disclosures versus strategic declarations.
 
 These measurement choices provide the outcome architecture used in Chapter~\ref{chap:empirical_results} and preserve consistency with the identification design in Chapter~\ref{chap:research_design_1}.
