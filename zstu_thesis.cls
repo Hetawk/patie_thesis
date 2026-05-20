@@ -342,22 +342,49 @@
 \newcommand{\@studentnum}{}
 \newcommand{\@chinesetitle}{}
 \newcommand{\@englishtitle}{}
+\newcommand{\@chinesetitlelineone}{}
+\newcommand{\@chinesetitletwo}{}
+\newcommand{\@englishtitlelineone}{}
+\newcommand{\@englishtitlelinetwo}{}
+\newcommand{\@englishtitlelinethree}{}
+\newcommand{\@englishtitlelinefour}{}
 \newcommand{\@authorname}{}
 \newcommand{\@category}{}
+\newcommand{\@major}{}
+\newcommand{\@school}{}
+\newcommand{\@advisorname}{}
 \newcommand{\@completiondate}{}
 
 % Setter commands (called from main.tex)
 \newcommand{\studentnum}[1]{\renewcommand{\@studentnum}{#1}}
 \newcommand{\chinesetitle}[1]{\renewcommand{\@chinesetitle}{#1}}
 \newcommand{\englishtitle}[1]{\renewcommand{\@englishtitle}{#1}}
+\newcommand{\coverchineselines}[2]{%
+    \renewcommand{\@chinesetitlelineone}{#1}%
+    \renewcommand{\@chinesetitletwo}{#2}%
+}
+\newcommand{\coverenglishlines}[4]{%
+    \renewcommand{\@englishtitlelineone}{#1}%
+    \renewcommand{\@englishtitlelinetwo}{#2}%
+    \renewcommand{\@englishtitlelinethree}{#3}%
+    \renewcommand{\@englishtitlelinefour}{#4}%
+}
 \newcommand{\authorname}[1]{\renewcommand{\@authorname}{#1}}
-\newcommand{\category}[1]{\renewcommand{\@category}{#1}}
+\newcommand{\category}[1]{%
+    \renewcommand{\@category}{#1}%
+    \renewcommand{\@school}{#1}%
+}
+\newcommand{\major}[1]{\renewcommand{\@major}{#1}}
+\newcommand{\school}[1]{\renewcommand{\@school}{#1}}
+\newcommand{\advisorname}[1]{\renewcommand{\@advisorname}{#1}}
 \newcommand{\completiondate}[1]{\renewcommand{\@completiondate}{#1}}
 
 % Convenience: spread a label to fixed width
 \newlength{\zstu@labelwd}
 \setlength{\zstu@labelwd}{6em}
 \newcommand{\zstulabel}[1]{\makebox[\zstu@labelwd][s]{#1}}
+\newlength{\zstu@coverwidth}
+\setlength{\zstu@coverwidth}{0.86\textwidth}
 
 % ---------------------------------------------------------------
 % Cover page (ZSTU format — based on screenshot)
@@ -366,69 +393,102 @@
     \newpage
     \thispagestyle{empty}
 
-    \vspace*{-1cm}
+    \vspace*{-1.8cm}
 
     % University name image at top
     \begin{center}
         \includegraphics[width=0.55\textwidth]{figures/default/zstu_logo_and_name.jpg}
     \end{center}
 
-    \vspace{0.8cm}
+    \vspace{0.2cm}
 
     % 硕士学位论文 （学术学位）
     \begin{center}
-        {\heiti\bfseries\fontsize{42}{52}\selectfont 硕士学位论文}\\[0.6em]
-        {\heiti\fontsize{18}{22}\selectfont （学术学位）}
+        {\heiti\fontsize{36}{44}\selectfont 硕士学位论文}\\[0.6em]
+        {\heiti\zihao{3}（学术学位）}
     \end{center}
 
-    \vspace{1.0cm}
+    \vspace{0.3cm}
 
     % University logo
     \begin{center}
-        \includegraphics[width=0.24\textwidth]{figures/default/zstu_logo.jpg}
+        \includegraphics[width=0.26\textwidth]{figures/default/zstu_logo.jpg}
     \end{center}
 
-    \vspace{1.0cm}
+    \vspace{0.25cm}
 
-    % Chinese title + English title
+    % Resolve cover title lines: prefer explicit line split when provided.
+    \def\zstu@chlineone{\@chinesetitle}
+    \def\zstu@chlinetwo{}
+    \ifstrempty{\@chinesetitlelineone}{}{
+        \def\zstu@chlineone{\@chinesetitlelineone}
+        \def\zstu@chlinetwo{\@chinesetitletwo}
+    }
+    \def\zstu@enlineone{\@englishtitle}
+    \def\zstu@enlinetwo{}
+    \def\zstu@enlinethree{}
+    \def\zstu@enlinefour{}
+    \ifstrempty{\@englishtitlelineone}{}{
+        \def\zstu@enlineone{\@englishtitlelineone}
+        \def\zstu@enlinetwo{\@englishtitlelinetwo}
+        \def\zstu@enlinethree{\@englishtitlelinethree}
+        \def\zstu@enlinefour{\@englishtitlelinefour}
+    }
+
+    % Chinese/English title block with fixed underlined lines
     \begin{center}
-        \begin{minipage}{0.85\textwidth}
-            \centering
-            {\heiti\zihao{3}\@chinesetitle}
-        \end{minipage}
+        {\heiti\zihao{3}\bfseries\underline{\makebox[\dimexpr0.97\zstu@coverwidth\relax][c]{\zstu@chlineone}}}\par
 
-        \vspace{0.8em}
+        \ifstrempty{\zstu@chlinetwo}{}{
+            \vspace{0.10cm}
+            {\heiti\zihao{3}\bfseries\underline{\makebox[\dimexpr0.97\zstu@coverwidth\relax][c]{\zstu@chlinetwo}}}\par
+        }
 
-        \begin{minipage}{0.85\textwidth}
-            \centering
-            {\bfseries\rmfamily\fontsize{14}{20}\selectfont \@englishtitle}
-        \end{minipage}
+        \vspace{0.10cm}
+        {\bfseries\rmfamily\fontsize{14}{19}\selectfont\underline{\makebox[\dimexpr0.97\zstu@coverwidth\relax][c]{\zstu@enlineone}}}\par
+
+        \ifstrempty{\zstu@enlinetwo}{}{
+            \vspace{0.08cm}
+            {\bfseries\rmfamily\fontsize{14}{19}\selectfont\underline{\makebox[\dimexpr0.97\zstu@coverwidth\relax][c]{\zstu@enlinetwo}}}\par
+        }
+
+        \ifstrempty{\zstu@enlinethree}{}{
+            \vspace{0.08cm}
+            {\bfseries\rmfamily\fontsize{14}{19}\selectfont\underline{\makebox[\dimexpr0.97\zstu@coverwidth\relax][c]{\zstu@enlinethree}}}\par
+        }
+
+        \ifstrempty{\zstu@enlinefour}{}{
+            \vspace{0.08cm}
+            {\bfseries\rmfamily\fontsize{14}{19}\selectfont\underline{\makebox[\dimexpr0.97\zstu@coverwidth\relax][c]{\zstu@enlinefour}}}\par
+        }
     \end{center}
 
-    \vspace{1.5cm}
+    \vspace{0.30cm}
 
-    % Metadata table
+    % Metadata table (aligned with ZSTU sample form)
     \begin{center}
-        \fontsize{14}{24}\selectfont\songti
-        \renewcommand{\arraystretch}{1.8}
+        \fontsize{13}{18}\selectfont\songti
+        \renewcommand{\arraystretch}{1.3}
         \begin{tabular}{r@{：}l}
-            \zstulabel{论\hfill 文\hfill 编\hfill 号} &
-                \underline{\makebox[6cm][c]{\@studentnum}} \\
-            \zstulabel{姓\hfill 名} &
+            \zstulabel{作\hfill 者} &
                 \underline{\makebox[6cm][c]{\@authorname}} \\
-            \zstulabel{类别（领域）} &
-                \underline{\makebox[6cm][c]{\@category}} \\
+            \zstulabel{学\hfill 科\hfill 专\hfill 业} &
+                \underline{\makebox[6cm][c]{\@major}} \\
+            \zstulabel{指\hfill 导\hfill 教\hfill 师} &
+                \underline{\makebox[6cm][c]{\@advisorname}} \\
+            \zstulabel{所\hfill 在\hfill 学\hfill 院} &
+                \underline{\makebox[6cm][c]{\@school}} \\
         \end{tabular}
     \end{center}
 
-    \vfill
+    \vspace{0.2cm}
 
     % Completion date
     \begin{center}
         {\songti\zihao{3}\bfseries 完成日期：\@completiondate}
     \end{center}
 
-    \vspace{1.5cm}
+    \vspace{0.12cm}
     \newpage
 }
 
