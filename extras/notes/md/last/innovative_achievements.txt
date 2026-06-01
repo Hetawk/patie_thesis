@@ -1,0 +1,23 @@
+==================================================================
+INNOVATIVE ACHIEVEMENTS (创新成果)
+Author: PATIENCE FERO    Student No.: 20232111E1003
+==================================================================
+
+A. INNOVATION POINTS (one per cell)
+------------------------------------------------------------------
+1. Uses China's MSCI inclusion as a quasi-natural experiment.
+2. Measures digital transformation via validated NLP text index.
+3. Contrasts TWFE DID with modern cohort-ATT estimators.
+4. Unified test of financing and governance mechanisms.
+5. Maps heterogeneity by industry, region, and firm capacity.
+
+------------------------------------------------------------------
+B. INNOVATIVE ACHIEVEMENTS (main field)
+------------------------------------------------------------------
+Using China's phased A-share inclusion in the MSCI Emerging Markets Index (2018-2020) as an exogenous shock on 2,712 listed firms over 2010-2022, this thesis estimates a 0.39 log-point (about 48%) TWFE DID effect of capital-market liberalization on a validated NLP-based digital transformation index, and shows the effect attenuates under modern cohort-ATT estimators, transparently quantifying estimator sensitivity. Robustness is confirmed by event study with no pre-trends, 1,000-iteration placebo, PSM-DID, alternative outcomes, and disclosure-length normalization. A unified six-proxy mechanism test identifies financing-structure adjustment and governance strengthening as the operative channels. Effects concentrate in high-tech industries and institutionally stronger regions, consistent with an absorptive-capacity interpretation. The full Python pipeline is released for end-to-end reproducibility.
+
+------------------------------------------------------------------
+C. SHORT VERSION (for tight character limits)
+------------------------------------------------------------------
+Using China's MSCI inclusion as a quasi-natural experiment on 2,712 A-share firms (2010-2022), this thesis finds capital-market liberalization raises NLP-measured digital transformation by 0.39 log-points (TWFE), attenuating under modern cohort-ATT estimators. Financing-structure and governance channels are operative; effects concentrate in high-tech sectors and institutionally stronger regions. Full reproducible Python pipeline released.
+==================================================================

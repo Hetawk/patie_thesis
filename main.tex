@@ -19,7 +19,7 @@
 
 \usepackage[labelformat=simple]{subcaption}
 % Image search path
-\graphicspath{{images}{figures}}
+\graphicspath{{figures}}
 
 \begin{document}
 
@@ -48,8 +48,8 @@
 \advisorname{}
 \completiondate{二〇二六年四月}
 
-% Generate cover page
-\makecover
+% Use external cover PDF (overrides generated cover)
+\includepdf[pages=1]{cover.pdf}
 
 % Integrity declaration page
 \makeintegritydeclaration

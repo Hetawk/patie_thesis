@@ -501,19 +501,25 @@
     \thispagestyle{empty}
     \vspace*{1.2cm}
 
-    % ---- 原创性声明 ----
+    % ---- 浙江理工大学学位论文独创性声明 ----
     \begin{center}
-        {\heiti\zihao{-2}\bfseries 原\enspace 创\enspace 性\enspace 声\enspace 明}
+        {\heiti\zihao{-2}\bfseries 浙江理工大学学位论文独创性声明}
     \end{center}
     \vspace{1em}
     \zihao{-4}\setlength{\parindent}{2em}
     \par
-    本人郑重声明：所呈交的学位论文，是本人在导师的指导下，独立进行研究所取得的成果。除文中已经注明引用的内容外，本论文不包含任何其他个人或集体已经发表或撰写过的科研成果。对本文的研究作出重要贡献的个人和集体，均已在文中以明确方式标明。本人完全意识到本声明的法律责任由本人承担。
+    本人声明：所提交的学位论文是本人在浙江理工大学攻读学位期间，在导师指导下独立进行的研究工作及取得的研究成果。除了文中已经标注和引用的内容外，本论文中不包含其他人已经发表或撰写过的研究成果，也不包含为获得浙江理工大学或其他教育机构的学位证书而使用过的材料。对本论文研究作出贡献的个人或集体，均已在论文中作了明确的说明并表示谢意。本人承担本声明的法律责任。
 
-    \vspace{2.5em}
-    \noindent\hfill
-    论文作者签名：\underline{\hspace{4cm}}\quad
-    日\enspace 期：\underline{\hspace{3cm}}
+    \vspace{3em}
+    \begin{flushright}
+        \fontsize{13}{20}\selectfont\songti
+        \setlength{\tabcolsep}{0pt}
+        \renewcommand{\arraystretch}{1.6}
+        \begin{tabular}{r@{\hspace{0.5em}}l}
+            论文作者签名： & \underline{\hspace{5cm}} \\
+            签\quad 字\quad 日\quad 期：     & \underline{\makebox[5cm][c]{2026 年 05 月 21 日}} \\
+        \end{tabular}
+    \end{flushright}
 
     \newpage
 }
@@ -536,11 +542,17 @@
     本学位论文是作者在校攻读学位期间取得的成果，知识产权单位属浙江理工大学。作者毕业后发表与本学位论文研究成果相关的学术论文和其他成果时，应征得导师同意，且署名单位应包含浙江理工大学。作者完全了解浙江理工大学有权保留并向国家有关部门或机构送交本论文，允许论文被查阅和借阅。本人授权浙江理工大学及其上级主管部门可以将学位论文的全部或部分内容编入有关数据库进行检索和传播，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。涉密学位论文的送交、保存、汇编等按学校保密相关规定执行。
 
     \vspace{3em}
-    \noindent\hfill
-    \begin{tabular}{ll}
-        论文作者签名：\underline{\hspace{4cm}} & \quad 签字日期：\underline{\hspace{3.5cm}} \\[2.5em]
-        导师签名：\underline{\hspace{4.5cm}}   & \quad 签字日期：\underline{\hspace{3.5cm}} \\
-    \end{tabular}
+    \begin{flushright}
+        \fontsize{13}{20}\selectfont\songti
+        \setlength{\tabcolsep}{0pt}
+        \renewcommand{\arraystretch}{1.6}
+        \begin{tabular}{r@{\hspace{0.5em}}l}
+            论文作者签名： & \underline{\hspace{5cm}} \\
+            签字日期：     & \underline{\makebox[5cm][c]{2026 年 05 月 26 日}} \\[1.8em]
+            导\quad 师\quad 签名：   & \underline{\hspace{5cm}} \\
+            签字日期：     & \underline{\makebox[5cm][c]{2026 年 05 月 26 日}} \\
+        \end{tabular}
+    \end{flushright}
 
     \newpage
 }

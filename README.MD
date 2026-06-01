@@ -1,130 +1,63 @@
-# University of Jinan LaTeX Thesis Template
+# ZSTU Master's Thesis — Patience Fero
 
-This repository contains a fully English LaTeX thesis template for the University of Jinan, translated from the original Chinese version.
+LaTeX source for the master's thesis:
 
-## Quick Start
+> **Does Capital Market Liberalization Drive Digital Transformation?
+> Evidence from Chinese A-Shares' Inclusion in the MSCI Emerging Markets Index**
 
-### XeLaTeX (Recommended)
+- Author: Patience Fero
+- Program: Applied Economics (全英文授课), 经济管理学院
+- Institution: Zhejiang Sci-Tech University (ZSTU, 浙江理工大学)
+- Class file: `zstu_thesis.cls`
 
-xelatex -shell-escape -interaction=nonstopmode main.tex
+## Build
 
-```bash
-xelatex main.tex
-bibtex main
-xelatex main.tex
-xelatex main.tex
-```
-
-### pdfLaTeX (Alternative)
-
-**Recommended:** Use shell-escape to automatically convert SVG files:
+XeLaTeX + Biber. From the repo root:
 
 ```bash
-pdflatex --shell-escape main.tex
-bibtex main
-pdflatex --shell-escape main.tex
-pdflatex --shell-escape main.tex
+make clean && make pdf && make clean
 ```
 
-**Alternative:** If shell-escape is not available, manually convert SVG files first:
+Output: `main.pdf` (~97 pages). Other targets:
 
-```bash
-# Convert SVG files to PDF (requires inkscape)
-find images/ -name "*.svg" -exec inkscape {} --export-pdf={}.pdf \;
+- `make pdf` — build only
+- `make clean` — remove auxiliary files
+- `make figures-ch3-check` / `make figures-ch3` — validate and regenerate Chapter 3 figures from CSVs in `figures/`
 
-# Then compile normally
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
+## Repository layout
+
+```
+main.tex            Top-level LaTeX entry point
+zstu_thesis.cls     ZSTU thesis class (cover, declarations, headers, TOC)
+reference.bib       BibLaTeX bibliography
+cover.pdf           Signed official cover page (included via \includepdf)
+chapter/            All chapter sources (.tex)
+figures/            Figures + CSV stats + Chapter 3 figure generator
+Makefile            Build / clean / figure targets
+README.MD           This file
+extras/             Everything not needed for the build:
+  build-scripts/      compile.sh, clean.sh (legacy wrappers)
+  docs/               COMPILATION_GUIDE.md
+  legacy-classes/     ujn_thesis.cls (unused)
+  legacy-images/      Unused cover decoration assets
+  legacy-pdfs/        Older PDF snapshots
+  cover-templates/    ZSTU defense cover Word template
+  scripts/            chapter3_characteristics_charts.py, parse_log*.py
+  notes/              md/ working notes, final-submission/ signed forms
 ```
 
-## Translation Status
+## Submission text files
 
-### ✅ Completed
+All text needed for the ZSTU graduate-school online submission lives in
+`extras/notes/md/last/`:
 
-- **All chapter content** translated to English (chapters 1-6, 9, abstract)
-- **Class file (`ujn_thesis.cls`)** fully translated with English comments and section names
-- **Engine compatibility** added for both XeLaTeX and pdfLaTeX
-- **File naming** - all Chinese filenames renamed to English equivalents
-- **Image references** updated to use English filenames
-- **Font handling** made engine-aware with conditional loading
-- **Bibliography references** updated with English entries
-- **Comments and metadata** translated throughout all files
+- `thesis_abstract.txt` — Chinese 摘要 + English Abstract (no line breaks)
+- `innovative_achievements.txt` — innovation points and main field text
+- `graduate_registration_and_revision_forms.txt` — 毕业研究生登记表 + 修改及定稿表
+- `submission_checklist.txt` — upload checklist with official template links
 
-## Remove generated files
+## Notes
 
-```bash
-rm -f *.aux *.log *.toc *.out *.bbl *.blg *.bcf *.run.xml *.synctex.gz *.fdb_latexmk *.fls *.idx *.ilg *.ind 2>/dev/null || true
-```
-
-## Regenerate Chapter 3 Figures
-
-Chapter 3 figure PNG files are generated from CSV stats files using:
-
-```bash
-make figures-ch3-check
-make figures-ch3
-```
-
-`make figures-ch3-check` validates that the CSV statistics are internally consistent (sample shares, confidence interval bounds, and odds-ratio constraints) before any PNG output is written.
-
-This runs [figures/generate_ch3_figures.py](figures/generate_ch3_figures.py), which reads:
-- [figures/fig3_1_pre_liberalization_characteristics_stats.csv](figures/fig3_1_pre_liberalization_characteristics_stats.csv)
-- [figures/fig3_2_msci_rollout_timeline_stats.csv](figures/fig3_2_msci_rollout_timeline_stats.csv)
-- [figures/fig3_3_eligibility_logit_odds_ratios_stats.csv](figures/fig3_3_eligibility_logit_odds_ratios_stats.csv)
-
-and rewrites the matching PNG files in [figures](figures).
-
-## Troubleshooting
-
-### SVG Images with pdfLaTeX
-
-**Problem:** `! Package svg Error: You're not allowed to use '--shell-escape'`
-
-**Solutions:**
-
-1. **Enable shell-escape (recommended):**
-
-   ```bash
-   pdflatex --shell-escape main.tex
-   ```
-
-2. **Convert SVG to PDF manually:**
-   ```bash
-   # Install inkscape if needed: brew install inkscape
-   find images/ -name "*.svg" -exec inkscape {} --export-pdf={}.pdf \;
-   # Then use regular pdflatex without --shell-escape
-   ```
-
-### PDF Version Compatibility
-
-**Problem:** `pdfTeX warning: pdflatex: PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed`
-
-**Solution:** Convert problematic PDFs to version 1.5:
-
-```bash
-# For integrity_statement.pdf
-gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -sOutputFile=res/integrity_statement_v15.pdf res/integrity_statement.pdf
-```
-
-### Font Issues
-
-- **XeLaTeX:** Supports Unicode fonts and Chinese characters natively
-- **pdfLaTeX:** Uses traditional LaTeX fonts, may have Unicode limitations
-
-### Clean Build
-
-If you encounter persistent errors, clean auxiliary files:
-
-```bash
-rm -f *.aux *.log *.toc *.out *.bbl *.blg *.bcf *.run.xml *.synctex.gz *.fdb_latexmk *.fls *.idx *.ilg *.ind 2>/dev/null || true
-
-rm -f *.aux *.log *.toc *.out *.bbl *.blg *.bcf *.run.xml *.synctex.gz *.fdb_latexmk *.fls *.idx *.ilg *.ind chapter/*.aux 2>/dev/null || true
-
-rm -f *.aux *.log *.toc *.out *.bbl  *.bcf *.run.xml  *.fdb_latexmk *.fls *.idx   chapter/*.aux 2>/dev/null || true
-
-rm -f chapter/*.aux *.backup
-
-rm -f chapter/*.aux
-```
+- Cover page is the external `cover.pdf` (signed scan), embedded via `\includepdf[pages=1]{cover.pdf}`.
+- Originality declaration and copyright-use authorization pages are rendered by `\makeintegritydeclaration` and `\makeusageauthorization` in `zstu_thesis.cls`, with signature dates `2026 年 05 月 21 日` and `2026 年 05 月 26 日` respectively.
+- For Chapter 3 figures, always run `make figures-ch3-check` before `make figures-ch3` so CSV statistics are validated before PNG regeneration.

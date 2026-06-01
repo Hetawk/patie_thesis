@@ -1,0 +1,32 @@
+==================================================================
+SUBMISSION FORM CHECKLIST — ZSTU Graduate Final Draft Upload
+Author: PATIENCE FERO    Student No.: 20232111E1003
+==================================================================
+
+REQUIRED UPLOADS
+------------------------------------------------------------------
+[1] Thesis word file (LaTeX file accepted)
+    - File: main.tex (+ chapter/*.tex, reference.bib, zstu_thesis.cls)
+    - Or compiled main.pdf renamed/exported to .docx if .doc required.
+
+[2] Thesis abstract txt file
+    - File: md/last/thesis_abstract.txt  (Chinese + English, no line breaks)
+
+[3] Thesis revision and final draft form (PDF)
+    - File: provided separately (scan of signed revision form
+      from advisor — download template from
+      https://gradschool.zstu.edu.cn/info/1105/6269.htm)
+
+CONFIRMATION CHECKBOXES (all ticked)
+------------------------------------------------------------------
+[x] Cover version of final draft and subject major filled correctly
+    (template: https://gradschool.zstu.edu.cn/info/1105/6269.htm)
+
+[x] "Authorization for the Use of Originality Statement and Thesis
+    Copyright" used is the correct version
+    (template: https://gradschool.zstu.edu.cn/content.jsp?urltype=news.NewsContentUrl&wbtreeid=1100&wbnewsid=8378)
+
+[x] Relevant signature (including date 2026年05月21日 for the
+    Originality Statement, 2026年05月26日 for the Copyright Use
+    Authorization) completed on both pages.
+==================================================================

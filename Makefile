@@ -128,6 +128,7 @@ clean:
 	rm -f *.fls *.fdb_latexmk *.synctex.gz *.nav *.snm *.vrb
 	rm -f *.spl *.figlist *.makefile *.fls *.fdb_latexmk
 	rm -f *.bcf *.idx *.ilg *.ind *.run.xml
+	rm -f *.bbl-SAVE-ERROR *.loq "main.synctex(busy)"
 	rm -f chapter/*.aux
 	rm -f .DS_Store
 	find . -name "*.aux" -type f -delete
