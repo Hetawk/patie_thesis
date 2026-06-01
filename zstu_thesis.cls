@@ -519,6 +519,33 @@
 }
 
 % ---------------------------------------------------------------
+% Usage authorization declaration page (学位论文使用授权声明) — ZSTU version
+% ---------------------------------------------------------------
+\newcommand{\makeusageauthorization}{
+    \newpage
+    \thispagestyle{empty}
+    \vspace*{1.2cm}
+
+    % ---- 学位论文使用授权声明 ----
+    \begin{center}
+        {\heiti\zihao{-2}\bfseries 学\enspace 位\enspace 论\enspace 文\enspace 使\enspace 用\enspace 授\enspace 权\enspace 声\enspace 明}
+    \end{center}
+    \vspace{1em}
+    \zihao{-4}\setlength{\parindent}{2em}
+    \par
+    本学位论文是作者在校攻读学位期间取得的成果，知识产权单位属浙江理工大学。作者毕业后发表与本学位论文研究成果相关的学术论文和其他成果时，应征得导师同意，且署名单位应包含浙江理工大学。作者完全了解浙江理工大学有权保留并向国家有关部门或机构送交本论文，允许论文被查阅和借阅。本人授权浙江理工大学及其上级主管部门可以将学位论文的全部或部分内容编入有关数据库进行检索和传播，可以采用影印、缩印或扫描等复制手段保存、汇编学位论文。涉密学位论文的送交、保存、汇编等按学校保密相关规定执行。
+
+    \vspace{3em}
+    \noindent\hfill
+    \begin{tabular}{ll}
+        论文作者签名：\underline{\hspace{4cm}} & \quad 签字日期：\underline{\hspace{3.5cm}} \\[2.5em]
+        导师签名：\underline{\hspace{4.5cm}}   & \quad 签字日期：\underline{\hspace{3.5cm}} \\
+    \end{tabular}
+
+    \newpage
+}
+
+% ---------------------------------------------------------------
 % Back cover page (empty or blank for ZSTU)
 % ---------------------------------------------------------------
 \newcommand{\makeendpage}{
